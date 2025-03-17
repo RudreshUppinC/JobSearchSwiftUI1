@@ -11,6 +11,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct SignUpView: View {
     
+
     @ObservedObject var signupviewmodal = SignUpViewModal()
     var body: some View {
         NavigationStack {
@@ -157,6 +158,7 @@ struct SignUpView: View {
                                     // Handle sign up action
                                     print("Login Here")
                                     signupviewmodal.showLoginView()
+
                                 } label: {
                                     Text("Login")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 12))

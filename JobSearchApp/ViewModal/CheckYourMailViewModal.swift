@@ -9,8 +9,6 @@ import Foundation
 import Combine
 
 class CheckYourMailViewModal: ObservableObject {
-    
-
     @Published  var email = "brandonelouis@gmial.com"
 }
 

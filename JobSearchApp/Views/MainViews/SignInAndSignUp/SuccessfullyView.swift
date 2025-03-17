@@ -7,50 +7,60 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct SuccessfullyView: View {
     @State private var email = "brandonelouis@gmial.com"
+    @Binding var isBackToLogin: Bool
+
     var body: some View {
-        ZStack{
-            AppColors.uiuxBgcolor
-                .edgesIgnoringSafeArea(.all)
-            ScrollView{
-                VStack(alignment: .center) {
-                    Text("Successfully")
-                        .font(FontStyle.dmsansBold.font(baseSize: 30))
-                        .foregroundColor(AppColors.texColor12)
-                        .padding(.top)
-                    Text("Your password has been updated, please change your password regularly to avoid this happening ")
-                        .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                        .foregroundColor(AppColors.texColor14)
-                        .multilineTextAlignment(.center)
-                        .padding(.top, 5)
-                    
-                    Image("succfullyEmail")
-                        .scaledToFit()
-                        .frame(width: 118,height: 93)
-                        .padding(.top, 51)
-                        .padding(.bottom, 115)
-                    
-                    CustomButton(title: "CONTINUE", backgroundColor: AppColors.texColor12) {
-                        // Reset Password Action
-                        print("Reset Password Button Tapped")
+        NavigationStack{
+            ZStack{
+                AppColors.uiuxBgcolor
+                    .edgesIgnoringSafeArea(.all)
+                ScrollView{
+                    VStack(alignment: .center) {
+                        Text("Successfully")
+                            .font(FontStyle.dmsansBold.font(baseSize: 30))
+                            .foregroundColor(AppColors.texColor12)
+                            .padding(.top)
+                        Text("Your password has been updated, please change your password regularly to avoid this happening ")
+                            .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                            .foregroundColor(AppColors.texColor14)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 5)
+                        
+                        Image("succfullyEmail")
+                            .scaledToFit()
+                            .frame(width: 118,height: 93)
+                            .padding(.top, 51)
+                            .padding(.bottom, 115)
+                        
+                        CustomButton(title: "CONTINUE", backgroundColor: AppColors.texColor12) {
+                            // Reset Password Action
+                            print("Reset Password Button Tapped")
+                        }
+                        
+                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.lightPink1) {
+                            // Reset Password Action
+                            isBackToLogin = false
+                        }
+                        .padding(.bottom, 15)
                     }
-                    .padding(.bottom, 25)
-                    
-                    CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.lightPink1) {
-                        // Reset Password Action
-                        print("Reset Password Button Tapped")
-                    }
-                    .padding(.bottom, 25)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.horizontal,30)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.horizontal,30)
-                .navigationBarTitleDisplayMode(.inline)
             }
-        }
+        }        .navigationBarBackButtonHidden(true)
+
     }
 }
 
 #Preview {
-    SuccessfullyView()
+    if #available(iOS 16.0, *) {
+        @State var isBackToLogin = false
+        SuccessfullyView(isBackToLogin: $isBackToLogin)
+    } else {
+        // Fallback on earlier versions
+    }
 }

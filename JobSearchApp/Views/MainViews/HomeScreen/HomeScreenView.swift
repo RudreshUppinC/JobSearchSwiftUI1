@@ -2,16 +2,16 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct HomeScreenView: View {
-    
+
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.uiuxBgcolor
+                AppColors.appBGColor1
                     .edgesIgnoringSafeArea(.all)
-                
+
                 ScrollView {
                     VStack(alignment: .leading) {
-                        // Top Section (unchanged)
+
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Hello")
@@ -22,20 +22,20 @@ struct HomeScreenView: View {
                                     .bold()
                             }
                             Spacer()
-                            Image("profile_image")
+                            Image("usrprofile")
                                 .resizable()
-                                .scaledToFill()
-                                .frame(width: 60, height: 60)
+                                .scaledToFit()
+                                .frame(width: 37, height: 37)
                                 .clipShape(Circle())
                         }
-                        .padding()
-                        
+                        .padding(.horizontal)
+
                         // Banner (unchanged)
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
-                                .fill(Color(red: 0.1, green: 0.1, blue: 0.5)) // Dark blue
+                                .fill(Color(red: 0.1, green: 0.1, blue: 0.5))
                                 .frame(height: 143)
-                            
+
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("50% off")
@@ -44,9 +44,9 @@ struct HomeScreenView: View {
                                     Text("take any courses")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
                                         .foregroundColor(.white)
-                                    
+
                                     Button(action: {
-                                        
+
                                         print("Join Now tapped")
                                     }) {
                                         Text("Join Now")
@@ -60,93 +60,95 @@ struct HomeScreenView: View {
                                     .padding(.vertical, 12)
 
                                 }
-                                .padding()
+                                .padding(.horizontal)
                                 Spacer()
-                                Image("course_image") // Replace with your actual course image
+                                Image("women")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 150, height: 200)
-                                    .offset(x: 20, y: 0)
-                                
+                                    .frame(width: 190, height: 180)
+                                    .offset(x:0, y: -20)
+
                             }
-                            
                         }
                         .padding(.horizontal)
-                        
-                        // Find Your Job (unchanged)
+
+                        // Find Your Job - KEEP THIS STRUCTURE (MOSTLY)
                         Text("Find Your Job")
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                            .font(FontStyle.dmsansBold.font(baseSize: 16))
+                            .foregroundColor(.black)
                             .padding(.horizontal)
-                        
-                        HStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.7, green: 0.9, blue: 1.0)) // Light Blue
-                                .frame(width: 150, height: 100)
-                                .overlay {
-                                    VStack {
-                                        Image(systemName: "list.bullet.clipboard") // Custom system image
-                                            .font(.system(size: 30))
-                                            .foregroundColor(.black)
-                                        Text("44.5k")
-                                            .font(.headline)
-                                            .foregroundColor(.black)
-                                        Text("Remote Job")
-                                            .font(.subheadline)
-                                            .foregroundColor(.black)
-                                    }
+
+                        GeometryReader { geometry in
+                            HStack(spacing:geometry.size.width * 0.10) {
+                                VStack {
+                                    Image("remotejob")
+                                        .font(FontStyle.dmsansBold.font(baseSize: 16))
+                                        .foregroundColor(.black)
+                                    Text("44.5k")
+                                        .font(FontStyle.dmsansBold.font(baseSize: 16))
+                                        .foregroundColor(.black)
+                                    Text("Remote Job")
+                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                        .foregroundColor(.black)
+
                                 }
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.8, green: 0.8, blue: 0.95)) // Light Purple
-                                .frame(width: 150, height: 100)
-                                .overlay {
+                                .frame(width: geometry.size.width * 0.40, height: 170)
+                                .background(Color(red: 0.7, green: 0.9, blue: 1.0))
+                                .cornerRadius(10)
+                                .padding(.leading, geometry.size.width * 0.05)
+
+                                VStack {
                                     VStack {
                                         Text("66.8k")
-                                            .font(.headline)
+                                            .font(FontStyle.dmsansBold.font(baseSize: 16))
                                             .foregroundColor(.black)
                                         Text("Full Time")
-                                            .font(.subheadline)
+                                            .font(FontStyle.dmsansRegular.font(baseSize: 14))
                                             .foregroundColor(.black)
                                     }
-                                }
-                        }
-                        .padding(.horizontal)
-                        
-                        HStack {
-                            Spacer()
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 1.0, green: 0.8, blue: 0.6)) // Light Orange
-                                .frame(width: 150, height: 100)
-                                .overlay {
+                                    .frame(width: geometry.size.width * 0.45, height: 85)
+                                    .background(Color(red: 0.8, green: 0.8, blue: 0.95))
+                                    .cornerRadius(10)
+
                                     VStack {
                                         Text("38.9k")
-                                            .font(.headline)
+                                            .font(FontStyle.dmsansBold.font(baseSize: 16))
                                             .foregroundColor(.black)
                                         Text("Part Time")
-                                            .font(.subheadline)
+                                            .font(FontStyle.dmsansRegular.font(baseSize: 14))
                                             .foregroundColor(.black)
                                     }
+                                    .frame(width: geometry.size.width * 0.45, height: 85)
+                                    .background(Color(red: 1.0, green: 0.8, blue: 0.6))
+                                    .cornerRadius(10)
+
                                 }
-                                .padding(.trailing)
+                                .frame(width: geometry.size.width * 0.35, height: 170)
+                                .padding(.trailing, geometry.size.width * 0.05)
+
+                            }
                         }
+                        .frame(height: 175)
                         
-                        // Recent Job List
                         Text("Recent Job List")
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                            .font(FontStyle.dmsansBold.font(baseSize: 16))
+                            .foregroundColor(.black)
                             .padding(.horizontal)
-                        
-                        JobCardView() // Use the new JobCardView
-                        
+
+                        JobCardView()
+                        JobCardView()
                         Spacer()
                     }
                 }
+                
             }
+            BottomNavigationBarView()
+
         }
         .navigationBarBackButtonHidden(true)
-        
     }
 }
+
 
 struct JobCardView: View {
     var body: some View {
@@ -158,39 +160,45 @@ struct JobCardView: View {
             .overlay {
                 VStack(alignment: .leading) {
                     HStack {
-                        Image("apple_logo")
+                        Image("apple")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 35, height: 35)
+                            .background(Color.orange)
                         VStack(alignment: .leading) {
                             Text("Product Designer")
-                                .font(.headline)
+                                .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                .foregroundColor(.black)
                             Text("Google inc · California, USA")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                                .foregroundColor(.black)
                         }
+                      
+
                         Spacer()
                         Image(systemName: "bookmark")
                             .foregroundColor(.gray)
                     }
+                    
                     Text("$15K / Mo")
-                        .font(.headline)
+                        .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                        .foregroundColor(.black)
                     HStack {
                         Text("Senior designer")
-                            .font(.caption)
+                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
                             .background(Color(.systemGray5))
                             .cornerRadius(5)
                         Text("Full time")
-                            .font(.caption)
+                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
                             .background(Color(.systemGray5))
                             .cornerRadius(5)
                         Spacer()
                         Text("Apply")
-                            .font(.caption)
+                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
                             .background(Color(red: 1.0, green: 0.8, blue: 0.6))
@@ -204,6 +212,70 @@ struct JobCardView: View {
     }
 }
 
+
+struct BottomNavigationBarView: View {
+    var body: some View {
+        HStack {
+            Button(action: {}) {
+                VStack {
+                    Image("Home")
+                        .font(.title3)
+                    Text("Home")
+                        .font(.caption)
+                }
+                .foregroundColor(.gray)
+            }
+            Spacer()
+            Button(action: {}) {
+                VStack {
+                    Image("reconnect")
+                        .font(.title3)
+                    Text("Connect")
+                        .font(.caption)
+                }
+                .foregroundColor(.gray)
+            }
+            Spacer()
+            Button(action: {}) {
+                ZStack {
+                    Circle()
+                        .fill(Color("calenderColor"))
+                        .frame(width: 50, height: 50)
+                    Image(systemName: "calendar")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                }
+                .offset(y: -10)
+              
+            }
+            Spacer()
+            Button(action: {}) {
+                VStack {
+                    Image("chat")
+                        .font(.title3)
+                    Text("History")
+                        .font(.caption)
+                }
+                .foregroundColor(.gray)
+            }
+            Spacer()
+            Button(action: {}) {
+                VStack {
+                    Image("bookmark")
+                        .font(.title3)
+                    Text("Profile")
+                        .font(.caption)
+                }
+                .foregroundColor(.gray)
+            }
+        }
+        .padding()
+        .background(Color.white)
+    }
+}
+
+
+
 #Preview {
     if #available(iOS 16.0, *) {
         HomeScreenView()
@@ -211,3 +283,4 @@ struct JobCardView: View {
         // Fallback on earlier versions
     }
 }
+

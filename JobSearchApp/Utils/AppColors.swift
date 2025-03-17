@@ -32,6 +32,9 @@ struct AppColors {
     static let textcolor3 = Color(red: 170/255, green: 166/255, blue: 185/255)
     static let orangeColor = Color(red: 255/255, green: 146/255, blue: 40/255)
     static let blueColor = Color(red: 0.098, green: 0.075, blue: 0.294) // Dark Blue Button
+    
+    //MyConnect
+    static let slightRed = Color(red: 255/255, green: 178/255, blue:178/255)
 
 
 }

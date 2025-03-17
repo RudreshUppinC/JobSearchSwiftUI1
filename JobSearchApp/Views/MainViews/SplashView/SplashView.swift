@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct SplashView: View {
+    
     @State private var isNavigateToWelcomScreen:Bool = false
     var body: some View {
         NavigationStack{

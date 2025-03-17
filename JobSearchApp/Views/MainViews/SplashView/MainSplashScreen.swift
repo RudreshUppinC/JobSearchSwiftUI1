@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct MainSplashScreen: View {
+    
     @State private var isNavigateToUploadView = false
 
     var body: some View {
@@ -92,7 +93,6 @@ struct MainSplashScreen: View {
                                     }
                                 }
                                 .padding(.trailing, 20)
-                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)

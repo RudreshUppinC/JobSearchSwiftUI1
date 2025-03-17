@@ -12,6 +12,7 @@ import UIKit
 struct CheckYourMailView: View {
     @Binding var isBackToLogin: Bool
     @ObservedObject var checkyourmailviewmodal = CheckYourMailViewModal()
+    @State var isSuccessFullView = false
 
     var body: some View {
         NavigationStack{
@@ -39,18 +40,22 @@ struct CheckYourMailView: View {
                             .frame(width: 118,height: 93)
                             .padding(.top, 50)
                             .padding(.bottom, 94)
-                        
-                        CustomButton(title: "OPEN YOUR EMAIL", backgroundColor: AppColors.texColor12) {
-                            // Reset Password Action
-                            print("Reset Password Button Tapped")
+                                                
+                        NavigationLink(destination: SuccessfullyView(isBackToLogin: $isBackToLogin),
+                                       isActive: $isSuccessFullView) {
+                            CustomButton(title: "OPEN YOUR EMAIL", backgroundColor: AppColors.texColor12) {
+                                print("Reset Password Button Tapped")
+                                isSuccessFullView = true
+                            }
+                            .padding(.bottom, 10)
                         }
-                        .padding(.bottom, 25)
+                        
                         
                         CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.lightPink1) {
                             print("Reset Password Button Tapped")
                             isBackToLogin = false
                         }
-                        .padding(.bottom, 25)
+                        .padding(.bottom, 15)
                         
                         HStack{
                             Text("You have not received the email?")
@@ -78,15 +83,7 @@ struct CheckYourMailView: View {
         
     }
     
-//    func dismissToLogin() {
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//                if let coordinator = windowScene.delegate as? SceneDelegate {
-//                    // Reset the navigation stack by replacing the root view controller
-//                    coordinator.window?.rootViewController = UIHostingController(rootView: LoginView(viewModel: LoginViewModel()))
-//                    coordinator.window?.makeKeyAndVisible()
-//                }
-//            }
-//    }
+
 }
 
 #Preview {
