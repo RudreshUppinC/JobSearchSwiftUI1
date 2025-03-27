@@ -23,38 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "12D0C652-C294-4507-985C-DD1403EF73BF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JobSearchApp/Views/MainViews/SignInAndSignUp/ForgetPasswordView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A91F39C0-ADCA-4448-B1D9-3CC73A474D45"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JobSearchApp/Views/MainViews/SignInAndSignUp/ForgetPasswordView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B639E088-B917-43E3-A053-84177BED68AD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -84,62 +52,6 @@
             landmarkType = "14">
             <Locations>
                <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 7c8235e127a232a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of JobSearchApp.SignUpView.signupviewmodal : JobSearchApp.SignUpViewModal"
-                  moduleName = "JobSearchApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 448882a00a000363"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.getter : JobSearchApp.SignUpViewModal"
-                  moduleName = "JobSearchApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 3f9f26540d9cf14e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.setter : JobSearchApp.SignUpViewModal"
-                  moduleName = "JobSearchApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15">
-               </Location>
-               <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - bc0e8b0b34fbc571"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.modify : JobSearchApp.SignUpViewModal"
-                  moduleName = "JobSearchApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15">
-               </Location>
-               <Location
                   uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - dcc1793f6e49764e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
@@ -154,34 +66,106 @@
                   endingLineNumber = "0">
                </Location>
                <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 69007bbed9c42e03"
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 7057b63b34fb3532"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "JobSearchApp.SignUpView.$signupviewmodal.getter : SwiftUI.ObservedObject&lt;JobSearchApp.SignUpViewModal&gt;.Wrapper"
+                  symbolName = "property wrapper backing initializer of JobSearchApp.SignUpView.signupviewmodal : JobSearchApp.SignUpViewModal"
                   moduleName = "JobSearchApp.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 485d017a195904f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.getter : JobSearchApp.SignUpViewModal"
+                  moduleName = "JobSearchApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 334aa58e1ec5f238"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.setter : JobSearchApp.SignUpViewModal"
+                  moduleName = "JobSearchApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15">
                </Location>
                <Location
-                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 3da0fc6ed416cd5e"
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - b0db08d127a2c607"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JobSearchApp.SignUpView.signupviewmodal.modify : JobSearchApp.SignUpViewModal"
+                  moduleName = "JobSearchApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+               <Location
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 65d5f864ca9d2d75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JobSearchApp.SignUpView.$signupviewmodal.getter : SwiftUI.ObservedObject&lt;JobSearchApp.SignUpViewModal&gt;.Wrapper"
+                  moduleName = "JobSearchApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+               <Location
+                  uuid = "316B8E6E-200D-44B7-BE7A-CFA1CD1BEE8B - 31757fb4c74fcac8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "default argument 0 of JobSearchApp.SignUpView.init(signupviewmodal: JobSearchApp.SignUpViewModal) -&gt; JobSearchApp.SignUpView"
                   moduleName = "JobSearchApp.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/way2/Desktop/SwiftProjects/swiftui/JobSearchApp/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
+                  urlString = "file:///Users/way2/Desktop/SwiftProjects/jobserach/JobSearchSwiftUI1/JobSearchApp/Views/MainViews/SignInAndSignUp/SignUpView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51D83994-867A-45B8-8500-F921E9A7ED86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JobSearchApp/Views/MainViews/HomeScreen/HomeScreenView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -16,7 +16,7 @@ struct DescriptionView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.bgViewColor.edgesIgnoringSafeArea(.all)
+                AppColors.offWhite.edgesIgnoringSafeArea(.all)
                 VStack {
                     
                     HStack {
@@ -60,7 +60,7 @@ struct DescriptionView: View {
                             .padding(.horizontal,20)
                         
                     }
-                    .background(AppColors.bgViewColor)
+                    .background(AppColors.offWhite)
                     .scrollIndicators(.hidden)
                     
                     ApplyButton()
@@ -98,8 +98,8 @@ struct SegmentView: View {
                     .font(FontStyle.dmsansBold.font(baseSize: 14))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical,10)
-                    .foregroundColor(AppColors.texColor12)
-                    .background(AppColors.lightPink1)
+                    .foregroundColor(AppColors.deepIndigo)
+                    .background(AppColors.pastelLavender)
                     .cornerRadius(8)
             }
             .padding(.trailing,10)
@@ -123,43 +123,43 @@ struct HeaderView: View {
                     .offset(y: 40)
             }
             .frame(maxWidth: .infinity, maxHeight: 80)
-            .background(AppColors.bgViewColor)
+            .background(AppColors.offWhite)
             .padding(.bottom, 0)
             
             
             VStack(spacing: 14) {
                 Text("iOS Developer")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))
-                    .foregroundColor(AppColors.texColor12)
+                    .foregroundColor(AppColors.deepIndigo)
                     .lineLimit(1)
                 
                 HStack(spacing: 15) {
                     Text("Google")
                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                     Image(systemName: "circle.fill")
                         .font(FontStyle.dmsansRegular.font(baseSize: 7))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                     Text("California")
                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                     Image(systemName: "circle.fill")
                         .font(FontStyle.dmsansRegular.font(baseSize: 7))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                       
                     Text("1 day ago")
                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                 }
                 .lineLimit(1)
             }
           
             .frame(maxWidth: .infinity)
-            .background(AppColors.uiuxBgcolor)
+            .background(AppColors.whisperGray)
             .padding(.vertical, 32)
         }
         .frame(maxWidth: .infinity)
-        .background(AppColors.uiuxBgcolor)
+        .background(AppColors.whisperGray)
         //.background(.red)
 
     }
@@ -172,12 +172,12 @@ struct JobDescriptionView: View {
         VStack(alignment: .leading) {
             Text("Job Description")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,15)
             
             Text("Text ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem...")
                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                .foregroundColor(AppColors.texColor14)
+                .foregroundColor(AppColors.skyLavender)
                 .padding(.bottom,5)
             
             Button("Read more") {
@@ -186,8 +186,8 @@ struct JobDescriptionView: View {
             .padding(.top, 4)
             .buttonStyle(.bordered)
             .font(FontStyle.dmsansBold.font(baseSize: 12))
-            .foregroundColor(AppColors.texColor12)
-            .background(AppColors.lightPink1)
+            .foregroundColor(AppColors.deepIndigo)
+            .background(AppColors.pastelLavender)
 
         }
         .padding()
@@ -208,7 +208,7 @@ struct RequirementsView: View {
         VStack(alignment: .leading) {
             Text("Requirements")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,16)
             
             ForEach(requirements, id: \.self) { requirement in
@@ -216,7 +216,7 @@ struct RequirementsView: View {
                     Text("•")
                     Text(requirement)
                         .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                        .foregroundColor(AppColors.texColor14)
+                        .foregroundColor(AppColors.skyLavender)
                 }
             }
         }
@@ -233,12 +233,12 @@ struct LocationView: View {
         VStack(alignment: .leading) {
             Text("Location")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom, 8)
             
             Text("Overlook Avenue, Bellville, NJ, USA.")
                 .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom, 4)
             
             Map(coordinateRegion: $region, interactionModes: [])
@@ -256,17 +256,17 @@ struct InformationsView: View {
         VStack(alignment: .leading) {
             Text("Informations")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom, 16)
             VStack(alignment:.leading) {
                 Text("Position")
                     .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.bottom,5)
              
                 Text("Senior Designer")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
               
             }
             .padding(.bottom,15)
@@ -276,12 +276,12 @@ struct InformationsView: View {
             VStack(alignment:.leading) {
                 Text("Qualification")
                     .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.bottom,5)
        
                 Text("Bachelor's Degree")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
                 
             }
             .padding(.bottom,15)
@@ -291,12 +291,12 @@ struct InformationsView: View {
             VStack(alignment:.leading) {
                 Text("Experience")
                     .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.bottom,5)
            
                 Text("3 Years")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
             }
             .padding(.bottom,15)
             
@@ -305,12 +305,12 @@ struct InformationsView: View {
             VStack(alignment:.leading) {
                 Text("Job Type")
                     .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.bottom,5)
            
                 Text("Full-Time")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
             }
             .padding(.bottom,15)
             
@@ -319,12 +319,12 @@ struct InformationsView: View {
             VStack(alignment:.leading) {
                 Text("Specialization")
                     .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.bottom,5)
            
                 Text("Design")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
             }
             .padding(.bottom,15)
             
@@ -362,10 +362,10 @@ struct FacilitiesView: View {
                        HStack(alignment: .top) {
                            Text("•")
                                .font(FontStyle.dmsansBold.font(baseSize: 12))
-                               .foregroundColor(AppColors.texColor13)
+                               .foregroundColor(AppColors.darkIndigoColor)
                            Text(facility)
                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                               .foregroundColor(AppColors.texColor14)
+                               .foregroundColor(AppColors.skyLavender)
                                .padding(.bottom,15)
                        }
                    }
@@ -411,7 +411,7 @@ struct ApplyButton: View {
             
         }
         .padding(.horizontal, 15)
-        .background(AppColors.appBGColor1)
+        .background(AppColors.paleGray)
 
     }
 }

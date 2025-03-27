@@ -28,7 +28,7 @@ struct UploadCVView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.uiuxBgcolor.edgesIgnoringSafeArea(.all)
+                AppColors.whisperGray.edgesIgnoringSafeArea(.all)
                 VStack {
                     HStack {
                         Button(action: {
@@ -57,7 +57,7 @@ struct UploadCVView: View {
                         conditionalViews(isCompanyScreenSuccessView:viewModal.isCompanyScreenSuccessView , viewModel: viewModal)
                         
                     }
-                    .background(AppColors.uiuxBgcolor)
+                    .background(AppColors.whisperGray)
                     
                     if !viewModal.isHideApplyButtonIn {
                         VStack {
@@ -103,18 +103,18 @@ struct MainUploadCVView: View {
         VStack(alignment: .leading) {
             Text("Upload CV")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom, 5)
             Text("Add your CV/Resume to apply for a job")
                 .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                .foregroundColor(AppColors.texColor14)
+                .foregroundColor(AppColors.skyLavender)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 15)
         
         VStack() {
             if viewModel.hasCVUploaded {
-                UploadedCVView(fileName: viewModel.cvFileName, fileSize: viewModel.cvFileSize, uploadDate:  viewModel.cvUploadDate, deleteButtonColor: .red, onDelete: {
+                UploadedCVView(fileName: viewModel.cvFileName, fileSize: viewModel.cvFileSize, uploadDate:  viewModel.cvUploadDate, lightCoral: .red, onDelete: {
                     viewModel.hasCVUploaded = false
                 })
             } else {
@@ -126,7 +126,7 @@ struct MainUploadCVView: View {
                         
                         Text("\(Int(viewModel.progress))%")
                             .font(.headline)
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .padding(.top, 5)
                     }
                     
@@ -147,12 +147,12 @@ struct MainUploadCVView: View {
         VStack(alignment: .leading) {
             Text("Information")
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(AppColors.texColor13)
+                .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom, 5)
             
             TextEditor(text: .constant("Explain why you are the right person for this job"))
                 .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                .foregroundColor(AppColors.textcolor3)
+                .foregroundColor(AppColors.paleLavender)
                 .frame(height: 232)
                 .padding(5)
                 .background(
@@ -190,7 +190,7 @@ struct UploadCVButton: View {
                     .frame(width: 24,height: 24)
                 Text("Upload CV/Resume")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor13)
+                    .foregroundColor(AppColors.darkIndigoColor)
             }
             .padding()
             .frame(maxWidth: .infinity)
@@ -199,7 +199,7 @@ struct UploadCVButton: View {
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                .foregroundColor(AppColors.texColor14)
+                .foregroundColor(AppColors.skyLavender)
         )
         .foregroundColor(.gray)
     }
@@ -212,7 +212,7 @@ struct UploadedCVView: View {
     let fileName: String
     let fileSize: String
     let uploadDate: String
-    let deleteButtonColor: Color
+    let lightCoral: Color
     let onDelete: () -> Void
     
     var body: some View {
@@ -243,10 +243,10 @@ struct UploadedCVView: View {
             }) {
                 HStack {
                     Image("deleteIcon")
-                        .foregroundColor(deleteButtonColor)
+                        .foregroundColor(lightCoral)
                     Text("Remove file")
                         .font(FontStyle.dmsansBold.font(baseSize: 12))
-                        .foregroundColor(deleteButtonColor)
+                        .foregroundColor(lightCoral)
                 }
                 .padding(.horizontal,20)
                 .padding(.bottom, 8)
@@ -259,7 +259,7 @@ struct UploadedCVView: View {
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(style: StrokeStyle(lineWidth: 2,dash: [3]))
-                .foregroundColor(AppColors.textcolor3)
+                .foregroundColor(AppColors.paleLavender)
             
         )
         
@@ -283,7 +283,7 @@ struct ProgressBar: View {
                 
                 RoundedRectangle(cornerRadius: 5)
                     .frame(width: CGFloat(progress) * (geometry.size.width - 60) / 100, height: 10)
-                    .foregroundColor(AppColors.texColor12)
+                    .foregroundColor(AppColors.deepIndigo)
                     .animation(.linear(duration: 2.5), value: progress)
             }
         }

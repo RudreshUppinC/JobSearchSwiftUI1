@@ -22,20 +22,20 @@ struct ForgotPasswordView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.uiuxBgcolor
+                AppColors.whisperGray
                     .edgesIgnoringSafeArea(.all)
                 ScrollView{
                     VStack(alignment: .center) {
                         Text("Forgot Password?")
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .padding(.top)
                             .padding(.bottom,11)
                         
                         
                         Text("To reset your password, you need your email or mobile number that can be authenticated")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.texColor14)
+                            .foregroundColor(AppColors.skyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,20)
                         
@@ -47,7 +47,7 @@ struct ForgotPasswordView: View {
                         VStack(alignment:.leading){
                             Text("Email")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                                 .padding(.bottom, 8)
                             TextField("enter your email", text: $forgetPasswordViewModel.email)
                                 .padding()
@@ -58,14 +58,14 @@ struct ForgotPasswordView: View {
                         
                         NavigationLink(destination: CheckYourMailView(isBackToLogin: $isBackToLogin),
                                        isActive: $forgetPasswordViewModel.isCheckYourMailView) {
-                            CustomButton(title: "RESET PASSWORD", backgroundColor: AppColors.texColor12) {
+                            CustomButton(title: "RESET PASSWORD", lightGrayBlue: AppColors.deepIndigo) {
                                 print("Reset Password Button Tapped")
                                 forgetPasswordViewModel.showCheckYourMailView()
                             }
                             .padding(.bottom, 10)
                         }
                         
-                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.lightPink1) {
+                        CustomButton(title: "BACK TO LOGIN", lightGrayBlue: AppColors.pastelLavender) {
                             isBackToLogin = false
                         }
                         
@@ -84,7 +84,7 @@ struct ForgotPasswordView: View {
 
 struct CustomButton: View {
     let title: String
-    let backgroundColor: Color
+    let lightGrayBlue: Color
     let action: () -> Void
     
     var body: some View {
@@ -94,7 +94,7 @@ struct CustomButton: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(backgroundColor)
+                .background(lightGrayBlue)
                 .cornerRadius(10)
         }
         .padding(.bottom, 10)

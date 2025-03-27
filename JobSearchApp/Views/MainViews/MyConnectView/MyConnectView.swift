@@ -37,7 +37,7 @@ struct MyConnectView: View {
                                     viewmodal.followCompany(company: company)
                                 }){
                                     Text("Follow")
-                                        .foregroundColor(AppColors.texColor12)
+                                        .foregroundColor(AppColors.deepIndigo)
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 5)
                                         .background(

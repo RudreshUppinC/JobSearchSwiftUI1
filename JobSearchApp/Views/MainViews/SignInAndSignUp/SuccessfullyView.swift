@@ -15,17 +15,17 @@ struct SuccessfullyView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.uiuxBgcolor
+                AppColors.whisperGray
                     .edgesIgnoringSafeArea(.all)
                 ScrollView{
                     VStack(alignment: .center) {
                         Text("Successfully")
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .padding(.top)
                         Text("Your password has been updated, please change your password regularly to avoid this happening ")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.texColor14)
+                            .foregroundColor(AppColors.skyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.top, 5)
                         
@@ -35,12 +35,12 @@ struct SuccessfullyView: View {
                             .padding(.top, 51)
                             .padding(.bottom, 115)
                         
-                        CustomButton(title: "CONTINUE", backgroundColor: AppColors.texColor12) {
+                        CustomButton(title: "CONTINUE", lightGrayBlue: AppColors.deepIndigo) {
                             // Reset Password Action
                             print("Reset Password Button Tapped")
                         }
                         
-                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.lightPink1) {
+                        CustomButton(title: "BACK TO LOGIN", lightGrayBlue: AppColors.pastelLavender) {
                             // Reset Password Action
                             isBackToLogin = false
                         }

@@ -17,10 +17,10 @@
 //
 //// Extension for SecureField
 //extension SecureField {
-//    func centeredStyle(padding: CGFloat = 5, backgroundColor: Color = .white, cornerRadius: CGFloat = 20, font: Font = .body) -> some View {
+//    func centeredStyle(padding: CGFloat = 5, lightGrayBlue: Color = .white, cornerRadius: CGFloat = 20, font: Font = .body) -> some View {
 //        self
 //            .padding(padding)
-//            .background(RoundedRectangle(cornerRadius: cornerRadius).fill(backgroundColor))
+//            .background(RoundedRectangle(cornerRadius: cornerRadius).fill(lightGrayBlue))
 //            .multilineTextAlignment(.center)
 //            .font(font) 
 //    }
@@ -28,10 +28,10 @@
 //
 //// Extension for TextField
 //extension TextField {
-//    func centeredStyle(padding: CGFloat = 5, backgroundColor: Color = .white, cornerRadius: CGFloat = 20, font: Font = .body) -> some View {
+//    func centeredStyle(padding: CGFloat = 5, lightGrayBlue: Color = .white, cornerRadius: CGFloat = 20, font: Font = .body) -> some View {
 //        self
 //            .padding(padding)
-//            .background(RoundedRectangle(cornerRadius: cornerRadius).fill(backgroundColor))
+//            .background(RoundedRectangle(cornerRadius: cornerRadius).fill(lightGrayBlue))
 //            .multilineTextAlignment(.center)
 //            .font(font)
 //    }

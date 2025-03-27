@@ -47,11 +47,11 @@ struct UploadCVSuccessView: View {
                 
                 Text("Upload Successful!")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
                 
                 Text("Congratulations, your application has been sent")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.texColor14)
+                    .foregroundColor(AppColors.skyLavender)
                     .multilineTextAlignment(.center) // Center the multiline text
                 
                 Button {
@@ -61,9 +61,9 @@ struct UploadCVSuccessView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .font(FontStyle.dmsansBold.font(baseSize: 14))
-                        .foregroundColor(AppColors.texColor12)
+                        .foregroundColor(AppColors.deepIndigo)
                 }
-                .background(AppColors.lightPink1)
+                .background(AppColors.pastelLavender)
                 .cornerRadius(8)
                 
                 Button {
@@ -76,7 +76,7 @@ struct UploadCVSuccessView: View {
                         .font(FontStyle.dmsansBold.font(baseSize: 14))
                         .foregroundColor(.white)
                 }
-                .background(AppColors.texColor12)
+                .background(AppColors.deepIndigo)
                 .cornerRadius(8)
             }
             .padding(20) // Consistent padding for the success content

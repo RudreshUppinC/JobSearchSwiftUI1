@@ -13,7 +13,7 @@ struct MyConnectDescriptionView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.bgViewColor.edgesIgnoringSafeArea(.all)
+                AppColors.offWhite.edgesIgnoringSafeArea(.all)
                 VStack {
                     
                     HStack {

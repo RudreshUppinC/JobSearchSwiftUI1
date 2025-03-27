@@ -19,31 +19,31 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.uiuxBgcolor
+                AppColors.whisperGray
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView{
                     VStack(alignment: .center) {
                         Text("Welcome Back")
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .padding(.bottom, 5)
                         
                         Text("Lorem ipsum dolor sit amet, consectetur  adipiscing \n elit nsed do eiusmod tempor")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .multilineTextAlignment(.center)
-                            .foregroundColor(AppColors.secondaryTextColor)
+                            .foregroundColor(AppColors.dustyLavender)
                             .padding(.horizontal, 25)
                             .padding(.bottom, 30)
                         
                         VStack(alignment: .leading) {
                             Text("Email")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                             
                             TextField("Email Address", text: $loginViewModal.email)
                                 .padding()
-                                .background(AppColors.textFieldBgView)
+                                .background(AppColors.white)
                                 .cornerRadius(10)
                         }
                         .padding(.bottom, 20)
@@ -51,7 +51,7 @@ struct LoginView: View {
                         VStack(alignment: .leading) {
                             Text("Password")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                             
                             HStack {
                                 SecureField("Password", text: $loginViewModal.password)
@@ -63,13 +63,13 @@ struct LoginView: View {
                                         print("Toggle", $loginViewModal.isPasswordVisible)
                                     }) {
                                         Image(systemName: loginViewModal.isPasswordVisible ? "eye.fill" : "eye.slash.fill")
-                                            .foregroundColor(AppColors.eyePasswordColor)
+                                            .foregroundColor(AppColors.steelBlue)
                                             .padding(5)
                                     }
                                     .cornerRadius(10)
                                 }
                             }
-                            .background(AppColors.textFieldBgView)
+                            .background(AppColors.white)
                             
                         }
                         .padding(.bottom, 10)
@@ -79,7 +79,7 @@ struct LoginView: View {
                                     loginViewModal.rememberMe.toggle()
                                 } label: {
                                     Image(systemName: loginViewModal.rememberMe ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(AppColors.texColor12)
+                                        .foregroundColor(AppColors.deepIndigo)
                                     
                                 }
                                 .frame(width:25,height: 25)
@@ -97,7 +97,7 @@ struct LoginView: View {
                                     loginViewModal.showForgotPassword()
                                 }
                                 .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                                 .fullScreenCover(isPresented: $loginViewModal.isBackToLogin) {
                                     ForgotPasswordView(isBackToLogin: $loginViewModal.isBackToLogin)
                                 }
@@ -138,7 +138,7 @@ struct LoginView: View {
                                 .foregroundColor(.black)
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .background(AppColors.lightPink1)
+                                .background(AppColors.pastelLavender)
                                 .cornerRadius(10)
                             }
                             .padding(.bottom, 10)
@@ -156,7 +156,7 @@ struct LoginView: View {
                                     } label: {
                                         Text("Sign Up")
                                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                            .foregroundColor(AppColors.sigUpTextLabelColor)
+                                            .foregroundColor(AppColors.orangeColor)
                                             .underline()
                                     }
                                 }
@@ -166,7 +166,7 @@ struct LoginView: View {
                         }
                         
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(AppColors.uiuxBgcolor)
+                        .background(AppColors.whisperGray)
                     }
                     .padding()
                     

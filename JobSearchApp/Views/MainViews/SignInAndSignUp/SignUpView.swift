@@ -16,31 +16,31 @@ struct SignUpView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                AppColors.uiuxBgcolor
+                AppColors.whisperGray
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView{
                     VStack(alignment: .center) {
                         Text("Create an Account")
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .padding(.bottom, 5)
                         
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .multilineTextAlignment(.center)
-                            .foregroundColor(AppColors.secondaryTextColor)
+                            .foregroundColor(AppColors.dustyLavender)
                             .padding(.bottom, 30)
                         
                         VStack(alignment: .leading) {
                             Text("Full name")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                             
                             TextField("Email", text: $signupviewmodal.fullname)
                                 .padding()
-                                .foregroundColor(AppColors.texColor12.opacity(0.6))
-                                .background(AppColors.textFieldBgView)
+                                .foregroundColor(AppColors.deepIndigo.opacity(0.6))
+                                .background(AppColors.white)
                                 .cornerRadius(10)
                         }
                         .padding(.bottom, 20)
@@ -48,19 +48,19 @@ struct SignUpView: View {
                         VStack(alignment: .leading) {
                             Text("Email")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                             
                             TextField("Email Address", text: $signupviewmodal.email)
-                                .foregroundColor(AppColors.texColor12.opacity(0.6))
+                                .foregroundColor(AppColors.deepIndigo.opacity(0.6))
                                 .padding()
-                                .background(AppColors.textFieldBgView)
+                                .background(AppColors.white)
                                 .cornerRadius(10)
                         }
                         .padding(.bottom, 20)
                         VStack(alignment: .leading) {
                             Text("Password")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.texColor12)
+                                .foregroundColor(AppColors.deepIndigo)
                             
                             HStack {
                                 SecureField("", text: $signupviewmodal.password, prompt: Text("Password").foregroundColor(.gray))
@@ -72,13 +72,13 @@ struct SignUpView: View {
                                     print("Toggle", signupviewmodal.isPasswordVisible)
                                 }) {
                                     Image(systemName: signupviewmodal.isPasswordVisible ? "eye.fill" : "eye.slash.fill")
-                                        .foregroundColor(AppColors.eyePasswordColor)
+                                        .foregroundColor(AppColors.steelBlue)
                                         .padding(10)
                                 }
                             }
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .fill(AppColors.textFieldBgView)
+                                    .fill(AppColors.white)
                             )
                         }
                         .padding(.bottom, 10)
@@ -89,7 +89,7 @@ struct SignUpView: View {
                                     signupviewmodal.rememberMe.toggle()
                                 } label: {
                                     Image(systemName: signupviewmodal.rememberMe ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(AppColors.texColor12)
+                                        .foregroundColor(AppColors.deepIndigo)
                                     
                                 }
                                 .frame(width:25,height: 25)
@@ -105,7 +105,7 @@ struct SignUpView: View {
                                 signupviewmodal.showForgetPasswordView.toggle()
                             }
                             .font(FontStyle.dmsansBold.font(baseSize: 12))
-                            .foregroundColor(AppColors.texColor12)
+                            .foregroundColor(AppColors.deepIndigo)
                             .fullScreenCover(isPresented: $signupviewmodal.showForgetPasswordView) {
                                 ForgotPasswordView(isBackToLogin: $signupviewmodal.showForgetPasswordView)
                             }
@@ -143,7 +143,7 @@ struct SignUpView: View {
                             .foregroundColor(.black)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(AppColors.lightPink1)
+                            .background(AppColors.pastelLavender)
                             .cornerRadius(10)
                         }
                         .padding(.bottom, 10)
@@ -162,7 +162,7 @@ struct SignUpView: View {
                                 } label: {
                                     Text("Login")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                        .foregroundColor(AppColors.sigUpTextLabelColor)
+                                        .foregroundColor(AppColors.orangeColor)
                                         .underline()
                                 }
                             }
@@ -171,7 +171,7 @@ struct SignUpView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(AppColors.uiuxBgcolor)
+                    .background(AppColors.whisperGray)
                 }
             }
         }
