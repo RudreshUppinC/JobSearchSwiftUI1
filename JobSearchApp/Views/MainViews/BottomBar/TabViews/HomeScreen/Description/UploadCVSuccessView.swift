@@ -47,11 +47,11 @@ struct UploadCVSuccessView: View {
                 
                 Text("Upload Successful!")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
                 
                 Text("Congratulations, your application has been sent")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
                     .multilineTextAlignment(.center) // Center the multiline text
                 
                 Button {

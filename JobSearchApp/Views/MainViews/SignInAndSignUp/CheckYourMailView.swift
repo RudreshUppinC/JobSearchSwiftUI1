@@ -27,13 +27,13 @@ struct CheckYourMailView: View {
                             .padding(.top)
                         Text("We have sent the reset password to the email address")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.skyLavender)
+                            .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.top, 5)
                         
                         Text(checkyourmailviewmodal.email)
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.skyLavender)
+                            .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                         Image("checkyourEmail1")
                             .scaledToFit()
@@ -43,7 +43,7 @@ struct CheckYourMailView: View {
                                                 
                         NavigationLink(destination: SuccessfullyView(isBackToLogin: $isBackToLogin),
                                        isActive: $isSuccessFullView) {
-                            CustomButton(title: "OPEN YOUR EMAIL", lightGrayBlue: AppColors.deepIndigo) {
+                            CustomButton(title: "OPEN YOUR EMAIL", backgroundColor: AppColors.deepIndigo) {
                                 print("Reset Password Button Tapped")
                                 isSuccessFullView = true
                             }
@@ -51,7 +51,7 @@ struct CheckYourMailView: View {
                         }
                         
                         
-                        CustomButton(title: "BACK TO LOGIN", lightGrayBlue: AppColors.pastelLavender) {
+                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.pastelLavender) {
                             print("Reset Password Button Tapped")
                             isBackToLogin = false
                         }
@@ -60,7 +60,7 @@ struct CheckYourMailView: View {
                         HStack{
                             Text("You have not received the email?")
                                 .font(FontStyle.dmsansBold.font(baseSize: 10))
-                                .foregroundColor(AppColors.skyLavender)
+                                .foregroundColor(AppColors.dustyLavender)
                             
                             Button{
                                 

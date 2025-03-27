@@ -30,8 +30,7 @@ struct MainSplashScreen: View {
 
                         }
                         .padding(.bottom, 90)
-                        
-                        // Background Images (bgJobSpot & bgJobSpot1)
+                   
                         VStack {
                             Image("bgJobSpot")
                                 .padding(.horizontal, 32)

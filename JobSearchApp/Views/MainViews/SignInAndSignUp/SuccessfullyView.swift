@@ -25,7 +25,7 @@ struct SuccessfullyView: View {
                             .padding(.top)
                         Text("Your password has been updated, please change your password regularly to avoid this happening ")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.skyLavender)
+                            .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.top, 5)
                         
@@ -35,12 +35,12 @@ struct SuccessfullyView: View {
                             .padding(.top, 51)
                             .padding(.bottom, 115)
                         
-                        CustomButton(title: "CONTINUE", lightGrayBlue: AppColors.deepIndigo) {
+                        CustomButton(title: "CONTINUE", backgroundColor: AppColors.deepIndigo) {
                             // Reset Password Action
                             print("Reset Password Button Tapped")
                         }
                         
-                        CustomButton(title: "BACK TO LOGIN", lightGrayBlue: AppColors.pastelLavender) {
+                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.pastelLavender) {
                             // Reset Password Action
                             isBackToLogin = false
                         }

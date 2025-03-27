@@ -107,14 +107,14 @@ struct MainUploadCVView: View {
                 .padding(.bottom, 5)
             Text("Add your CV/Resume to apply for a job")
                 .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                .foregroundColor(AppColors.skyLavender)
+                .foregroundColor(AppColors.dustyLavender)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 15)
         
         VStack() {
             if viewModel.hasCVUploaded {
-                UploadedCVView(fileName: viewModel.cvFileName, fileSize: viewModel.cvFileSize, uploadDate:  viewModel.cvUploadDate, lightCoral: .red, onDelete: {
+                UploadedCVView(fileName: viewModel.cvFileName, fileSize: viewModel.cvFileSize, uploadDate:  viewModel.cvUploadDate, deleteButtonColor: .red, onDelete: {
                     viewModel.hasCVUploaded = false
                 })
             } else {
@@ -199,7 +199,7 @@ struct UploadCVButton: View {
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                .foregroundColor(AppColors.skyLavender)
+                .foregroundColor(AppColors.dustyLavender)
         )
         .foregroundColor(.gray)
     }
@@ -212,7 +212,7 @@ struct UploadedCVView: View {
     let fileName: String
     let fileSize: String
     let uploadDate: String
-    let lightCoral: Color
+    let deleteButtonColor: Color
     let onDelete: () -> Void
     
     var body: some View {
@@ -243,10 +243,10 @@ struct UploadedCVView: View {
             }) {
                 HStack {
                     Image("deleteIcon")
-                        .foregroundColor(lightCoral)
+                        .foregroundColor(AppColors.lightCoral)
                     Text("Remove file")
                         .font(FontStyle.dmsansBold.font(baseSize: 12))
-                        .foregroundColor(lightCoral)
+                        .foregroundColor(AppColors.lightCoral)
                 }
                 .padding(.horizontal,20)
                 .padding(.bottom, 8)

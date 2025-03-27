@@ -35,7 +35,7 @@ struct ForgotPasswordView: View {
                         
                         Text("To reset your password, you need your email or mobile number that can be authenticated")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                            .foregroundColor(AppColors.skyLavender)
+                            .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,20)
                         
@@ -58,14 +58,14 @@ struct ForgotPasswordView: View {
                         
                         NavigationLink(destination: CheckYourMailView(isBackToLogin: $isBackToLogin),
                                        isActive: $forgetPasswordViewModel.isCheckYourMailView) {
-                            CustomButton(title: "RESET PASSWORD", lightGrayBlue: AppColors.deepIndigo) {
+                            CustomButton(title: "RESET PASSWORD", backgroundColor: AppColors.deepIndigo) {
                                 print("Reset Password Button Tapped")
                                 forgetPasswordViewModel.showCheckYourMailView()
                             }
                             .padding(.bottom, 10)
                         }
                         
-                        CustomButton(title: "BACK TO LOGIN", lightGrayBlue: AppColors.pastelLavender) {
+                        CustomButton(title: "BACK TO LOGIN", backgroundColor: AppColors.pastelLavender) {
                             isBackToLogin = false
                         }
                         
@@ -84,7 +84,7 @@ struct ForgotPasswordView: View {
 
 struct CustomButton: View {
     let title: String
-    let lightGrayBlue: Color
+    let backgroundColor: Color
     let action: () -> Void
     
     var body: some View {
@@ -94,7 +94,7 @@ struct CustomButton: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(lightGrayBlue)
+                .background(backgroundColor)
                 .cornerRadius(10)
         }
         .padding(.bottom, 10)

@@ -105,7 +105,7 @@ struct LoginView: View {
                             }
                             
                             
-                            NavigationLink(destination:  HomeScreenView()
+                            NavigationLink(destination:  HomeTabView()
                                            , isActive: $loginViewModal.isNavigateToLoginSuccess){
                                 Button(action: {
                                     // Handle login action

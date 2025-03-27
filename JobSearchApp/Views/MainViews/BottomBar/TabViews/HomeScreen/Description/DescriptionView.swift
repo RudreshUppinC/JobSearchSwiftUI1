@@ -153,7 +153,7 @@ struct HeaderView: View {
                 }
                 .lineLimit(1)
             }
-          
+            
             .frame(maxWidth: .infinity)
             .background(AppColors.whisperGray)
             .padding(.vertical, 32)
@@ -177,7 +177,7 @@ struct JobDescriptionView: View {
             
             Text("Text ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem...")
                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                .foregroundColor(AppColors.skyLavender)
+                .foregroundColor(AppColors.dustyLavender)
                 .padding(.bottom,5)
             
             Button("Read more") {
@@ -216,7 +216,7 @@ struct RequirementsView: View {
                     Text("•")
                     Text(requirement)
                         .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                        .foregroundColor(AppColors.skyLavender)
+                        .foregroundColor(AppColors.dustyLavender)
                 }
             }
         }
@@ -266,7 +266,7 @@ struct InformationsView: View {
              
                 Text("Senior Designer")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
               
             }
             .padding(.bottom,15)
@@ -281,7 +281,7 @@ struct InformationsView: View {
        
                 Text("Bachelor's Degree")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
                 
             }
             .padding(.bottom,15)
@@ -296,7 +296,7 @@ struct InformationsView: View {
            
                 Text("3 Years")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
             }
             .padding(.bottom,15)
             
@@ -310,7 +310,7 @@ struct InformationsView: View {
            
                 Text("Full-Time")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
             }
             .padding(.bottom,15)
             
@@ -324,7 +324,7 @@ struct InformationsView: View {
            
                 Text("Design")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                    .foregroundColor(AppColors.skyLavender)
+                    .foregroundColor(AppColors.dustyLavender)
             }
             .padding(.bottom,15)
             
@@ -365,7 +365,7 @@ struct FacilitiesView: View {
                                .foregroundColor(AppColors.darkIndigoColor)
                            Text(facility)
                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                               .foregroundColor(AppColors.skyLavender)
+                               .foregroundColor(AppColors.dustyLavender)
                                .padding(.bottom,15)
                        }
                    }
