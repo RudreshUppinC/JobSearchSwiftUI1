@@ -29,11 +29,14 @@ struct SuccessfullyView: View {
                             .multilineTextAlignment(.center)
                             .padding(.top, 5)
                         
-                        Image("succfullyEmail")
-                            .scaledToFit()
-                            .frame(width: 118,height: 93)
-                            .padding(.top, 51)
-                            .padding(.bottom, 115)
+                        ImageProvider.getImage(named: "succfullyEmail").map{ image in
+                            Image(uiImage: image)
+                                .scaledToFit()
+                                .frame(width: 118,height: 93)
+                                .padding(.top, 51)
+                                .padding(.bottom, 115)
+                        }
+                                                
                         
                         CustomButton(title: "CONTINUE", backgroundColor: AppColors.deepIndigo) {
                             // Reset Password Action

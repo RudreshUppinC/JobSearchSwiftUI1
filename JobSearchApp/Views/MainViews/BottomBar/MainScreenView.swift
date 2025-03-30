@@ -28,9 +28,9 @@ struct MainScreenView: View {
                         DeleteAllView()
                     case .bookmark:
                         BookmarkScreenView()
-                   
                     }
-                    Spacer()
+                    //Spacer()
+                    
                     BottomNavigationBarView(viewModel: viewModel)
                 }
             }

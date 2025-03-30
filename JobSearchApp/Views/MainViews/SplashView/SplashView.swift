@@ -16,10 +16,13 @@ struct SplashView: View {
             ZStack{
                 Color("bgColor").edgesIgnoringSafeArea(.all)
                 VStack(spacing:5){
-                    Image("jobSpotImg")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 60,  height:60)
+                    ImageProvider.getImage(named: "Group").map { image in
+                        Image(uiImage: image)
+                                   .resizable()
+                                   .scaledToFit()
+                                   .frame(width: 60, height: 60)
+                    }
+                    
                     Text("Jobspot")
                         .font(.system(size: 34,weight: .bold))
                         .foregroundColor(Color.white)

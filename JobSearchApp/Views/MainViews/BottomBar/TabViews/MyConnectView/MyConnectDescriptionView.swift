@@ -20,7 +20,9 @@ struct MyConnectDescriptionView: View {
                         Button(action: {
                            // presentationMode.wrappedValue.dismiss()
                         }){
-                            Image("BackArrow")
+                            ImageProvider.getImage(named: "BackArrow").map{ image in
+                                Image(uiImage: image)
+                            }
                         }
                         
                         Spacer()

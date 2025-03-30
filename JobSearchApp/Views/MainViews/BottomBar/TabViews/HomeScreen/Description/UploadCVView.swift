@@ -34,7 +34,9 @@ struct UploadCVView: View {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }){
-                            Image("BackArrow")
+                            ImageProvider.getImage(named: "BackArrow").map{ image in
+                                Image(uiImage: image)
+                            }
                         }
                         Spacer()
                     }
@@ -184,10 +186,13 @@ struct UploadCVButton: View {
             
         }) {
             HStack {
-                Image("uploadImage")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24,height: 24)
+                ImageProvider.getImage(named: "uploadImage").map{ image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24,height: 24)
+                }
+                                    
                 Text("Upload CV/Resume")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .foregroundColor(AppColors.darkIndigoColor)
@@ -218,12 +223,12 @@ struct UploadedCVView: View {
     var body: some View {
         VStack {
             HStack {
-                Image("PDF")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 44, height: 44)
-                
-                
+                ImageProvider.getImage(named: "PDF").map{ image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 44, height: 44)
+                }
                 VStack(alignment: .leading) {
                     Text(fileName)
                         .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -242,8 +247,11 @@ struct UploadedCVView: View {
                 print("Delete file button tapped")
             }) {
                 HStack {
-                    Image("deleteIcon")
-                        .foregroundColor(AppColors.lightCoral)
+                    ImageProvider.getImage(named: "deleteIcon").map{ image in
+                        Image(uiImage: image)
+                            .foregroundColor(AppColors.lightCoral)
+                    }
+                        
                     Text("Remove file")
                         .font(FontStyle.dmsansBold.font(baseSize: 12))
                         .foregroundColor(AppColors.lightCoral)

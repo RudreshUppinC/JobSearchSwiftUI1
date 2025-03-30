@@ -36,6 +36,7 @@ struct AppColors {
     static let steelGray = Color(red: 111/255, green: 107/255, blue:128/255)
     static let pureRed = Color(red: 255/255, green: 70/255, blue:70/255)
     static let flameOrange = Color(red: 252/255, green: 163/255, blue:77/255)
+    
 //darkIndigoColor
     //header deepIndigo
     //title darkIndigoColor
@@ -67,5 +68,12 @@ struct AppColors {
     static let lightPeach = Color(red: 255/255, green: 214/255, blue: 173/255)
     static let mutatedLavender = Color(red: 203/255, green: 201/255, blue: 212/255)
     static let palePeach = Color(red: 250/255, green: 224/255, blue: 213/255)
+    //Recent JobList Colors
+    static let translucentGold = Color(red: 255/255, green: 213/255, blue: 0/255).opacity(0.5)
+    static let translucentRaspberry = Color(red: 233/255, green: 77/255, blue: 138/255).opacity(0.5)
+    static let neutralGray = Color(red: 196/255, green: 196/255, blue: 196/255)
+    static let mutedLavender = Color(red: 104/255, green: 97/255, blue: 182/255)
+    static let skyBlue = Color(red: 3/255, green: 169/255, blue: 244/255)
+    static let facebookColor = Color(red: 65/255, green: 86/255, blue: 114/255)
 
 }

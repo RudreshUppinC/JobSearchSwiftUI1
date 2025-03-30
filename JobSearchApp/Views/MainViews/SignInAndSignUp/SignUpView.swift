@@ -131,10 +131,12 @@ struct SignUpView: View {
                             print("Sign in with Google tapped")
                         }) {
                             HStack {
-                                Image("googlelogo1")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 25, height: 25)
+                                ImageProvider.getImage(named: "googlelogo1").map{ image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25, height: 25)
+                                }
                                 Text("SIGN IN WITH GOOGLE")
                                     .font(FontStyle.dmsansBold.font(baseSize: 14))
                                     .foregroundColor(.white)

@@ -69,6 +69,15 @@ struct SaveJobDetailPage: View {
     }
 }
 #Preview {
-    let job =  Job(companyName: "Google inc", userRole: "UI/UX Designer", companyImageName: "google_logo", location: "California, USA", salary: "$15K/Mo", tags: ["Design", "Full time", "Senior designer"], timeAgo: "25 minute ago")
-    SaveJobDetailPage(job: job)
+       let job = Job(companyName: "Google Inc",
+                    userRole: "HR Manager",
+                    companyImageName: "appleIcon",
+                    location: "California, USA",
+                    salary: "$15K / Mo",
+                    tags: ["Product Design", "UX", "UI"],
+                    timeAgo: "2 days ago",
+                    experienceLevel: "Senior designer",
+                    jobType: "Full Time",
+                    jobTitle: "Product Designer",bgcolor: AppColors.orangeColor)
+     SaveJobDetailPage(job: job)
 }

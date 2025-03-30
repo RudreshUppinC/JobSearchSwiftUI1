@@ -32,14 +32,20 @@ struct MainSplashScreen: View {
                         .padding(.bottom, 90)
                    
                         VStack {
-                            Image("bgJobSpot")
-                                .padding(.horizontal, 32)
-                                .offset(y: 140)
+
+                            ImageProvider.getImage(named: "bgJobSpot").map{ image in
+                                Image(uiImage: image)
+                                    .padding(.horizontal, 32)
+                                    .offset(y: 140)
+                            }
                             
-                            Image("bgJobSpot1")
-                                .padding(.leading, 75)
-                                .padding(.trailing, 50)
-                                .offset(y: -160)
+                            ImageProvider.getImage(named: "bgJobSpot1").map{ image in
+                                Image(uiImage: image)
+                                    .padding(.leading, 75)
+                                    .padding(.trailing, 50)
+                                    .offset(y: -160)
+                            }
+                                                            
                         }
                         .frame(width: 300, height: 300)
                         .padding(.bottom, 78)
@@ -86,9 +92,11 @@ struct MainSplashScreen: View {
                                         Circle()
                                             .fill(Color("bgColor"))
                                             .frame(width: 60, height: 60)
-                                        
-                                        Image("nextArrow")
-                                            .frame(width: 23, height: 26)
+                                        ImageProvider.getImage(named: "nextArrow").map{ image in
+                                            Image(uiImage: image)
+                                                .frame(width: 23, height: 26)
+
+                                        }
                                     }
                                 }
                                 .padding(.trailing, 20)

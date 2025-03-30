@@ -16,11 +16,13 @@ struct UploadCVSuccessView: View {
             // Uploaded File Info
             VStack {
                 HStack {
-                    Image("PDF")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 44, height: 44)
-                    
+                    ImageProvider.getImage(named: "PDF").map{ image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                    }
+                                        
                     VStack(alignment: .leading) {
                         Text(viewModal.cvFileName)
                             .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -40,10 +42,12 @@ struct UploadCVSuccessView: View {
             
             // Success Content
             VStack(spacing: 20) {
-                Image("success1")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)
+                ImageProvider.getImage(named: "success1").map{ image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 150, height: 150)
+                }
                 
                 Text("Upload Successful!")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))

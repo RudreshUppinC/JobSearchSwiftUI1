@@ -35,11 +35,14 @@ struct CheckYourMailView: View {
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
-                        Image("checkyourEmail1")
-                            .scaledToFit()
-                            .frame(width: 118,height: 93)
-                            .padding(.top, 50)
-                            .padding(.bottom, 94)
+                       
+                        ImageProvider.getImage(named: "checkyourEmail1").map{ image in
+                            Image(uiImage: image)
+                                .scaledToFit()
+                                .frame(width: 118,height: 93)
+                                .padding(.top, 50)
+                                .padding(.bottom, 94)
+                        }
                                                 
                         NavigationLink(destination: SuccessfullyView(isBackToLogin: $isBackToLogin),
                                        isActive: $isSuccessFullView) {

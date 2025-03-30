@@ -7,65 +7,44 @@
 
 import SwiftUI
 
-
-struct Job: Identifiable {
-    let id = UUID()
-    let companyName: String
-    let userRole: String
-    let companyImageName: String // Could be a URL or local asset name
-    let location: String
-    let salary: String
-    let tags: [String]
-    let timeAgo: String
-}
-
 struct BookmarkScreenView: View {
     @ObservedObject private var viewModel = BottomNavigationBarViewModel()
-
-    let jobs: [Job] = [
-        Job(companyName: "Google inc", userRole: "UI/UX Designer", companyImageName: "google_logo", location: "California, USA", salary: "$15K/Mo", tags: ["Design", "Full time", "Senior designer"], timeAgo: "25 minute ago"),
-        Job(companyName: "Dribbble inc", userRole: "Lead Designer", companyImageName: "dribbble_logo", location: "California, USA", salary: "$20K/Mo", tags: ["Design", "Full time", "Senior designer"], timeAgo: "25 minute ago"),
-        Job(companyName: "Twitter inc", userRole: "UX Researcher", companyImageName: "twitter_logo", location: "California, USA", salary: "$12K/Mo", tags: ["Design", "Full time", "Senior designer"], timeAgo: "25 minute ago")
-
-    ]
+    @ObservedObject var hometabviewmodel = HomeTabViewModel()
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(jobs) { job in
-                    ZStack {
-                        NavigationLink(destination: SaveJobDetailPage(job: job)) {
+            ScrollView { 
+                LazyVStack {
+                    ForEach(hometabviewmodel.jobs) { job in
+                        ZStack {
+                            NavigationLink(destination: SaveJobDetailPage(job: job)) {
+                            }
+                            .opacity(0.0)
+                            JobRow(job: job)
+                                .padding(.bottom, 8)
+                                .background(Color.clear)
                         }
-                        .opacity(0.0)
-                        JobRow(job: job)
-                            .padding(.bottom, 8)
-                            .background(Color.clear)
-                            .listRowSeparator(.hidden)
-
                     }
-                    .listRowBackground(Color.clear)
                 }
-
+                .padding(.horizontal)
             }
-            .listStyle(.plain)
+            .background(Color(.systemGray6))
             .navigationTitle("Save Job")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Delete all") {
                         withAnimation {
                             viewModel.showBottomSheet = false
-                       }
+                        }
                     }
                     .font(.system(size: 12))
                     .foregroundColor(.orange)
                 }
             }
-            .background(Color(.systemGray6))
-
         }
-        .background(Color(.systemGray6))
     }
 }
+
 
 struct JobRow: View {
     let job: Job
@@ -79,7 +58,6 @@ struct JobRow: View {
             VStack {
                 HStack(alignment: .top) {
                     Image(job.companyImageName)
-                
                         .resizable()
                         .frame(width: 30, height: 30)
                         .clipShape(Circle())
@@ -151,22 +129,6 @@ struct TagView: View {
     BookmarkScreenView()
 }
 
-
-// Placeholder images.  You would load these correctly
-extension Image {
-  init(_ jobImageName: String) {
-    switch jobImageName {
-    case "google_logo":
-      self.init(systemName: "g.circle.fill")
-    case "dribbble_logo":
-      self.init(systemName: "basketball.fill")
-    case "twitter_logo":
-      self.init(systemName: "bird")
-    default:
-      self.init(systemName: "questionmark.circle.fill")
-    }
-  }
-}
 
 struct DeleteAllView: View {
     @ObservedObject private var viewModel = BottomNavigationBarViewModel()

@@ -23,7 +23,9 @@ struct DescriptionView: View {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }){
-                            Image("BackArrow")
+                            ImageProvider.getImage(named: "BackArrow").map{ image in
+                                Image(uiImage: image)
+                            }
                         }
                         
                         Spacer()
@@ -115,12 +117,14 @@ struct HeaderView: View {
         
         VStack(spacing: 0) {
             VStack {
-                Image("googlelogo1")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 90, height: 90)
-                    .padding(.bottom, 40)
-                    .offset(y: 40)
+                ImageProvider.getImage(named: "googlelogo1.png").map{ image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 90, height: 90)
+                        .padding(.bottom, 40)
+                        .offset(y: 40)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: 80)
             .background(AppColors.offWhite)
@@ -387,9 +391,11 @@ struct ApplyButton: View {
                         .fill(Color.white)
                         .frame(width: 50, height: 50)
                         .cornerRadius(30)
-                    
-                    Image("Save")
-                        .frame(width: 16, height: 21)
+                    ImageProvider.getImage(named: "Save").map{ image in
+                        Image(uiImage: image)
+                            .frame(width: 16, height: 21)
+
+                    }
                 }
                 
                 NavigationLink(destination:  UploadCVView()
