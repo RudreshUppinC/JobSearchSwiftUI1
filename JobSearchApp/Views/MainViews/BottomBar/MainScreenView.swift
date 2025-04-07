@@ -10,6 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct MainScreenView: View {
     @StateObject private var viewModel = BottomNavigationBarViewModel()
+    @StateObject private var viewModel1 = HomeTabViewModel()
 
     var body: some View {
         NavigationStack{
@@ -21,20 +22,21 @@ struct MainScreenView: View {
                     case .home:
                         HomeTabView()
                     case .connect:
-                        MyConnectView()
+                        MyConnectTabView()
                     case .post:
-                        DeleteAllView()
+                        PostTabView(viewModel: viewModel)
                     case .chat:
-                        DeleteAllView()
+                        ChatScreenView()
                     case .bookmark:
-                        BookmarkScreenView()
+                        BookMarkTabView(viewModel: viewModel, hometabviewmodel: viewModel1)
                     }
-                    //Spacer()
                     
                     BottomNavigationBarView(viewModel: viewModel)
                 }
+                
             }
         }
+        
     }
 }
 

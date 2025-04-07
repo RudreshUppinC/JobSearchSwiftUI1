@@ -9,13 +9,21 @@ import Foundation
 import SwiftUI
 
 class BottomNavigationBarViewModel: ObservableObject {
-    @Published var selectedTab: Tab = .home 
+    @Published var selectedTab: Tab = .home
+    @Published var isCenterPlusButton:Bool = false
     @Published var showBottomSheet: Bool = false
 
-    func selectTab(_ tab: Tab) { // Accept a Tab enum value
+    func selectTab(_ tab: Tab) {
         selectedTab = tab
-        // Add any other logic needed when a tab is selected
-        print("Navigating to tab: \(tab.rawValue)")  //For debug to make sure its working
+        self.isCenterPlusButton = false
     }
+    
+    func selectPostTab(_ tab: Tab) {
+        selectedTab = tab
+        self.isCenterPlusButton.toggle()
+        self.showBottomSheet = !self.showBottomSheet
+        
+    }
+    
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 // Utility struct to hold reusable colors
 struct AppColors {
     static let paleGray = Color(red: 229/255, green: 229/255, blue: 229/255)
@@ -28,7 +29,8 @@ struct AppColors {
     static let pinkbutton = Color(red: 117/255, green: 81/255, blue: 255/255)
     static let paleLavender = Color(red: 170/255, green: 166/255, blue: 185/255)
     static let blueColor = Color(red: 0.098, green: 0.075, blue: 0.294)
-    
+    static let vulcanColor = Color(red: 21/255, green: 10/255, blue: 51/255)
+
     //MyConnect
     static let slightRed = Color(red: 255/255, green: 178/255, blue:178/255)
            //pastelLavender
@@ -66,14 +68,18 @@ struct AppColors {
     static let lightCyanColor = Color(red: 175/255, green: 236/255, blue: 254/255)
     static let skyLavender = Color(red: 190/255, green: 175/255, blue: 254/255)
     static let lightPeach = Color(red: 255/255, green: 214/255, blue: 173/255)
-    static let mutatedLavender = Color(red: 203/255, green: 201/255, blue: 212/255)
+    static let mutatedLavender = Color(red: 203/255, green: 201/255, blue: 212/255).opacity(0.2)
     static let palePeach = Color(red: 250/255, green: 224/255, blue: 213/255)
     //Recent JobList Colors
+    
     static let translucentGold = Color(red: 255/255, green: 213/255, blue: 0/255).opacity(0.5)
     static let translucentRaspberry = Color(red: 233/255, green: 77/255, blue: 138/255).opacity(0.5)
-    static let neutralGray = Color(red: 196/255, green: 196/255, blue: 196/255)
+    static let neutralGrayAppleColor = Color(red: 196/255, green: 196/255, blue: 196/255)
     static let mutedLavender = Color(red: 104/255, green: 97/255, blue: 182/255)
-    static let skyBlue = Color(red: 3/255, green: 169/255, blue: 244/255)
-    static let facebookColor = Color(red: 65/255, green: 86/255, blue: 114/255)
+    static let skyBlueTwitter = Color(red: 3/255, green: 169/255, blue: 244/255)
+    static let facebookColor = Color(red: 66/255, green: 86/255, blue: 147/255)
+    static let skyBlueMicrosoft = Color(red: 109/255, green: 100/255, blue: 189/255)
+
+    static let cosmosColor = Color(red: 248/255, green: 225/255, blue: 215/255)
 
 }

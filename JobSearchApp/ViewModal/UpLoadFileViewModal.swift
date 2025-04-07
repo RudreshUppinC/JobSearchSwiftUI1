@@ -9,6 +9,9 @@ import Foundation
 import Combine
 
 class UploadCVViewModel: ObservableObject {
+    
+    @Published var isDescriptiveView: Bool = false
+
     @Published var hasCVUploaded: Bool = false
     @Published var isUploading: Bool = false
     @Published var progress: Double = 0.0

@@ -12,6 +12,7 @@ import SwiftUI
 
 // Define an enum to represent different font styles
 enum FontStyle: String {
+   
     case dmsansBold = "DMSans-Bold"
     case dmsansRegular = "DMSans-Regular"
     

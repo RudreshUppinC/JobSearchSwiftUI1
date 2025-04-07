@@ -11,7 +11,7 @@ import SwiftUI
 struct MainSplashScreen: View {
     
     @State private var isNavigateToUploadView = false
-
+    
     var body: some View {
         NavigationStack{
             ZStack {
@@ -27,12 +27,12 @@ struct MainSplashScreen: View {
                                 .font(FontStyle.dmsansBold.font(baseSize: 18))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 32)
-
+                            
                         }
                         .padding(.bottom, 90)
-                   
+                        
                         VStack {
-
+                            
                             ImageProvider.getImage(named: "bgJobSpot").map{ image in
                                 Image(uiImage: image)
                                     .padding(.horizontal, 32)
@@ -45,7 +45,7 @@ struct MainSplashScreen: View {
                                     .padding(.trailing, 50)
                                     .offset(y: -160)
                             }
-                                                            
+                            
                         }
                         .frame(width: 300, height: 300)
                         .padding(.bottom, 78)
@@ -86,7 +86,7 @@ struct MainSplashScreen: View {
                             NavigationLink(destination: LoginView(), isActive: $isNavigateToUploadView) {
                                 Button(action: {
                                     print("Button tapped!")
-                                    isNavigateToUploadView = true 
+                                    isNavigateToUploadView = true
                                 }) {
                                     ZStack {
                                         Circle()
@@ -95,7 +95,7 @@ struct MainSplashScreen: View {
                                         ImageProvider.getImage(named: "nextArrow").map{ image in
                                             Image(uiImage: image)
                                                 .frame(width: 23, height: 26)
-
+                                            
                                         }
                                     }
                                 }

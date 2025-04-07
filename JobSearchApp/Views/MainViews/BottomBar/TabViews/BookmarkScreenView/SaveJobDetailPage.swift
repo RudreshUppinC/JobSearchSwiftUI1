@@ -16,10 +16,10 @@ struct SaveJobDetailPage: View {
 
     var body: some View {
         ScrollView { // Use ScrollView for longer content
-            VStack(alignment: .leading, spacing: 15) { // Alignment for left-aligned text and spacing between elements
+            VStack(alignment: .leading, spacing: 15) {
                 Image(job.companyImageName)
                     .resizable()
-                    .scaledToFit()  // Use scaledToFit instead of fixed frame
+                    .scaledToFit()
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .padding(.bottom)

@@ -18,9 +18,9 @@ struct SplashView: View {
                 VStack(spacing:5){
                     ImageProvider.getImage(named: "Group").map { image in
                         Image(uiImage: image)
-                                   .resizable()
-                                   .scaledToFit()
-                                   .frame(width: 60, height: 60)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 60, height: 60)
                     }
                     
                     Text("Jobspot")
@@ -29,6 +29,7 @@ struct SplashView: View {
                 }
                 .frame(maxHeight:.infinity)
                 .onAppear{
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2 ){
                         isNavigateToWelcomScreen = true
                     }

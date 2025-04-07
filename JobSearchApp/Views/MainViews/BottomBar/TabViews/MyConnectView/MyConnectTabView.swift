@@ -1,34 +1,34 @@
 import SwiftUI
 
-struct MyConnectView: View {
+struct MyConnectTabView: View {
     @ObservedObject var viewmodal = MyConnectViewModel()
-
+    
     var body: some View {
         GeometryReader { geometry in
             let columnCount = calculateColumnCount(for: geometry.size.width)
             let spacing: CGFloat = 15
             let availableWidth = geometry.size.width - (2 * 15)
             let itemWidth = (availableWidth - (CGFloat(columnCount - 1) * spacing)) / CGFloat(columnCount)
-
+            
             let columns: [GridItem] = Array(repeating: GridItem(.fixed(itemWidth), spacing: spacing), count: columnCount)
-
+            
             ScrollView {
                 LazyVGrid(columns: columns, spacing: spacing) {
                     ForEach(viewmodal.companies, id: \.name) { company in
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color(.systemGray6))
-
+                            
                             VStack(alignment: .center, spacing: 8) {
                                 Image(company.imageName)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 50, height: 50)
-
+                                
                                 Text(company.name)
                                     .font(.headline)
                                     .multilineTextAlignment(.center)
-
+                                
                                 Text(company.followerCount)
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
@@ -53,10 +53,16 @@ struct MyConnectView: View {
                 }
                 .padding(.horizontal, 10)
             }
-
+            .toolbar {
+                ToolbarItem(placement: .principal){
+                    Text("")
+                }
+            }
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
-
+    
     private func calculateColumnCount(for screenWidth: CGFloat) -> Int {
         if screenWidth > 480 {
             return 3
@@ -67,5 +73,5 @@ struct MyConnectView: View {
 }
 
 #Preview {
-    MyConnectView()
+    MyConnectTabView()
 }

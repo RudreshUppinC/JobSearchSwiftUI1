@@ -10,6 +10,8 @@ import MapKit
 
 @available(iOS 16.0, *)
 struct DescriptionView: View {
+    let job: Job
+
     @StateObject private var viewModal = UploadCVViewModel()
     @Environment(\.presentationMode) var presentationMode
 
@@ -191,7 +193,6 @@ struct JobDescriptionView: View {
             .buttonStyle(.bordered)
             .font(FontStyle.dmsansBold.font(baseSize: 12))
             .foregroundColor(AppColors.deepIndigo)
-            .background(AppColors.pastelLavender)
 
         }
         .padding()
@@ -426,7 +427,17 @@ struct ApplyButton: View {
 
 #Preview {
     if #available(iOS 16.0, *) {
-        DescriptionView()
+        let job = Job(companyName: "Google Inc",
+                     userRole: "HR Manager",
+                     companyImageName: "appleIcon",
+                     location: "California, USA",
+                     salary: "$15K / Mo",
+                     tags: ["Product Design", "UX", "UI"],
+                     timeAgo: "2 days ago",
+                     experienceLevel: "Senior designer",
+                     jobType: "Full Time",
+                     jobTitle: "Product Designer",bgcolor: AppColors.orangeColor)
+        DescriptionView(job: job)
     } else {
         // Fallback on earlier versions
     }
