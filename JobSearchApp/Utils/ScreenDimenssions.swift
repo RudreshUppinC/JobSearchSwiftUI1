@@ -2,7 +2,7 @@
 //  ScreenDimenssions.swift
 //  Claude
 //
-//  Created by Way2 on 21/02/25.
+//  Created by Rudresh Jaya on 21/02/25.
 //
 
 import Foundation

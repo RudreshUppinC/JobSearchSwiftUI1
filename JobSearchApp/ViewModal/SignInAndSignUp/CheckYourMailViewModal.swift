@@ -2,7 +2,7 @@
 //  CheckYourMailViewModal.swift
 //  JobSearchApp
 //
-//  Created by Way2 on 13/03/25.
+//  Created by Rudresh Jaya on 13/03/25.
 //
 
 import Foundation

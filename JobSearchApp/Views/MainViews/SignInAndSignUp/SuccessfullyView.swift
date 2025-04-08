@@ -2,7 +2,7 @@
 //  SuccessfullyView.swift
 //  JobSearchApp
 //
-//  Created by Way2 on 04/03/25.
+//  Created by Rudresh Jaya on 04/03/25.
 //
 
 import SwiftUI

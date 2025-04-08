@@ -2,7 +2,7 @@
 //  AppState.swift
 //  JobSearchApp
 //
-//  Created by Way2 on 17/03/25.
+//  Created by Rudresh Jaya on 17/03/25.
 //
 
 import Foundation

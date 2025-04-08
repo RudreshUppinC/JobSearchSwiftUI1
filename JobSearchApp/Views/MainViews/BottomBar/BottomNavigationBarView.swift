@@ -4,7 +4,7 @@ import SwiftUI
 //  BottomNavigationBarView.swift
 //  JobSearchApp
 //
-//  Created by Way2 on 27/03/25.
+//  Created by Rudresh Jaya on 27/03/25.
 //
 
 import SwiftUI

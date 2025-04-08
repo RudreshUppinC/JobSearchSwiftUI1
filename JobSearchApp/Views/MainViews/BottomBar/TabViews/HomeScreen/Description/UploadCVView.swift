@@ -2,7 +2,7 @@
 //  UploadCVView.swift
 //  JobSearchApp
 //
-//  Created by Way2 on 05/03/25.
+//  Created by Rudresh Jaya on 05/03/25.
 //
 
 import SwiftUI
