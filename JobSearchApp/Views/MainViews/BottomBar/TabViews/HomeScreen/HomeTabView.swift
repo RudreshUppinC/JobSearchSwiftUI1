@@ -2,8 +2,8 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct HomeTabView: View {
-    @ObservedObject  var viewModel = HomeTabViewModel()
-    
+    @ObservedObject  var viewModel :HomeTabViewModel
+
     var body: some View {
         NavigationStack{
             ZStack{

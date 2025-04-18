@@ -11,12 +11,11 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct SignUpView: View {
     
-
-    @ObservedObject var signupviewmodal = SignUpViewModal()
+    @ObservedObject var signupviewmodal : SignUpViewModal
     var body: some View {
         NavigationStack {
             ZStack{
-                AppColors.whisperGray
+                AppColors.paleGray
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView{
@@ -88,23 +87,24 @@ struct SignUpView: View {
                                 Button{
                                     signupviewmodal.rememberMe.toggle()
                                 } label: {
-                                    Image(systemName: signupviewmodal.rememberMe ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(AppColors.deepIndigo)
+                                    ImageProvider.getImage(named: signupviewmodal.rememberMe ? "checkBoxSel": "checkBox" ).map{ image in
+                                        Image(uiImage: image)
+                                    }
                                     
                                 }
                                 .frame(width:25,height: 25)
                                 
                                 
                                 Text("Remember me")
-                                    .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                    .foregroundColor(.gray)
+                                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                                    .foregroundColor(AppColors.paleLavender)
                             }
                             
                             Spacer()
                             Button("Forgot Password?") {
                                 signupviewmodal.showForgetPasswordView.toggle()
                             }
-                            .font(FontStyle.dmsansBold.font(baseSize: 12))
+                            .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.deepIndigo)
                             .fullScreenCover(isPresented: $signupviewmodal.showForgetPasswordView) {
                                 ForgotPasswordView(isBackToLogin: $signupviewmodal.showForgetPasswordView)
@@ -154,7 +154,7 @@ struct SignUpView: View {
                         HStack(alignment: .center) {
                             Text("Already have a account?")
                                 .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                .foregroundColor(.gray)
+                                .foregroundColor(AppColors.dustyLavender)
                             NavigationLink(destination: LoginView(),isActive: $signupviewmodal.isLoginViewBack) {
                                 Button {
                                     // Handle sign up action
@@ -173,7 +173,7 @@ struct SignUpView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(AppColors.whisperGray)
+                    .background(AppColors.paleGray)
                 }
             }
         }

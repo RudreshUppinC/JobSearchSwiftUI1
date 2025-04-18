@@ -12,14 +12,13 @@ import Combine
 @available(iOS 16.0, *)
 
 struct LoginView: View {
-    @ObservedObject var loginViewModal = LoginViewModel()
-    
+    @ObservedObject var loginViewModal: LoginViewModel
     @StateObject private var viewModal = UploadCVViewModel()
     
     var body: some View {
         NavigationStack{
             ZStack{
-                AppColors.whisperGray
+                AppColors.paleGray
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView{
@@ -78,8 +77,9 @@ struct LoginView: View {
                                 Button{
                                     loginViewModal.rememberMe.toggle()
                                 } label: {
-                                    Image(systemName: loginViewModal.rememberMe ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(AppColors.deepIndigo)
+                                    ImageProvider.getImage(named: loginViewModal.rememberMe ? "checkBoxSel": "checkBox" ).map{ image in
+                                        Image(uiImage: image)
+                                    }
                                     
                                 }
                                 .frame(width:25,height: 25)
@@ -87,8 +87,7 @@ struct LoginView: View {
                                 
                                 Text("Remember me")
                                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(AppColors.paleLavender)
                                 
                                 Spacer()
                                 
@@ -103,7 +102,7 @@ struct LoginView: View {
                                 }
                                 
                             }
-                            
+                            .padding(.bottom, 25)
                             
                             NavigationLink(destination:  MainScreenView()
                                            , isActive: $loginViewModal.isNavigateToLoginSuccess){
@@ -150,7 +149,7 @@ struct LoginView: View {
                             HStack(alignment: .center) {
                                 Text("You don't have an account yet?")
                                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(AppColors.dustyLavender)
                                 NavigationLink(destination: SignUpView(),isActive: $loginViewModal.isNavigateToSignUp) {
                                     
                                     Button {
@@ -169,7 +168,6 @@ struct LoginView: View {
                         }
                         
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(AppColors.whisperGray)
                     }
                     .padding()
                     

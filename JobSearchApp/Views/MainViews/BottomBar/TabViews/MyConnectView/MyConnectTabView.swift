@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MyConnectTabView: View {
-    @ObservedObject var viewmodal = MyConnectViewModel()
+    @ObservedObject var viewmodal : MyConnectViewModel
     
     var body: some View {
         GeometryReader { geometry in

@@ -23,7 +23,7 @@ struct MainSplashScreen: View {
                         // JobSpot Text with Padding
                         HStack {
                             Spacer()
-                            Text("JobSpot")
+                            Text("Jobspot")
                                 .font(FontStyle.dmsansBold.font(baseSize: 18))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 32)
