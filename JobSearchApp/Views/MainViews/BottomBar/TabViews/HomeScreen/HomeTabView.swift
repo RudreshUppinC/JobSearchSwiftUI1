@@ -2,7 +2,9 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct HomeTabView: View {
-    @ObservedObject  var viewModel :HomeTabViewModel
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
+
+    @StateObject private var homeTabViewModel = HomeTabViewModel()
 
     var body: some View {
         NavigationStack{
@@ -143,10 +145,10 @@ struct HomeTabView: View {
                                 .font(FontStyle.dmsansBold.font(baseSize: 15))
                                 .foregroundColor(AppColors.darkIndigoColor)
                             Spacer()
-                            NavigationLink(destination:  RecentJobsListView(viewModel: viewModel)
-                                           , isActive: $viewModel.isNavigateSeeMoreJobs){
+                            NavigationLink(destination:  RecentJobsListView( mainScreenViewModel: mainScreenViewModel)
+                                           , isActive: $homeTabViewModel.isNavigateSeeMoreJobs){
                                 Button(action:{
-                                    viewModel.isNavigateSeeMoreJobs = true
+                                    homeTabViewModel.isNavigateSeeMoreJobs = true
                                 }){
                                     Text("See More")
                                         .font(FontStyle.dmsansBold.font(baseSize: 15))
@@ -162,7 +164,7 @@ struct HomeTabView: View {
                         
                         
                         LazyVStack {
-                            ForEach(viewModel.jobs) { job in
+                            ForEach($mainScreenViewModel.jobsData) { $job in
                                 JobCardView(job: job)
                             }
                         }
@@ -187,7 +189,7 @@ struct HomeTabView: View {
 
 #Preview {
     if #available(iOS 16.0, *) {
-        HomeTabView()
+        HomeTabView(mainScreenViewModel: MainScreenViewModel())
     } else {
         // Fallback on earlier versions
     }

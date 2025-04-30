@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct MyConnectDescriptionView: View {
     
-    @ObservedObject var viemodel : MyConnectDescriptionViewModel
+    @StateObject var viemodel =  MyConnectDescriptionViewModel()
     var body: some View {
         NavigationStack{
             ZStack{

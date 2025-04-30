@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct BookMarkTabView: View {
-    @ObservedObject var viewModel : BottomNavigationBarViewModel
-    @ObservedObject var hometabviewmodel : HomeTabViewModel
-    
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
+
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(hometabviewmodel.jobs) { job in
+                    ForEach($mainScreenViewModel.jobsData) { $job in
                         ZStack {
                             NavigationLink(destination: SaveJobDetailPage(job: job)) {
                             }
@@ -23,7 +22,7 @@ struct BookMarkTabView: View {
                             JobRow(job: job)
                                 .padding(.bottom, 8)
                                 .background(Color.clear)
-                                .frame(width: .infinity, height: 200)
+                                .frame(height: 200)
 
                         }
                     }
@@ -35,7 +34,7 @@ struct BookMarkTabView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Delete all") {
                         withAnimation {
-                            viewModel.showBottomSheet = false
+                            mainScreenViewModel.showBottomSheet = false
                         }
                     }
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
@@ -56,7 +55,7 @@ struct BookMarkTabView: View {
 
 
 struct JobRow: View {
-    let job: Job
+    let job: Jobs
     
     var body: some View {
         ZStack {
@@ -155,5 +154,5 @@ struct TagView: View {
 
 
 #Preview {
-    BookMarkTabView(viewModel: BottomNavigationBarViewModel(), hometabviewmodel: HomeTabViewModel())
+    BookMarkTabView(mainScreenViewModel: MainScreenViewModel())
 }

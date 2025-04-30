@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct SignUpView: View {
     
-    @ObservedObject var signupviewmodal : SignUpViewModal
+    @StateObject var signupviewmodal  = SignUpViewModal()
     var body: some View {
         NavigationStack {
             ZStack{

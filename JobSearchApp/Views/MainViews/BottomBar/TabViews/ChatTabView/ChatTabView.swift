@@ -8,7 +8,8 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-struct ChatScreenView: View {
+struct ChatTabView: View {
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
 
     var body: some View {
         NavigationStack{
@@ -70,7 +71,7 @@ struct ChatScreenView: View {
 
 #Preview {
     if #available(iOS 16.0, *) {
-        ChatScreenView()
+        ChatTabView(mainScreenViewModel: MainScreenViewModel())
     } else {
         // Fallback on earlier versions
     }

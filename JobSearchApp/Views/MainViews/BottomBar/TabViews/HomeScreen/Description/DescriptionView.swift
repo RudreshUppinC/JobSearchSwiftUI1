@@ -10,7 +10,7 @@ import MapKit
 
 @available(iOS 16.0, *)
 struct DescriptionView: View {
-    let job: Job
+    let job: Jobs
 
     @StateObject private var viewModal = UploadCVViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -427,7 +427,7 @@ struct ApplyButton: View {
 
 #Preview {
     if #available(iOS 16.0, *) {
-        let job = Job(companyName: "Google Inc",
+        let job = Jobs(companyName: "Google Inc",
                      userRole: "HR Manager",
                      companyImageName: "appleIcon",
                      location: "California, USA",

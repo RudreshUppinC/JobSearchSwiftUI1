@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct MyConnectTabView: View {
-    @ObservedObject var viewmodal : MyConnectViewModel
-    
+    @StateObject private var viewModel = MyConnectViewModel()
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
+
     var body: some View {
         GeometryReader { geometry in
             let columnCount = calculateColumnCount(for: geometry.size.width)
@@ -14,7 +15,7 @@ struct MyConnectTabView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: spacing) {
-                    ForEach(viewmodal.companies, id: \.name) { company in
+                    ForEach(viewModel.companies, id: \.name) { company in
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color(.systemGray6))
@@ -34,7 +35,7 @@ struct MyConnectTabView: View {
                                     .foregroundColor(.gray)
                                 
                                 Button(action: {
-                                    viewmodal.followCompany(company: company)
+                                    viewModel.followCompany(company: company)
                                 }){
                                     Text("Follow")
                                         .foregroundColor(AppColors.deepIndigo)
@@ -73,5 +74,5 @@ struct MyConnectTabView: View {
 }
 
 #Preview {
-    MyConnectTabView()
+    MyConnectTabView(mainScreenViewModel: MainScreenViewModel())
 }

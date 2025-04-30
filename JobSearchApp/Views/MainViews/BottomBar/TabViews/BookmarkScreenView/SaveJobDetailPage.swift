@@ -12,7 +12,8 @@ import SwiftUI
 import SwiftUI
 
 struct SaveJobDetailPage: View {
-    let job: Job
+    let job: Jobs
+//    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
 
     var body: some View {
         ScrollView { // Use ScrollView for longer content
@@ -69,7 +70,7 @@ struct SaveJobDetailPage: View {
     }
 }
 #Preview {
-       let job = Job(companyName: "Google Inc",
+       let job = Jobs(companyName: "Google Inc",
                     userRole: "HR Manager",
                     companyImageName: "appleIcon",
                     location: "California, USA",
@@ -79,5 +80,5 @@ struct SaveJobDetailPage: View {
                     experienceLevel: "Senior designer",
                     jobType: "Full Time",
                     jobTitle: "Product Designer",bgcolor: AppColors.orangeColor)
-     SaveJobDetailPage(job: job)
+    SaveJobDetailPage(job: job)
 }

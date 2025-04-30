@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-
 struct PostTabView: View {
     
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
     @ObservedObject var viewModel: BottomNavigationBarViewModel
 
     var body: some View {
@@ -35,7 +35,7 @@ struct PostTabView: View {
                                     .multilineTextAlignment(.center)
                                     .padding(.horizontal)
                                 Button(action: {
-                                    print("Login tapped")
+                                    print("POST")
                                 }) {
                                     Text("POST")
                                         .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -47,7 +47,7 @@ struct PostTabView: View {
                                 }
                                 .padding(.top)
                                 Button(action: {
-                                    print("Login tapped")
+                                    print("MAKE A JOB")
                                 }) {
                                     Text("MAKE A JOB")
                                         .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -67,18 +67,16 @@ struct PostTabView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .position(x: geometry.size.width / 2, y: geometry.size.height*1.125)
-                .offset(y: viewModel.showBottomSheet ?   0 : geometry.size.height )
+                .offset(y: mainScreenViewModel.showBottomSheet ?   0 : geometry.size.height )
             }
             .navigationBarBackButtonHidden(true)
             .ignoresSafeArea()
-            .background(viewModel.showBottomSheet ? Color.black.opacity(0.6) : Color.clear  )
+            .background(mainScreenViewModel.showBottomSheet ? Color.black.opacity(0.6) : Color.clear )
            
-            .animation(.easeInOut(duration: 0.7), value: viewModel.showBottomSheet)
+            .animation(.easeInOut(duration: 0.7), value: mainScreenViewModel.showBottomSheet)
             .onTapGesture {
-                if viewModel.showBottomSheet {
-                    withAnimation {
-                    // viewModel.showBottomSheet = false
-                    }
+                withAnimation {
+                    viewModel.resetSheetAnimation(mainScreenViewModel: mainScreenViewModel)
                 }
             }
            
@@ -89,5 +87,5 @@ struct PostTabView: View {
 }
 
 #Preview {
-    PostTabView(viewModel:  BottomNavigationBarViewModel())
+    PostTabView(mainScreenViewModel: MainScreenViewModel(), viewModel: BottomNavigationBarViewModel())
 }

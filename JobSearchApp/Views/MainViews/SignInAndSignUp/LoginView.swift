@@ -12,7 +12,7 @@ import Combine
 @available(iOS 16.0, *)
 
 struct LoginView: View {
-    @ObservedObject var loginViewModal: LoginViewModel
+    @StateObject var loginViewModal = LoginViewModel()
     @StateObject private var viewModal = UploadCVViewModel()
     
     var body: some View {

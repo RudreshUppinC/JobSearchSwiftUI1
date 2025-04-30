@@ -9,8 +9,8 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct RecentJobsListView: View {
-    @ObservedObject var viewModel: HomeTabViewModel
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
 
     var body: some View {
         NavigationStack{
@@ -21,7 +21,7 @@ struct RecentJobsListView: View {
                 VStack(spacing:20){
                     HStack {
                         Button(action: {
-                            presentationMode.wrappedValue.dismiss()
+                           presentationMode.wrappedValue.dismiss()
                         }){
                             ImageProvider.getImage(named: "BackArrow").map{ image in
                                 Image(uiImage: image)
@@ -35,10 +35,9 @@ struct RecentJobsListView: View {
                     
                     ScrollView {
                         LazyVStack {
-                            ForEach(viewModel.jobs) { job in
+                            ForEach(mainScreenViewModel.jobsData) { job in
                                 JobCardView(job: job)
                             }
-                        
                         }
                     }
                 }
@@ -50,9 +49,10 @@ struct RecentJobsListView: View {
 }
 
 
+
 @available(iOS 16.0, *)
 struct JobCardView: View {
-    let job: Job
+    let job: Jobs
     @StateObject private var viewModal = UploadCVViewModel()
     
     var body: some View {
@@ -165,7 +165,7 @@ struct JobCardView: View {
 
 #Preview {
     if #available(iOS 16.0, *) {
-        RecentJobsListView(viewModel:   HomeTabViewModel())
+        RecentJobsListView(mainScreenViewModel: MainScreenViewModel())
     } else {
         // Fallback on earlier versions
     }

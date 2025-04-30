@@ -10,14 +10,15 @@ import SwiftUI
 import SwiftUI
 
 struct BottomNavigationBarView: View {
-    @ObservedObject var viewModel :  BottomNavigationBarViewModel
+    @ObservedObject var viewModel: BottomNavigationBarViewModel
+    @ObservedObject var mainScreenViewModel: MainScreenViewModel
 
     var body: some View {
         HStack {
             ForEach(Tab.allCases, id: \.self) { tab in
                 if tab == .post {
                     Button(action: {
-                        viewModel.selectPostTab(tab)
+                        viewModel.postTab(tab, mainScreenViewModel: mainScreenViewModel)
                     }) {
                         ZStack {
                             Circle()
@@ -27,8 +28,8 @@ struct BottomNavigationBarView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 15, height: 15)
-                                .rotationEffect(.degrees(viewModel.isCenterPlusButton ? 45 : 0))
-                                .animation(.easeInOut(duration: 0.3), value: viewModel.isCenterPlusButton)
+                                .rotationEffect(.degrees(mainScreenViewModel.isCenterPlusButton ? 45 : 0))
+                                .animation(.easeInOut(duration: 0.3), value: mainScreenViewModel.isCenterPlusButton)
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -36,7 +37,9 @@ struct BottomNavigationBarView: View {
 
                 } else {
                     Button(action: {
-                        viewModel.selectTab(tab)
+                       // viewModel.otherTab(tab)
+                        viewModel.otherTab(tab, mainScreenViewModel: mainScreenViewModel)
+
                     }) {
                         VStack {
                             Image(viewModel.selectedTab == tab ? tab.imageNameSelected : tab.imageNameUnselected)
@@ -55,5 +58,5 @@ struct BottomNavigationBarView: View {
 }
 
 #Preview {
-    BottomNavigationBarView(viewModel: BottomNavigationBarViewModel())
+    BottomNavigationBarView(viewModel: BottomNavigationBarViewModel(), mainScreenViewModel: MainScreenViewModel())
 }

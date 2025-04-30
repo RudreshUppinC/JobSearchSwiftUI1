@@ -13,7 +13,8 @@ struct JobSearchAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            MainScreenView()
+           // SplashView()
         }
 
     }

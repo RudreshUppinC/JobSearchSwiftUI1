@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 16.0, *)
 struct CheckYourMailView: View {
     @Binding var isBackToLogin: Bool
-    @ObservedObject var checkyourmailviewmodal : CheckYourMailViewModal
+    @StateObject var checkyourmailviewmodal =  CheckYourMailViewModal()
     @State var isSuccessFullView = false
 
     var body: some View {

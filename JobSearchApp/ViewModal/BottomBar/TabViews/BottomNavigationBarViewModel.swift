@@ -10,20 +10,25 @@ import SwiftUI
 
 class BottomNavigationBarViewModel: ObservableObject {
     @Published var selectedTab: Tab = .home
-    @Published var isCenterPlusButton:Bool = false
-    @Published var showBottomSheet: Bool = false
-
-    func selectTab(_ tab: Tab) {
+    
+    func otherTab(_ tab: Tab, mainScreenViewModel: MainScreenViewModel) {
         selectedTab = tab
-        self.isCenterPlusButton = false
+        mainScreenViewModel.isCenterPlusButton = false
     }
     
-    func selectPostTab(_ tab: Tab) {
+    func postTab(_ tab: Tab, mainScreenViewModel: MainScreenViewModel) {
         selectedTab = tab
-        self.isCenterPlusButton.toggle()
-        self.showBottomSheet = !self.showBottomSheet
-        
+        mainScreenViewModel.isCenterPlusButton.toggle()
+        withAnimation {
+            mainScreenViewModel.showBottomSheet = mainScreenViewModel.isCenterPlusButton
+        }
     }
-    
+    func resetSheetAnimation( mainScreenViewModel: MainScreenViewModel)
+    {
+        mainScreenViewModel.showBottomSheet = false
+        mainScreenViewModel.isCenterPlusButton = false
+    }
+   
+   
 }
 

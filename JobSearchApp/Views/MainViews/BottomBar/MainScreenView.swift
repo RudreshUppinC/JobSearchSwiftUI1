@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct MainScreenView: View {
     @StateObject private var viewModel = BottomNavigationBarViewModel()
-    @StateObject private var viewModel1 = HomeTabViewModel()
+    @StateObject  var mainScreenViewModel = MainScreenViewModel()
 
     var body: some View {
         NavigationStack{
@@ -20,21 +20,32 @@ struct MainScreenView: View {
                 VStack{
                     switch viewModel.selectedTab{
                     case .home:
-                        HomeTabView()
+                        HomeTabView(mainScreenViewModel: mainScreenViewModel)
                     case .connect:
-                        MyConnectTabView()
+                        MyConnectTabView(mainScreenViewModel: mainScreenViewModel)
                     case .post:
-                        PostTabView(viewModel: viewModel)
+                        PostTabView(mainScreenViewModel: mainScreenViewModel, viewModel: viewModel)
                     case .chat:
-                        ChatScreenView()
+                        ChatTabView(mainScreenViewModel: mainScreenViewModel)
                     case .bookmark:
-                        BookMarkTabView(viewModel: viewModel, hometabviewmodel: viewModel1)
+                        BookMarkTabView(mainScreenViewModel: mainScreenViewModel)
                     }
                     
-                    BottomNavigationBarView(viewModel: viewModel)
+                    BottomNavigationBarView(viewModel: viewModel, mainScreenViewModel: mainScreenViewModel)
                 }
                 
             }
+        }
+        .onChange(of: viewModel.selectedTab) { tab in
+                   if tab == .post {
+                       withAnimation {
+                           mainScreenViewModel.showBottomSheet = true
+                       }
+                   } else {
+                       withAnimation {
+                           mainScreenViewModel.showBottomSheet = false
+                       }
+                   }
         }
         
     }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUICore
 
-struct Job: Identifiable {
+struct Jobs: Identifiable,Hashable {
     let id = UUID()
     let companyName: String
     let userRole: String
