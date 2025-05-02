@@ -22,6 +22,9 @@ struct Jobs: Identifiable,Hashable {
     let jobType: String
     let jobTitle: String
     let bgcolor: Color
-
+    let jobDescription: String
+    let requirements: [String]
+    let facilities: [String]
 }
+
 

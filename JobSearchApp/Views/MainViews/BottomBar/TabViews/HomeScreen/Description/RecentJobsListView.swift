@@ -11,12 +11,14 @@ import SwiftUI
 struct RecentJobsListView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
+    
+    @StateObject  var recentJobListViewModel =  RecentJobsListViewModel()
 
     var body: some View {
         NavigationStack{
             ZStack{
                 AppColors.paleGray
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea(.all)
                 
                 VStack(spacing:20){
                     HStack {
@@ -35,7 +37,8 @@ struct RecentJobsListView: View {
                     
                     ScrollView {
                         LazyVStack {
-                            ForEach(mainScreenViewModel.jobsData) { job in
+                            ForEach(recentJobListViewModel.jobsData.indices, id: \.self){ index in
+                                let job = recentJobListViewModel.jobsData[index]
                                 JobCardView(job: job)
                             }
                         }
@@ -54,7 +57,7 @@ struct RecentJobsListView: View {
 struct JobCardView: View {
     let job: Jobs
     @StateObject private var viewModal = UploadCVViewModel()
-    
+
     var body: some View {
         
         RoundedRectangle(cornerRadius: 20)

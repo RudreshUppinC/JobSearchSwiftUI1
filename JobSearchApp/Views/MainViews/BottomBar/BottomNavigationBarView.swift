@@ -51,7 +51,7 @@ struct BottomNavigationBarView: View {
                 }
             }
         }
-        .frame(height: 70)
+        .frame(height: 80)
         .background(.white)
     }
 

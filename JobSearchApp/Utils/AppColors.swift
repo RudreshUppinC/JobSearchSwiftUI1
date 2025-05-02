@@ -15,7 +15,6 @@ struct AppColors {
     static let lightCoral = Color(red: 0.988, green: 0.275, blue: 0.275)
     static let whisperGray = Color(red: 242/255, green: 242/255, blue: 242/255)
     static let offWhite = Color(red: 249/255, green: 249/255, blue: 249/255)
-
     //Login
     static let deepIndigo = Color(red: 13/255, green: 1/255, blue: 64/255)
     static let dustyLavender = Color(red: 82/255, green: 75/255, blue: 107/255)
@@ -39,6 +38,8 @@ struct AppColors {
     static let pureRed = Color(red: 255/255, green: 70/255, blue:70/255)
     static let flameOrange = Color(red: 252/255, green: 163/255, blue:77/255)
     
+    static let black = Color.black
+
 //darkIndigoColor
     //header deepIndigo
     //title darkIndigoColor

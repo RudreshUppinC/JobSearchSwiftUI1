@@ -6,7 +6,6 @@
 //
 
 import Foundation
-// ImageProvider.swift
 import UIKit
 
 class ImageProvider {

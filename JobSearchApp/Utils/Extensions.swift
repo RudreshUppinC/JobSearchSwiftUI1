@@ -59,3 +59,10 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 }
+
+
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct BookMarkTabView: View {
-    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
-
+        @ObservedObject  var mainScreenViewModel : MainScreenViewModel
+        //To get saved jobslist
+        @ObservedObject  var recentJobListViewModel : RecentJobsListViewModel
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach($mainScreenViewModel.jobsData) { $job in
+                    ForEach($recentJobListViewModel.jobsData) { $job in
                         ZStack {
                             NavigationLink(destination: SaveJobDetailPage(job: job)) {
                             }
@@ -154,5 +156,5 @@ struct TagView: View {
 
 
 #Preview {
-    BookMarkTabView(mainScreenViewModel: MainScreenViewModel())
+    BookMarkTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
 }

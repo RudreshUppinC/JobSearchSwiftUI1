@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UploadCVSuccessView: View {
     @ObservedObject var viewModal: UploadCVViewModel
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         
@@ -73,6 +74,8 @@ struct UploadCVSuccessView: View {
                 Button {
                     viewModal.isUploadFileScreen = false
                     viewModal.hasCVUploaded = false
+                    dismiss()
+
                 } label: {
                     Text("BACK TO HOME")
                         .frame(maxWidth: .infinity)

@@ -13,6 +13,15 @@ struct PostTabView: View {
 
     var body: some View {
         ZStack {
+            if mainScreenViewModel.showBottomSheet {
+                          Color.black.opacity(0.6)
+                              .ignoresSafeArea()
+                              .onTapGesture {
+                                  withAnimation {
+                                      viewModel.resetSheetAnimation(mainScreenViewModel: mainScreenViewModel)
+                                  }
+               }
+            }
             GeometryReader { geometry in
                 VStack {
                     RoundedRectangle(cornerRadius: 20)
@@ -67,18 +76,10 @@ struct PostTabView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .position(x: geometry.size.width / 2, y: geometry.size.height*1.125)
-                .offset(y: mainScreenViewModel.showBottomSheet ?   0 : geometry.size.height )
+                .offset(y: mainScreenViewModel.showBottomSheet ? 0 : UIScreen.main.bounds.height)
+                .animation(.easeInOut(duration: 0.7), value: mainScreenViewModel.showBottomSheet)
             }
             .navigationBarBackButtonHidden(true)
-            .ignoresSafeArea()
-            .background(mainScreenViewModel.showBottomSheet ? Color.black.opacity(0.6) : Color.clear )
-           
-            .animation(.easeInOut(duration: 0.7), value: mainScreenViewModel.showBottomSheet)
-            .onTapGesture {
-                withAnimation {
-                    viewModel.resetSheetAnimation(mainScreenViewModel: mainScreenViewModel)
-                }
-            }
            
         }
         .ignoresSafeArea()

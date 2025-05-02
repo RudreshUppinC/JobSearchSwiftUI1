@@ -11,6 +11,7 @@ import SwiftUI
 struct MainScreenView: View {
     @StateObject private var viewModel = BottomNavigationBarViewModel()
     @StateObject  var mainScreenViewModel = MainScreenViewModel()
+    @StateObject  var recentJobListViewModel = RecentJobsListViewModel()
 
     var body: some View {
         NavigationStack{
@@ -20,7 +21,7 @@ struct MainScreenView: View {
                 VStack{
                     switch viewModel.selectedTab{
                     case .home:
-                        HomeTabView(mainScreenViewModel: mainScreenViewModel)
+                        HomeTabView(mainScreenViewModel: mainScreenViewModel, recentJobListViewModel: recentJobListViewModel)
                     case .connect:
                         MyConnectTabView(mainScreenViewModel: mainScreenViewModel)
                     case .post:
@@ -28,7 +29,7 @@ struct MainScreenView: View {
                     case .chat:
                         ChatTabView(mainScreenViewModel: mainScreenViewModel)
                     case .bookmark:
-                        BookMarkTabView(mainScreenViewModel: mainScreenViewModel)
+                        BookMarkTabView(mainScreenViewModel: mainScreenViewModel, recentJobListViewModel: recentJobListViewModel)
                     }
                     
                     BottomNavigationBarView(viewModel: viewModel, mainScreenViewModel: mainScreenViewModel)
