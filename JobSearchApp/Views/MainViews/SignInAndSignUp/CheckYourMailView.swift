@@ -80,6 +80,8 @@ struct CheckYourMailView: View {
                     .navigationBarTitleDisplayMode(.inline)
                    
                 }
+                .ignoresSafeArea(.all)
+                .padding(.vertical,5)
             }
         }
         .navigationBarBackButtonHidden(true)

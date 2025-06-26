@@ -11,6 +11,16 @@ import SwiftUI
 
 class HomeTabViewModel: ObservableObject {
     @Published var isNavigateSeeMoreJobs:Bool = false
+    @Published var isNavigateProfileView:Bool = false
+    @Published var userProfile: UserProfile
+    
+    init(){
+        self.userProfile = UserProfile.exampleLoaded
+    }
+    
+    public func showUserProfile() {
+        isNavigateProfileView = true
+    }
     
 }
 

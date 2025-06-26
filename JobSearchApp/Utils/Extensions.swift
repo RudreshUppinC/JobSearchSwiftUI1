@@ -66,3 +66,35 @@ extension Collection {
         return indices.contains(index) ? self[index] : nil
     }
 }
+
+extension View {
+    func toast(isShowing: Binding<Bool>, message: String, duration: TimeInterval = 2.0) -> some View {
+        self.modifier(
+            ToastModifier(isShowing: isShowing, message: message, duration: duration)
+        )
+    }
+}
+
+extension Date {
+    func formattedForResumeUpload() -> String {
+        return Formatters.resumeUploadFormat.string(from: self)
+    }
+    
+    func formattedForMonthYear() -> String {
+        return Formatters.monthYear.string(from: self)
+    }
+}
+
+struct Formatters {
+    static let monthYear: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM yyyy"
+        return formatter
+    }()
+    
+    static let resumeUploadFormat: DateFormatter = {
+           let formatter = DateFormatter()
+           formatter.dateFormat = "d MMM yyyy 'at' h:mm a"
+           return formatter
+    }()
+}

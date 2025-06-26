@@ -11,10 +11,8 @@ import UIKit
 class ImageProvider {
 
     static func getImage(named imageName: String) -> UIImage? {
-        // Try to load the requested image
         if let image = UIImage(named: imageName) {
             return image
-            
         }
         return UIImage(named: "DefaultImage")
     }

@@ -32,7 +32,7 @@ class UploadCVViewModel: ObservableObject {
         isUploading = true
         progress = 0.0
 
-        cvFileName = fileURL.lastPathComponent // Get the file name
+        cvFileName = fileURL.lastPathComponent 
 
         // Get file size
         do {
@@ -46,10 +46,8 @@ class UploadCVViewModel: ObservableObject {
             return
         }
 
-        // Get upload date (using current date and time)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy 'at' hh:mm a"
-        cvUploadDate = dateFormatter.string(from: Date())
+       
+        cvUploadDate = Formatters.resumeUploadFormat.string(from: Date())
 
 
         // Simulate upload progress
@@ -60,7 +58,6 @@ class UploadCVViewModel: ObservableObject {
                 timer.invalidate()
                 self.isUploading = false
                 self.hasCVUploaded = true
-                // You would typically upload the file to your server here.
                  print("File uploaded: \(fileURL)")
             }
         }

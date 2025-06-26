@@ -13,7 +13,6 @@ import SwiftUI
 
 struct SaveJobDetailPage: View {
     let job: Jobs
-//    @ObservedObject  var mainScreenViewModel : MainScreenViewModel
 
     var body: some View {
         ScrollView { // Use ScrollView for longer content
@@ -63,7 +62,7 @@ struct SaveJobDetailPage: View {
 
                 Spacer() // Push content to the top
             }
-            .padding() // Add padding around the whole content
+           // .padding() 
         }
         .navigationTitle("Job Details")
         .navigationBarTitleDisplayMode(.inline)

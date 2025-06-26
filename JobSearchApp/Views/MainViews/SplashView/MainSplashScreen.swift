@@ -16,11 +16,10 @@ struct MainSplashScreen: View {
         NavigationStack{
             ZStack {
                 // Background Color
-                Color("bgMianView").ignoresSafeArea(.all)
-                
+                Color("bgMianView")
+                    .ignoresSafeArea(.all)
                 ScrollView {
                     VStack {
-                        // JobSpot Text with Padding
                         HStack {
                             Spacer()
                             Text("Jobspot")
@@ -50,7 +49,6 @@ struct MainSplashScreen: View {
                         .frame(width: 300, height: 300)
                         .padding(.bottom, 78)
                         
-                        // Texts: Find Your, Dream Job, JobSpot
                         VStack(spacing: 0) {
                             Text("Find Your")
                                 .font(FontStyle.dmsansBold.font(baseSize: 40))
@@ -72,7 +70,6 @@ struct MainSplashScreen: View {
                         .padding(.leading, 28)
                         .padding(.bottom, 5)
                         
-                        // Description Text: Explore all exciting job roles
                         VStack {
                             Text("Explore all the most exciting job roles based on your interest and study major.")
                                 .font(Font.custom("DMSans-Regular", size: 15))
@@ -81,7 +78,6 @@ struct MainSplashScreen: View {
                         }
                         .padding(.leading, 29)
                         
-                        // Button: Next Arrow in a Circle
                         VStack {
                             NavigationLink(destination: LoginView(), isActive: $isNavigateToUploadView) {
                                 Button(action: {
@@ -104,12 +100,13 @@ struct MainSplashScreen: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     }
-                    .padding()
                 }
+                .padding(.vertical,5)
                 .onAppear{
                     print("Hello")
                 }
             }
+
         }
         .navigationBarBackButtonHidden(true)
     }

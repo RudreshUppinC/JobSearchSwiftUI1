@@ -80,7 +80,8 @@ struct PostTabView: View {
                 .animation(.easeInOut(duration: 0.7), value: mainScreenViewModel.showBottomSheet)
             }
             .navigationBarBackButtonHidden(true)
-           
+            .padding(.vertical, 20)
+
         }
         .ignoresSafeArea()
         

@@ -25,13 +25,17 @@ struct BookMarkTabView: View {
                                 .padding(.bottom, 8)
                                 .background(Color.clear)
                                 .frame(height: 200)
-
                         }
-                    }
                 }
-                .padding(.horizontal)
+
+              }
+              .padding(.horizontal)
+              .background(Color(.systemGray6))
             }
             .background(Color(.systemGray6))
+            .padding(.top,105)
+            .ignoresSafeArea(.all)
+
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Delete all") {
@@ -50,6 +54,8 @@ struct BookMarkTabView: View {
                 }
                 
             }
+            .background(Color(.systemGray6))
+
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -71,7 +77,6 @@ struct JobRow: View {
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .padding(.horizontal)
-                
 
                 HStack(alignment: .top) {
                     

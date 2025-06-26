@@ -40,6 +40,16 @@ struct AppColors {
     
     static let black = Color.black
 
+    
+    //Profile View
+    
+    static let darkPurpleCardColor = Color(red: 19/255, green: 1/255, blue:96/255)
+    static let lightPurpleCardColor = Color(red: 54/255, green: 53/255, blue:60/255)
+    static let dividerColor = Color(red: 222/255, green: 225/255, blue: 231/255)
+    static let gainsboroCoor = Color(red: 0.851, green: 0.851, blue: 0.851)
+    static let brightVioletColor =  Color(red: 117/255, green: 81/255, blue: 255/255)
+ 
+
 //darkIndigoColor
     //header deepIndigo
     //title darkIndigoColor

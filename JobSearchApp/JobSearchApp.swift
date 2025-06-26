@@ -9,12 +9,12 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 @main
-struct JobSearchAppApp: App {
+struct JobSearchApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplashView()
-         //   HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
+           SplashView()
+            //HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
            // RecentJobsListView(mainScreenViewModel: MainScreenViewModel())
             let job = Jobs(companyName: "Google Inc",
                          userRole: "HR Manager",

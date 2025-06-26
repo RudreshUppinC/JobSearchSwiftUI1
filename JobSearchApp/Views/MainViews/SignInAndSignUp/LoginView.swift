@@ -172,7 +172,8 @@ struct LoginView: View {
                     .padding()
                     
                 }
-                
+                .ignoresSafeArea(.all)
+                .padding(.vertical,20)
                 
             }
             

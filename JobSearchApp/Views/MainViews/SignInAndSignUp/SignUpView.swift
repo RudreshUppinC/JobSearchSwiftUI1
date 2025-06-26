@@ -175,6 +175,8 @@ struct SignUpView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(AppColors.paleGray)
                 }
+                .ignoresSafeArea(.all)
+                .padding(.vertical,20)
             }
         }
         .navigationBarBackButtonHidden(true)

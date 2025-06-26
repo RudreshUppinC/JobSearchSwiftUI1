@@ -20,18 +20,32 @@ struct HomeTabView: View {
                                     Text("Hello")
                                         .font(FontStyle.dmsansBold.font(baseSize: 22))
                                         .foregroundColor(AppColors.deepIndigo)
-                                    Text("Orlando Diggs.")
+                                    Text(homeTabViewModel.userProfile.name)
                                         .font(FontStyle.dmsansBold.font(baseSize: 22))
                                         .foregroundColor(AppColors.deepIndigo)
                                 }
                                 Spacer()
-                                
-                                ImageProvider.getImage(named: "usrprofile").map{ image in
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 37, height: 37)
-                                        .clipShape(Circle())
+                                NavigationLink(destination:ProfileView(viewModel:
+                                   ProfileViewModal(
+                                    userProfile: homeTabViewModel.userProfile)
+                                                                      ).navigationBarBackButtonHidden(true) ,
+                                               
+                                               isActive: $homeTabViewModel.isNavigateProfileView){
+                                    
+                                    Button(action:{
+                                        homeTabViewModel.showUserProfile()
+                                    }
+                                        , label: {
+                                        ImageProvider.getImage(named: "usrprofile").map{ image in
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 37, height: 37)
+                                                .clipShape(Circle())
+                                        }
+                                    })
+                                    
+                                    
                                 }
                                 
                             }
@@ -170,6 +184,7 @@ struct HomeTabView: View {
                             }
                         }
                     }
+                    .padding(.top, 10)
 
                 }
             }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-import Foundation
 import SwiftUI
 
 class MainScreenViewModel: ObservableObject {

@@ -77,6 +77,8 @@ struct ForgotPasswordView: View {
                     .padding(.horizontal,30)
                     .navigationBarTitleDisplayMode(.inline)
                 }
+                .ignoresSafeArea(.all)
+                .padding(.vertical,20)
             }
         }
         .navigationBarBackButtonHidden(true)
