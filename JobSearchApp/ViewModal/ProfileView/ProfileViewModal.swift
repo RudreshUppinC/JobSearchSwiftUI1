@@ -12,7 +12,7 @@ import Combine
 class ProfileViewModal: ObservableObject {
     @Published var isAboutMeDetailView: Bool  = false
 
-    @Published var aboutMeText: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor."
+
     @Published var userProfile: UserProfile
 
     init(userProfile:UserProfile) {

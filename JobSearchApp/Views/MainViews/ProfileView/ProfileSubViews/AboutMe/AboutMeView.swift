@@ -1,24 +1,19 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct AboutMeCardView: View { 
-    @ObservedObject  var viewModel: ProfileViewModal
    
-    let title: String = "About me"
     let headerHeight: CGFloat = 70
     let detailsVisibleHeight: CGFloat = 165
-    
-    let contentSpacing: CGFloat = 0
-    
-    init(viewModel: ProfileViewModal) {
-         self.viewModel = viewModel
-    }
-    
+    let aboutMeText: String
+    @Binding var isShowingEditView: Bool
+    let title: String = "About Me"
+
     var body:some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
-                    
                     ImageProvider.getImage(named: "aboutMe").map{
                         image in
                         Image(uiImage: image)
@@ -28,12 +23,14 @@ struct AboutMeCardView: View {
                     }
                     .padding(.trailing,8)
                     Text(title)
-                        .font(FontStyle.dmsansBold .font(baseSize: 12))
+                        .font(FontStyle.dmsansBold.font(baseSize: 12))
                         .foregroundColor(AppColors.darkIndigoColor)
                     Spacer()
-                    NavigationLink(destination: AboutMeCardEditView(), isActive: $viewModel.isAboutMeDetailView) {
+                    NavigationLink(destination: AboutMeCardEditView()
+                        .navigationBarBackButtonHidden(true),
+                                   isActive: $isShowingEditView) {
                         Button(action: {
-                            viewModel.showAboutMeDetailView()
+                            self.isShowingEditView = true
                         }) {
                             ImageProvider.getImage(named: "add").map { image in
                                 Image(uiImage: image)
@@ -46,24 +43,25 @@ struct AboutMeCardView: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical)
-            }
-            .frame(height: headerHeight)
+                
+                VStack{
+                    Divider()
+                        .background(AppColors.dividerColor)
+                }
+                .padding(.bottom,15)
+                .padding(.horizontal,20)
+                
+                Text(aboutMeText)
+                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                    .lineLimit(3)
+                    .foregroundColor(AppColors.dustyLavender)
+                    .padding(.horizontal,20)
 
-           
+            }
+            .frame(height: detailsVisibleHeight)
         }
         .background(Color.white)
         .cornerRadius(12)
-      
     }
-
 }
 
-#Preview{
-    VStack(alignment: .leading, spacing: 30) {
-        AboutMeCardView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded))
-            .shadow(radius: 5)
-    }
-    .padding()
-    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-    .background(Color.gray.opacity(0.1))
-}

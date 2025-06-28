@@ -13,7 +13,7 @@ struct RecentJobsListView: View {
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
     
     @StateObject  var recentJobListViewModel =  RecentJobsListViewModel()
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -23,7 +23,7 @@ struct RecentJobsListView: View {
                 VStack(spacing:20){
                     HStack {
                         Button(action: {
-                           presentationMode.wrappedValue.dismiss()
+                            presentationMode.wrappedValue.dismiss()
                         }){
                             ImageProvider.getImage(named: "BackArrow").map{ image in
                                 Image(uiImage: image)
@@ -57,7 +57,7 @@ struct RecentJobsListView: View {
 struct JobCardView: View {
     let job: Jobs
     @StateObject private var viewModal = UploadCVViewModel()
-
+    
     var body: some View {
         
         RoundedRectangle(cornerRadius: 20)
@@ -92,35 +92,46 @@ struct JobCardView: View {
                         
                         Spacer()
                         
-                        Image(systemName: "bookmark")
-                            .foregroundColor(.gray)
+                        Button(action:{
+                            
+                        }
+                               , label: {
+                            ImageProvider.getImage(named: "bookmarkUnSelect").map{ image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 15, height: 15)
+                            }
+                        })
                     }
-                    .padding(10)
-                    
-                    
+                    .padding(.horizontal,20)
+                    .padding(.top,15)
+
                     HStack{
                         salaryTextView()
                         Spacer()
-                    }.padding(.horizontal,10)
-                    
-                    
+                    }
+                    .padding(.horizontal,20)
+                    .padding(.bottom,10)
+                    .padding(.top,15)
+
                     HStack {
                         Text(job.jobTitle)
-                            .frame(height:24)
                             .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 5)
-                            .background(AppColors.mutatedLavender)
                             .foregroundColor(AppColors.dustyLavender)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(AppColors.mutatedLavender)
                             .cornerRadius(5)
+                        
                         Text(job.jobType)
-                            .frame(height:24)
                             .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 5)
-                            .background(AppColors.mutatedLavender)
                             .foregroundColor(AppColors.dustyLavender)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(AppColors.mutatedLavender)
                             .cornerRadius(5)
+                        
                         Spacer()
                         
                         NavigationLink(destination:DescriptionView(job: job), isActive:$viewModal.isDescriptiveView ){
@@ -130,10 +141,9 @@ struct JobCardView: View {
                             })
                             {
                                 Text("Apply")
-                                    .frame(width: 77, height:24)
                                     .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 4)
+                                    .padding(.horizontal, 25)
+                                    .padding(.vertical, 8)
                                     .background(AppColors.cosmosColor)
                                     .foregroundColor(AppColors.dustyLavender)
                                     .cornerRadius(5)
@@ -141,7 +151,9 @@ struct JobCardView: View {
                         }
                         
                     }
-                    .padding(10)
+                    .padding(.horizontal,20)
+                    .padding(.bottom,15)
+
                 }
                 .padding()
             }
@@ -149,7 +161,7 @@ struct JobCardView: View {
     }
     
     @ViewBuilder
-     func salaryTextView() -> some View {
+    func salaryTextView() -> some View {
         let parts = job.salary.components(separatedBy: " / ")
         let amount  = parts.first ?? job.salary
         let period = parts.count > 1 ? " / " + parts[1] : ""

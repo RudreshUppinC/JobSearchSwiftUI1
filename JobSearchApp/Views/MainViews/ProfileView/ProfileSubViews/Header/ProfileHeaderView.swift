@@ -9,14 +9,10 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     let onEditProfile:() -> Void
-    @ObservedObject  var viewModel: ProfileViewModal
+   // @ObservedObject  var viewModel: ProfileViewModal
+   let userProfile: UserProfile
 
-    init(viewModel: ProfileViewModal,
-         onEditProfile: @escaping () -> Void
-    ) {
-         self.viewModel = viewModel
-         self.onEditProfile = onEditProfile
-    }
+   
     
     var body: some View {
         VStack{
@@ -58,10 +54,10 @@ struct ProfileHeaderView: View {
             // profile title
             
             VStack(alignment: .leading, spacing:5){
-                Text(viewModel.userProfile.name)
+                Text(userProfile.name)
                     .font(FontStyle.dmsansMedium.font(baseSize: 12))
                     .foregroundColor(Color.white)
-                Text(viewModel.userProfile.location)
+                Text(userProfile.location)
                     .font(FontStyle.dmsansRegular.font(baseSize: 10))
                     .foregroundColor(Color.white)
             }
@@ -69,10 +65,10 @@ struct ProfileHeaderView: View {
             .padding(.horizontal,25)
             .padding(.vertical,10)
             
-            HStack(alignment: .center, spacing: 10) {
+            HStack(alignment: .center, spacing: 5) {
                 // MARK: - Follower/Following Info
                 HStack(spacing: 5) {
-                    Text(String(viewModel.userProfile.followerCount))
+                    Text(String(userProfile.followerCount))
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
                     Text("Followers")
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
@@ -80,40 +76,44 @@ struct ProfileHeaderView: View {
                 }
                 
                 HStack(spacing: 5) {
-                    Text(String(viewModel.userProfile.followerCount))
+                    Text(String(userProfile.followerCount))
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
                     Text("Following")
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
 
                 }
                 
-                Spacer()
                 
                 // MARK: - Edit Profile Button
                 Button(action: {
                     print("Edit Profile tapped!")
                 }) {
-                    HStack(spacing: 5) {
+                    HStack(spacing: 10) {
                         Text("Edit profile")
                             .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                        Image(systemName: "pencil")
+                        
+                        ImageProvider.getImage(named: "editWhite").map{ image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 22,height: 2)
+                        }
                     }
-                    .font(.system(size: 12, weight: .semibold))
                     .foregroundColor(.white)
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal,10)
                     .padding(.vertical, 8)
                     .background(
                         (AppColors.gainsboroCoor).opacity(0.25)
                     )
                     .cornerRadius(10)
                 }
+                .frame(width:120,height: 30)
                 
             }
-            .foregroundColor(.white)
-            
-            .padding(.leading, 25)
-            .padding(.trailing, 13)
             .frame(height: 40)
+            .foregroundColor(.white)
+            .padding(.leading, 24)
+            .padding(.trailing, 5)
         }
         .frame(maxWidth:.infinity,idealHeight: 240,maxHeight: 240)
         .background(
@@ -127,7 +127,5 @@ struct ProfileHeaderView: View {
 
 
 #Preview {
-    ProfileHeaderView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded), onEditProfile: {
-        print("edit onEditProfile")
-    })
+    ProfileHeaderView(onEditProfile: {}, userProfile: UserProfile.exampleLoaded)
 }

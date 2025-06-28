@@ -19,7 +19,6 @@ struct SkillTagView: View {
             .background(AppColors.mutatedLavender)
             .clipShape(Capsule())
             .foregroundColor(AppColors.dustyLavender)
-
     }
 }
 @available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
@@ -40,11 +39,11 @@ struct FlowLayout: Layout {
         var totalHeight: CGFloat = 0
 
         for subview in subviews {
-            let subviewSize = subview.sizeThatFits(.unspecified) // Get ideal size
+            let subviewSize = subview.sizeThatFits(.unspecified)
 
-            if currentX + subviewSize.width > containerWidth && currentX > 0 { // New row
+            if currentX + subviewSize.width > containerWidth && currentX > 0 {
                 currentY += rowHeight + spacing
-                totalHeight = currentY // Update total height before adding new row height
+                totalHeight = currentY
                 currentX = 0
                 rowHeight = 0
             }
@@ -52,7 +51,7 @@ struct FlowLayout: Layout {
             currentX += subviewSize.width + spacing
             rowHeight = max(rowHeight, subviewSize.height)
         }
-        totalHeight += rowHeight // Add height of the last row
+        totalHeight += rowHeight
 
         return CGSize(width: containerWidth, height: totalHeight)
     }
@@ -67,7 +66,7 @@ struct FlowLayout: Layout {
         for subview in subviews {
             let subviewSize = subview.sizeThatFits(.unspecified)
 
-            if currentX + subviewSize.width > bounds.maxX && currentX > bounds.minX { // New row
+            if currentX + subviewSize.width > bounds.maxX && currentX > bounds.minX { 
                 currentY += rowHeight + spacing
                 currentX = bounds.minX
                 rowHeight = 0

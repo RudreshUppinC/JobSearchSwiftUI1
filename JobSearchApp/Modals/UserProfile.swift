@@ -18,7 +18,8 @@ struct UserProfile: Identifiable {
     var educations: [Education]
     var skills: [Skill]
     var languages: [Languages]
-    var appreciation: [Appreciation]
+    var appreciations: [Appreciation]
+    var resumes: [Resume]
 
     static var exampleLoaded: UserProfile {
         UserProfile(
@@ -27,7 +28,7 @@ struct UserProfile: Identifiable {
             profileImageURL: URL(string: "https://example.com/orlando.jpg"),
             followerCount: 12000,
             followingCount: 23000,
-            aboutMe: "This is the fully loaded bio for Orlando Diggs. I enjoy coding in SwiftUI and long walks on the beach.",
+            aboutMe: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor.",
             workExperiences: [
                 WorkExperience(
                     jobTitle: "Senior iOS Developer",
@@ -71,13 +72,32 @@ struct UserProfile: Identifiable {
         
             ],
             
-            appreciation: [
+            appreciations: [
                 Appreciation(
-                    fieldname:"Wireless Symposium (RWS)",
-                    jobTitle: "Young Scientist",
-                    startDate: UserProfile.createSampleDate(year: 2014, month: 23),
-                    endDate: UserProfile.createSampleDate(year: 2015, month: 31),
+                    title:"Wireless Symposium (RWS)",
+                    issuer: "Young Scientist",
+                    date: UserProfile.createSampleDate(year: 2021, month: 9),
+                ),
+                Appreciation(
+                    title:"Wireless Symposium (RWS)",
+                    issuer: "Young Scientist",
+                    date: UserProfile.createSampleDate(year: 2021, month: 9),
                 )
+            ],
+        
+            resumes: [
+                Resume(
+                    fileName: "Young Scientist",
+                    fileSizeInKB: 80,
+                    uploadDate: UserProfile.createSampleDate(year: 2021, month: 9),
+
+                ),
+                Resume(
+                    fileName: "Young Scientist1",
+                    fileSizeInKB: 80,
+                    uploadDate: UserProfile.createSampleDate(year: 2021, month: 9),
+
+                ),
             ]
         )
     }
@@ -90,9 +110,6 @@ struct UserProfile: Identifiable {
         return Calendar.current.date(from: components)!
     }
 }
-
-
-
 
 struct WorkExperience: Identifiable,DatedExperience {
     let id: UUID = UUID()
@@ -122,15 +139,20 @@ struct Languages: Identifiable, Hashable {
     var langName: String
 }
 
-struct Appreciation: Identifiable {
-    
+struct Appreciation: Identifiable ,Hashable{
     let id: UUID = UUID()
-    var fieldname: String
-    var jobTitle: String
-    var startDate: Date
-    var endDate: Date?
+    var title: String      
+    var issuer: String
+    var date: Date
 }
 
+struct Resume: Identifiable {
+    let id = UUID()
+    let fileName: String
+    let fileSizeInKB: Double
+    let uploadDate: Date
+
+}
 
 extension DatedExperience {
     

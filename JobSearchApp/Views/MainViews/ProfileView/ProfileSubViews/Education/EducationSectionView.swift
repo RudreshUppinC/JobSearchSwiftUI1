@@ -8,31 +8,13 @@
 import SwiftUI
 
 struct EducationSectionView: View {
-    let education:[Education]
+    let educations:[Education]
     let onAdd:() -> Void
     let onEditEducation:(Education) -> Void
-
-    let title: String = "Education "
-    let headerHeight: CGFloat = 60
-    
-    let contentSpacing: CGFloat = 0
-    
-    @ObservedObject var vm:ProfileViewModal
-    
-    init(viewModel: ProfileViewModal,
-         onAdd: @escaping () -> Void,
-         onEditEducation: @escaping(Education) -> Void,
-         education:[Education],
-    ) {
-          self.vm = viewModel
-          self.onAdd = onAdd
-          self.onEditEducation = onEditEducation
-          self.education = education
-    }
+    let title: String = "Education"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     ImageProvider.getImage(named: "education").map{
@@ -68,11 +50,11 @@ struct EducationSectionView: View {
                 }
                 .padding(.top,20)
                 .padding(.horizontal,20)
-                                
+                .padding(.bottom,20)
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 4) {
-                        ForEach(vm.userProfile.educations) { educationItem in
+                        ForEach(educations) { educationItem in
                             Text(educationItem.degreeOrField)
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
                                 .foregroundColor(AppColors.darkIndigoColor)
@@ -87,8 +69,8 @@ struct EducationSectionView: View {
                         }
                     }
                     
-                    
                     Spacer()
+                    
                     Button(action: {
                           
                       }) {
@@ -100,14 +82,11 @@ struct EducationSectionView: View {
                                       .frame(width: 24, height: 24)
                               }
                       }
-
                 }
                 .padding(.bottom, 20)
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
-
-           
         }
         .background(Color.white)
         .cornerRadius(12)
@@ -115,21 +94,3 @@ struct EducationSectionView: View {
     
  }
 
-#Preview {
-    let sampleEducation = [
-        Education(degreeOrField: "Computer Science ", institutionName: "University of Oxford",
-                  startDate: UserProfile.createSampleDate(year: 2010, month: 9),
-                  endDate: UserProfile.createSampleDate(year: 2013, month: 2),
-                  duration:"2 years"),
-        
-          Education(degreeOrField: "Information Technology", institutionName: "University of Oxford",
-                    startDate: UserProfile.createSampleDate(year: 2010, month: 9),
-                    endDate: UserProfile.createSampleDate(year: 2013, month: 2),  
-                    duration:"2 years")
-
-       ]
-    
-    EducationSectionView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded), onAdd: {
-        
-    }, onEditEducation: { education in }, education: sampleEducation)
-}

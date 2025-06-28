@@ -8,27 +8,11 @@
 import SwiftUI
 
 struct WorkExperienceSectionView: View {
-    let experience: [WorkExperience]
+    let title: String = "Work experience"
     let onAdd:() ->Void
     let onEditExperience:(WorkExperience) ->Void
+    let workExperience: [WorkExperience]
     
-    let title: String = "Work experience"
-    let headerHeight: CGFloat = 60
-    
-    let contentSpacing: CGFloat = 0
-    
-    @ObservedObject var vm:ProfileViewModal
-    
-    init(viewModel: ProfileViewModal,
-         experience:[WorkExperience],
-         onAdd: @escaping () -> Void,
-         onEditExperience: @escaping(WorkExperience) -> Void
-    ) {
-        self.vm = viewModel
-        self.experience = experience
-        self.onAdd = onAdd
-        self.onEditExperience = onEditExperience
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -80,7 +64,7 @@ struct WorkExperienceSectionView: View {
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 4) {
-                        ForEach(vm.userProfile.workExperiences.prefix(1)) { experienceItem in
+                        ForEach(workExperience.prefix(1)) { experienceItem in
                             Text(experienceItem.jobTitle)
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
                                 .foregroundColor(AppColors.darkIndigoColor)
@@ -126,23 +110,23 @@ struct WorkExperienceSectionView: View {
 }
 
 
-#Preview {
-    let sampleExperiences = [
-        WorkExperience(jobTitle: "Manager" ,
-                       companyName:"Amazon" ,
-                       startDate: UserProfile.createSampleDate(year: 2015, month: 1),
-                       endDate: UserProfile.createSampleDate(year: 2022, month: 2)),
-        
-        WorkExperience(jobTitle: "Manager1" ,
-                       companyName:"Amazon" ,
-                       startDate: UserProfile.createSampleDate(year: 2015, month: 1),
-                       endDate: UserProfile.createSampleDate(year: 2022, month: 2) )
-        
-    ]
-    WorkExperienceSectionView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded),
-                              experience: sampleExperiences,
-                              onAdd: {},
-                              onEditExperience: { experience in
-        print(experience)
-    })
-}
+//#Preview {
+//    let sampleExperiences = [
+//        WorkExperience(jobTitle: "Manager" ,
+//                       companyName:"Amazon" ,
+//                       startDate: UserProfile.createSampleDate(year: 2015, month: 1),
+//                       endDate: UserProfile.createSampleDate(year: 2022, month: 2)),
+//        
+//        WorkExperience(jobTitle: "Manager1" ,
+//                       companyName:"Amazon" ,
+//                       startDate: UserProfile.createSampleDate(year: 2015, month: 1),
+//                       endDate: UserProfile.createSampleDate(year: 2022, month: 2) )
+//        
+//    ]
+//    WorkExperienceSectionView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded),
+//                              experience: sampleExperiences,
+//                              onAdd: {},
+//                              onEditExperience: { experience in
+//        print(experience)
+//    })
+//}

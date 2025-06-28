@@ -39,7 +39,7 @@ struct UploadCVSuccessView: View {
                 .background(Color("slightPink"))
             }
             .padding(.vertical, 30)
-            .cornerRadius(8) // Add corner radius for a cleaner look. Optional.
+            .cornerRadius(8)
             
             // Success Content
             VStack(spacing: 20) {

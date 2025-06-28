@@ -11,83 +11,85 @@ import SwiftUI
 // MARK: 1. Reusable Components
 
 struct LanguagePillView: View {
-    let languageName: String
+    var languageName: String
     
     var body: some View {
         Text(languageName)
-            .font(.system(size: 14, weight: .medium))
-            .foregroundColor(.black) // Your text color
-            .padding(.horizontal, 16)
+            .font(FontStyle.dmsansRegular.font(baseSize: 12))
+            .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(Color.gray.opacity(0.15)) // Your pill color
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .background(AppColors.mutatedLavender)
+            .clipShape(Capsule())
+            .foregroundColor(AppColors.dustyLavender)
     }
 }
 
 
 // MARK: 2. The Main Card View
 
+@available(iOS 16.0, *)
 struct LanguageSectionView: View {
-    // Pass in the data this view needs
-    let languages: [String]
+
     let onEdit: () -> Void
+    let onAdd:() -> Void
+    var languages: [Languages]
+    let title: String = "Appreciation"
+         
     
     var body: some View {
-        VStack(spacing: 0) {
-            
+        VStack(alignment: .leading, spacing: 16) {
+            // MARK: - Edit Profile Button
             HStack {
-                Button(action: {
-
-                }) {
-                    ImageProvider.getImage(named: "add").map { image in
+                ImageProvider.getImage(named: "language").map{
+                    image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:24, height:24)
+                }
+                  .padding(.trailing,8)
+                
+                Text("Language")
+                        .font(FontStyle.dmsansBold .font(baseSize: 12))
+                        .foregroundColor(AppColors.darkIndigoColor)
+                    
+                Spacer()
+                Button(action: onEdit) {
+                    ImageProvider.getImage(named: "add").map{
+                        image in
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
-                            .frame(width:24,height:24)
+                            .frame(width:24, height:24)
                     }
                 }
-                .padding(.trailing,8)
-              
-                              
-                  Text("Language")
-                      .font(FontStyle.dmsansBold .font(baseSize: 12))
-                      .foregroundColor(AppColors.darkIndigoColor)
-                
-            
-                
-                Button(action: {
-
-                }) {
-                    ImageProvider.getImage(named: "editOrange").map { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:24,height:24)
-                    }
-                }
-
             }
-            .padding(.bottom, 12)
-            
+            .padding(.horizontal)
+            .padding(.vertical,15)
+
             VStack{
                 Divider()
                     .background(AppColors.dividerColor)
             }
-            .padding(.top,20)
             .padding(.horizontal,20)
-         
+
+            // MARK: - Language Tag
+
+            FlowLayout(spacing: 10) {
+                ForEach(languages) { item in
+                    LanguagePillView(languageName: item.langName)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.bottom,15)
+
 
         }
-        .padding(20)
         .background(Color.white)
-        .cornerRadius(20)
-        .shadow(color: .black.opacity(0.05), radius: 10, y: 5)
+         .cornerRadius(12)
+
+        
     }
 }
 
 
-struct LanguageExampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        LanguageSectionView(languages: [""], onEdit: {})
-    }
-}

@@ -48,33 +48,10 @@ struct AppColors {
     static let dividerColor = Color(red: 222/255, green: 225/255, blue: 231/255)
     static let gainsboroCoor = Color(red: 0.851, green: 0.851, blue: 0.851)
     static let brightVioletColor =  Color(red: 117/255, green: 81/255, blue: 255/255)
- 
+    static let slatePurpleColor =  Color(red: 137/255, green: 131/255, blue: 163/255)
 
-//darkIndigoColor
-    //header deepIndigo
-    //title darkIndigoColor
-    //dustyLavender sub title
-    
-//dustyLavender
-    //darkIndigoColor
-    //paleLavender
-    //pinkbutton bordercolor
-    //deepIndigo title color
-   // paleLavender subtitle
-    //deepIndigo title button
-    //viewbg color paleGray
-    
-    //HomeColors
-        //deepIndigo
-        //white
-        //orangeColor
-        //darkIndigoColor  for text
-         // dustyLavender text
-    //pastelLavender apple
-    //mutatedLavender
-    //dustyLavender for text
-    //paleLavender
-    //dustyLavender
+
+
     
     static let lightCyanColor = Color(red: 175/255, green: 236/255, blue: 254/255)
     static let skyLavender = Color(red: 190/255, green: 175/255, blue: 254/255)

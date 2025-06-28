@@ -7,120 +7,80 @@
 
 import SwiftUI
 
-struct ResumeCardSection: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    ResumeCardSection()
-}
-
-import SwiftUI
-
-// MARK: 1. The Data Model
-struct Resume: Identifiable {
-    let id = UUID()
-    let fileName: String
-    let fileSizeInKB: Double
-    let uploadDate: Date
-    let fileType: String = "PDF"
-}
-
-// MARK: 2. The Reusable Row Component
-struct ResumeItemView: View {
-    let resume: Resume
-    let onDelete: () -> Void
-    
-  
-    
-    var body: some View {
-        HStack(spacing: 12) {
-            // --- File Type Icon ---
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.red.opacity(0.8))
-                    .frame(width: 50, height: 60)
-                
-                Text(resume.fileType)
-                    .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(.white)
-            }
-            
-            // --- File Info ---
-            VStack(alignment: .leading, spacing: 4) {
-                Text(resume.fileName)
-                    .font(FontStyle.dmsansBold.font(baseSize: 12))
-                    .foregroundColor(.black.opacity(0.9))
-                Text("\(String(format: "%.0f", resume.fileSizeInKB)) Kb • \(resume.uploadDate.formattedForResumeUpload())")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                    .foregroundColor(.gray)
-            }
-            
-            Spacer()
-            
-            // --- Delete Button ---
-            Button(action: onDelete) {
-                Image(systemName: "trash")
-                    .font(.title2)
-                    .foregroundColor(.red)
-            }
-        }
-    }
-}
-
-
-// MARK: 3. The Main Card View
 struct ResumeCardView: View {
-    let resumes: [Resume]
     let onAdd: () -> Void
     let onDelete: (Resume) -> Void
-    
+    let onEdit: () -> Void
+ 
+    var resumes: [Resume]
+    let title: String = "Resume"
+            
     var body: some View {
+      
         VStack(spacing: 0) {
             // --- Header Section ---
             HStack {
-                // I will add my image later
-                Image(systemName: "person.text.rectangle")
-                    .font(.title3)
-                    .foregroundColor(.orange)
+                ImageProvider.getImage(named: "resume").map{
+                    image in
+                    Image(uiImage: image)
+                        .scaledToFit()
+                        .frame(width:24, height:24)
+                }
+                .padding(.trailing,8)
                 
-                Text("Resume")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(Color.black.opacity(0.8))
+                Text(title)
+                    .font(FontStyle.dmsansBold .font(baseSize: 12))
+                    .foregroundColor(AppColors.darkIndigoColor)
                 
                 Spacer()
                 
-                Button(action: onAdd) {
-                    // I will add my image later
-                    Image(systemName: "plus")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(.orange)
-                        .padding(8)
-                        .background(Color.orange.opacity(0.15))
-                        .clipShape(Circle())
+                Button(action:onEdit){
+                    ImageProvider.getImage(named: "add").map{ image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
                 }
             }
             
             // --- List of Resumes ---
-            VStack(spacing: 20) {
-                // In a real app, you would have a ForEach loop here.
-                // For this example, we show the first one if it exists.
-                if let firstResume = resumes.first {
-                    // Add a divider if there are items
-                    Divider().padding(.vertical, 12)
-                    
-                    ResumeItemView(resume: firstResume) {
-                        onDelete(firstResume)
-                    }
-                } else {
-                    // Optional: Show a message if there are no resumes
-                    Text("No resume uploaded.")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.top, 20)
+                VStack{
+                    Divider()
+                        .background(AppColors.dividerColor)
                 }
+                .padding(.vertical,20)
+                .padding(.horizontal)
+                
+                HStack(spacing: 12) {
+                    // --- File Type Icon ---
+                    Button(action:onEdit){
+                        ImageProvider.getImage(named: "PDF").map{ image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 44, height: 44)
+                        }
+                    }
+                    
+                    // --- File Info ---
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(resumes.prefix(1).first?.fileName ?? "")
+                            .font(FontStyle.dmsansBold.font(baseSize: 12))
+                            .foregroundColor(AppColors.darkIndigoColor).opacity(0.9)
+                        Text("\(String(format: "%.0f",resumes.prefix(1).first?.fileSizeInKB ?? "")) Kb • \( resumes.prefix(1).first?.uploadDate.formattedForResumeUpload() ?? "")")
+                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
+                            .foregroundColor(AppColors.slatePurpleColor)
+                    }
+                    
+                    Spacer()
+                    
+                    // --- Delete Button ---
+                    Button(action: onEdit) {
+                        Image(systemName: "trash")
+                            .font(.title2)
+                            .foregroundColor(.red)
+                    }
             }
         }
         .padding(20)
@@ -131,41 +91,3 @@ struct ResumeCardView: View {
 }
 
 
-// MARK: 4. Example Usage and Preview
-struct ResumeExampleView: View {
-    // Create some sample data to display
-    @State private var sampleResumes: [Resume] = [
-        Resume(
-            fileName: "Jamet kudasi - CV - UI/UX Designer",
-            fileSizeInKB: 867,
-            uploadDate: Date() // Using current date for simplicity
-        )
-    ]
-    
-    var body: some View {
-        ZStack {
-            // A background to make the card stand out
-            Color(UIColor.systemGray6).ignoresSafeArea()
-            
-            ResumeCardView(
-                resumes: sampleResumes,
-                onAdd: {
-                    print("Add new resume tapped!")
-                },
-                onDelete: { resumeToDelete in
-                    print("Delete tapped for: \(resumeToDelete.fileName)")
-                    // In a real app, you'd remove it from the array
-                    // sampleResumes.removeAll { $0.id == resumeToDelete.id }
-                }
-            )
-            .padding()
-        }
-    }
-}
-
-// MARK: - Preview
-struct ResumeExampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResumeExampleView()
-    }
-}

@@ -23,45 +23,41 @@ struct ProfileView:View{
                         Spacer()
                     }
                     .padding(.top)
-                    .padding(.horizontal)
-                    
+                    .padding(.horizontal,5)
                     
                     ScrollView {
                         
-                        VStack(spacing:10){
+                        VStack(spacing:15){
                             
                             //Profile Header
-                            ProfileHeaderView(viewModel: ProfileViewModal(userProfile: viewModel.userProfile),onEditProfile:{})
+                            ProfileHeaderView(onEditProfile: {}, userProfile: UserProfile.exampleLoaded)
                             
                             //About MeCard
-                            AboutMeCardView(viewModel:  ProfileViewModal(userProfile: viewModel.userProfile))
+                            AboutMeCardView(
+                                aboutMeText: viewModel.userProfile.aboutMe,
+                                isShowingEditView: $viewModel.isAboutMeDetailView)
                             
                             //Work Header
                             
-                            WorkExperienceSectionView(viewModel: ProfileViewModal(userProfile: viewModel.userProfile),
-                                                      experience: viewModel.userProfile.workExperiences,
-                                                      onAdd: {  },
-                                                      onEditExperience: { experience in  }
-                            )
+                            WorkExperienceSectionView(onAdd: {}, onEditExperience: {expereience in }, workExperience: viewModel.userProfile.workExperiences)
                             
                             //Education
                             
-                            EducationSectionView(viewModel: ProfileViewModal(userProfile: viewModel.userProfile), onAdd: {
-                                
-                            }, onEditEducation: { education in }, education: viewModel.userProfile.educations)
-                            
+                            EducationSectionView(educations: viewModel.userProfile.educations, onAdd: {}, onEditEducation: { education in })
                             
                             //Skills
                             
-                            SkillsSectionView(vm: viewModel, onEdit: {})
+                            SkillsSectionView(onEdit: {}, skills: viewModel.userProfile.skills)
                             
                             //Language
                             
-                            
+                            LanguageSectionView(onEdit: {}, onAdd: {}, languages: viewModel.userProfile.languages)
                             //Appreciation
                             
+                            AppreciationSectionView(appreciations: viewModel.userProfile.appreciations, onAdd: {}, onEditAppreciation: { oneditappreciation in })
+                          
                             //Resume
-                            
+                            ResumeCardView(onAdd: {}, onDelete: {resums in }, onEdit: {}, resumes: viewModel.userProfile.resumes)
                         }
                         .padding(.horizontal,10)
                         
@@ -69,18 +65,17 @@ struct ProfileView:View{
                     .scrollIndicators(.hidden)
                     .padding(.vertical,5)
                 }
-                
-                
+                .padding(.horizontal,5)
             }
-            
         }
+
     }
 }
 
 
 #Preview{
     if #available(iOS 16.0, *) {
-        let user =  UserProfile(name: "", location: "", followerCount: 1, followingCount: 1, aboutMe: "", workExperiences: [], educations: [], skills: [],languages: [], appreciation:[])
+        let user =  UserProfile(name: "", location: "", followerCount: 1, followingCount: 1, aboutMe: "", workExperiences: [], educations: [], skills: [],languages: [], appreciations:[], resumes: [])
         
         ProfileView(viewModel: ProfileViewModal(userProfile: user))
     } else {

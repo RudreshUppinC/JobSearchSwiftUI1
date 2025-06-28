@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct SkillsSectionView: View {
-    @ObservedObject var vm: ProfileViewModal
     let onEdit: () -> Void
-
+    let skills:[Skill]
     @State private var isExpanded: Bool = false
     let initialDisplayLimit = 5
 
     private var skillsToDisplay: [Skill] {
         if isExpanded {
-            return vm.userProfile.skills
+            return skills
         } else {
-            return Array(vm.userProfile.skills.prefix(initialDisplayLimit))
+            return Array(skills.prefix(initialDisplayLimit))
         }
     }
 
     private var remainingSkillsCount: Int {
-        max(0, vm.userProfile.skills.count - initialDisplayLimit)
+        max(0, skills.count - initialDisplayLimit)
     }
 
     var body: some View {
@@ -57,9 +56,14 @@ struct SkillsSectionView: View {
                 }
             }
             .padding(.horizontal)
+            .padding(.vertical,15)
 
-            Divider().padding(.horizontal)
-
+            VStack{
+                Divider()
+                    .background(AppColors.dividerColor)
+            }
+            .padding(.horizontal,20)
+            
             // MARK: - Skills Flow Layout
             if #available(iOS 16.0, macOS 13.0, *) {
                 FlowLayout(spacing: 10) {
@@ -90,7 +94,7 @@ struct SkillsSectionView: View {
 
 
             // MARK: - See More Button
-            if !vm.userProfile.skills.isEmpty && remainingSkillsCount > 0 {
+            if !skills.isEmpty && remainingSkillsCount > 0 {
                 HStack {
                     Spacer()
                     Button(action: {
@@ -105,44 +109,15 @@ struct SkillsSectionView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                .padding(.top, 8)
+                .padding(.bottom,10)
+
             }
         }
-        .padding(.vertical)
         .background(Color.white)
-         .cornerRadius(12)
+        .cornerRadius(12)
+
     }
 }
 
-struct SkillsSectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        let mockVM = ProfileViewModal(userProfile: UserProfile.exampleLoaded)
-        
-        let fewSkillsVM = ProfileViewModal(userProfile: UserProfile.exampleLoaded)
-
-        let noSkillsVM = ProfileViewModal(userProfile: UserProfile.exampleLoaded)
-        noSkillsVM.userProfile.skills = []
-
-
-        return Group {
-           
-
-            SkillsSectionView(vm: mockVM, onEdit: {})
-                .padding()
-                .previewLayout(.sizeThatFits)
-                .previewDisplayName("Default (iOS 16+)")
-
-            SkillsSectionView(vm: fewSkillsVM, onEdit: {})
-                .padding()
-                .previewLayout(.sizeThatFits)
-                .previewDisplayName("Few Skills")
-
-            SkillsSectionView(vm: noSkillsVM, onEdit: {})
-                .padding()
-                .previewLayout(.sizeThatFits)
-                .previewDisplayName("No Skills")
-        }
-    }
-}
 
 
