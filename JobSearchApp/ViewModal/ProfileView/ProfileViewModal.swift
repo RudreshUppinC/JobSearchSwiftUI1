@@ -11,6 +11,7 @@ import Combine
 
 class ProfileViewModal: ObservableObject {
     @Published var isAboutMeDetailView: Bool  = false
+    @Published var isEditProfileDetailView: Bool  = false
 
 
     @Published var userProfile: UserProfile

@@ -30,7 +30,7 @@ struct ProfileView:View{
                         VStack(spacing:15){
                             
                             //Profile Header
-                            ProfileHeaderView(onEditProfile: {}, userProfile: UserProfile.exampleLoaded)
+                            ProfileHeaderView(onEditProfile: {}, userProfile: UserProfile.exampleLoaded, isShowingEditProfile: $viewModel.isEditProfileDetailView)
                             
                             //About MeCard
                             AboutMeCardView(

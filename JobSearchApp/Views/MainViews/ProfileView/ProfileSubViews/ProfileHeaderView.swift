@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct ProfileHeaderView: View {
     let onEditProfile:() -> Void
    // @ObservedObject  var viewModel: ProfileViewModal
    let userProfile: UserProfile
 
    
-    
+    @Binding var isShowingEditProfile: Bool
+
     var body: some View {
         VStack{
             
@@ -82,11 +84,14 @@ struct ProfileHeaderView: View {
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
 
                 }
-                
+                NavigationLink(destination: EditProfileDetailPage()
+                    .navigationBarBackButtonHidden(true),
+                               isActive: $isShowingEditProfile) {
+               
                 
                 // MARK: - Edit Profile Button
                 Button(action: {
-                    print("Edit Profile tapped!")
+                    isShowingEditProfile = true
                 }) {
                     HStack(spacing: 10) {
                         Text("Edit profile")
@@ -108,6 +113,8 @@ struct ProfileHeaderView: View {
                     .cornerRadius(10)
                 }
                 .frame(width:120,height: 30)
+                }
+
                 
             }
             .frame(height: 40)
@@ -125,7 +132,3 @@ struct ProfileHeaderView: View {
     }
 }
 
-
-#Preview {
-    ProfileHeaderView(onEditProfile: {}, userProfile: UserProfile.exampleLoaded)
-}
