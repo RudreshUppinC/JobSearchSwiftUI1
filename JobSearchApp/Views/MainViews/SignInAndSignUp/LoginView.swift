@@ -43,35 +43,39 @@ struct LoginView: View {
                             TextField("Email Address", text: $loginViewModal.email)
                                 .padding()
                                 .background(AppColors.white)
-                                .cornerRadius(10)
+                                .cornerRadius(12)
                         }
                         .padding(.bottom, 20)
                         
-                        VStack(alignment: .leading) {
+                        
+                        VStack(alignment: .leading, spacing: 5) {
                             Text("Password")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.deepIndigo)
-                            
+                                .foregroundColor(AppColors.deepIndigo)                            
                             HStack {
+                                
                                 SecureField("Password", text: $loginViewModal.password)
                                     .padding()
                                     .autocapitalization(.none)
-                                HStack {
-                                    Button(action: {
-                                        loginViewModal.isPasswordVisible.toggle()
-                                        print("Toggle", $loginViewModal.isPasswordVisible)
-                                    }) {
-                                        Image(systemName: loginViewModal.isPasswordVisible ? "eye.fill" : "eye.slash.fill")
-                                            .foregroundColor(AppColors.steelBlue)
-                                            .padding(5)
-                                    }
-                                    .cornerRadius(10)
+                                
+                                
+                                Button(action: {
+                                    loginViewModal.isPasswordVisible.toggle()
+                                    print("Toggle", $loginViewModal.isPasswordVisible)
+                                }) {
+                                    Image(systemName: loginViewModal.isPasswordVisible ? "eye.fill" : "eye.slash.fill")
+                                        .foregroundColor(AppColors.steelBlue)
+                                        .padding(5)
                                 }
+                                .cornerRadius(10)
+                                Spacer()
                             }
                             .background(AppColors.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                             
                         }
-                        .padding(.bottom, 10)
+                        
+                        
                         VStack {
                             HStack{
                                 Button{
