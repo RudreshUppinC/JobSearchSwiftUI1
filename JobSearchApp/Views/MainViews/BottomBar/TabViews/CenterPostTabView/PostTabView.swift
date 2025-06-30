@@ -10,17 +10,17 @@ struct PostTabView: View {
     
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
     @ObservedObject var viewModel: BottomNavigationBarViewModel
-
+    
     var body: some View {
         ZStack {
             if mainScreenViewModel.showBottomSheet {
-                          Color.black.opacity(0.6)
-                              .ignoresSafeArea()
-                              .onTapGesture {
-                                  withAnimation {
-                                      viewModel.resetSheetAnimation(mainScreenViewModel: mainScreenViewModel)
-                                  }
-               }
+                Color.black.opacity(0.6)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            viewModel.resetSheetAnimation(mainScreenViewModel: mainScreenViewModel)
+                        }
+                    }
             }
             GeometryReader { geometry in
                 VStack {
@@ -81,7 +81,7 @@ struct PostTabView: View {
             }
             .navigationBarBackButtonHidden(true)
             .padding(.vertical, 20)
-
+            
         }
         .ignoresSafeArea()
         

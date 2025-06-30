@@ -12,7 +12,7 @@ struct SkillsSectionView: View {
     let skills:[Skill]
     @State private var isExpanded: Bool = false
     let initialDisplayLimit = 5
-
+    
     private var skillsToDisplay: [Skill] {
         if isExpanded {
             return skills
@@ -20,11 +20,11 @@ struct SkillsSectionView: View {
             return Array(skills.prefix(initialDisplayLimit))
         }
     }
-
+    
     private var remainingSkillsCount: Int {
         max(0, skills.count - initialDisplayLimit)
     }
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // MARK: - Header
@@ -37,13 +37,13 @@ struct SkillsSectionView: View {
                         .scaledToFit()
                         .frame(width:24, height:24)
                 }
-                  .padding(.trailing,8)
+                .padding(.trailing,8)
                 
-                                
-                    Text("Skill")
-                        .font(FontStyle.dmsansBold .font(baseSize: 12))
-                        .foregroundColor(AppColors.darkIndigoColor)
-                    
+                
+                Text("Skill")
+                    .font(FontStyle.dmsansBold .font(baseSize: 12))
+                    .foregroundColor(AppColors.darkIndigoColor)
+                
                 Spacer()
                 Button(action: onEdit) {
                     ImageProvider.getImage(named: "editOrange").map{
@@ -57,7 +57,7 @@ struct SkillsSectionView: View {
             }
             .padding(.horizontal)
             .padding(.vertical,15)
-
+            
             VStack{
                 Divider()
                     .background(AppColors.dividerColor)
@@ -91,8 +91,8 @@ struct SkillsSectionView: View {
                 }
                 .padding(.horizontal)
             }
-
-
+            
+            
             // MARK: - See More Button
             if !skills.isEmpty && remainingSkillsCount > 0 {
                 HStack {
@@ -110,12 +110,12 @@ struct SkillsSectionView: View {
                 }
                 .padding(.horizontal)
                 .padding(.bottom,10)
-
+                
             }
         }
         .background(Color.white)
         .cornerRadius(12)
-
+        
     }
 }
 

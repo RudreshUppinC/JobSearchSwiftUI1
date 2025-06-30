@@ -10,11 +10,10 @@ import Combine
 import SwiftUI
 
 class RecentJobsListViewModel: ObservableObject {
-
+    
     @Published var jobsData:[Jobs] = []
     @Published var selectedJobIndex: Int?
-
-   
+    
     init(){
         jobsData = loadJobsData()
     }
@@ -28,7 +27,7 @@ class RecentJobsListViewModel: ObservableObject {
     }
     
     private func loadJobsData() -> [Jobs] {
-
+        
         return[
             
             Jobs(companyName: "Google Inc",
@@ -47,18 +46,18 @@ class RecentJobsListViewModel: ObservableObject {
                     "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                     "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                ],
+                 ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                 ),
-
+            
             Jobs(companyName: "Dribbble Inc",
                  userRole: "Engineering Lead",
                  companyImageName: "dribbbleIcon",
@@ -76,18 +75,18 @@ class RecentJobsListViewModel: ObservableObject {
                     "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                     "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                ],
+                 ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                 ),
-
+            
             Jobs(companyName: "Twitter Inc",
                  userRole: "Recruiting Specialist",
                  companyImageName: "twitterIcon",
@@ -105,18 +104,18 @@ class RecentJobsListViewModel: ObservableObject {
                     "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                     "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                ],
+                 ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                 ),
-
+            
             Jobs(companyName: "Facebook Inc",
                  userRole: "Hiring Manager",
                  companyImageName: "facebookIcon",
@@ -134,20 +133,20 @@ class RecentJobsListViewModel: ObservableObject {
                     "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                     "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                ],
+                 ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                  
                 ),
-         
-             
+            
+            
             Jobs(companyName: "Microsoft Inc",
                  userRole: "Hiring Manager",
                  companyImageName: "microsoftIcon",
@@ -166,16 +165,16 @@ class RecentJobsListViewModel: ObservableObject {
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
                  ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                 ),
-             
+            
             Jobs(companyName: "Apple Inc",
                  userRole: "Hiring Manager",
                  companyImageName: "appleIcon",
@@ -194,19 +193,17 @@ class RecentJobsListViewModel: ObservableObject {
                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
                  ],
                  facilities :[
-                     "Medical",
-                     "Dental",
-                     "Technical Certification",
-                     "Meal Allowance",
-                     "Transport Allowance",
-                     "Regular Hours",
-                     "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                  ]
                 )
         ]
     }
-    
-
-    
+      
 }
 

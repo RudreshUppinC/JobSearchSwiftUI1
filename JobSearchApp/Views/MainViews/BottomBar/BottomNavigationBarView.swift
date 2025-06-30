@@ -12,7 +12,7 @@ import SwiftUI
 struct BottomNavigationBarView: View {
     @ObservedObject var viewModel: BottomNavigationBarViewModel
     @ObservedObject var mainScreenViewModel: MainScreenViewModel
-
+    
     var body: some View {
         HStack {
             ForEach(Tab.allCases, id: \.self) { tab in
@@ -34,12 +34,10 @@ struct BottomNavigationBarView: View {
                     }
                     .frame(maxWidth: .infinity)
                     Spacer()
-
+                    
                 } else {
                     Button(action: {
-                       // viewModel.otherTab(tab)
                         viewModel.otherTab(tab, mainScreenViewModel: mainScreenViewModel)
-
                     }) {
                         VStack {
                             Image(viewModel.selectedTab == tab ? tab.imageNameSelected : tab.imageNameUnselected)
@@ -54,7 +52,7 @@ struct BottomNavigationBarView: View {
         .frame(height: 80)
         .background(.white)
     }
-
+    
 }
 
 #Preview {

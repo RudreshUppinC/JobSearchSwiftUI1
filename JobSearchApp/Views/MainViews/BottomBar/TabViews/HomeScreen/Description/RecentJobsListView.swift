@@ -11,7 +11,6 @@ import SwiftUI
 struct RecentJobsListView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
-    
     @StateObject  var recentJobListViewModel =  RecentJobsListViewModel()
     
     var body: some View {
@@ -59,7 +58,6 @@ struct JobCardView: View {
     @StateObject private var viewModal = UploadCVViewModel()
     
     var body: some View {
-        
         RoundedRectangle(cornerRadius: 20)
             .fill(.white)
             .frame(height:155)
@@ -106,7 +104,7 @@ struct JobCardView: View {
                     }
                     .padding(.horizontal,20)
                     .padding(.top,15)
-
+                    
                     HStack{
                         salaryTextView()
                         Spacer()
@@ -114,7 +112,7 @@ struct JobCardView: View {
                     .padding(.horizontal,20)
                     .padding(.bottom,10)
                     .padding(.top,15)
-
+                    
                     HStack {
                         Text(job.jobTitle)
                             .font(FontStyle.dmsansRegular.font(baseSize: 10))
@@ -153,11 +151,10 @@ struct JobCardView: View {
                     }
                     .padding(.horizontal,20)
                     .padding(.bottom,15)
-
+                    
                 }
                 .padding()
             }
-        
     }
     
     @ViewBuilder

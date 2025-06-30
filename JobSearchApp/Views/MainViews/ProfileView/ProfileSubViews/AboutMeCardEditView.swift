@@ -18,7 +18,7 @@ struct AboutMeCardEditView: View {
     // MARK: - State Properties
     
     @Environment(\.presentationMode) var presentationMode
-
+    
     @State private var aboutMeText: String = ""
     let characterLimit = 100
     
@@ -29,13 +29,13 @@ struct AboutMeCardEditView: View {
         ZStack {
             AppColors.paleGray
                 .edgesIgnoringSafeArea(.all)
-
+            
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
- 
+                    
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $aboutMeText)
-                            // ... (all your TextEditor modifiers)
+                        // ... (all your TextEditor modifiers)
                             .font(.system(size: 16))
                             .scrollContentBackground(.hidden)
                             .padding(12)
@@ -89,12 +89,12 @@ struct AboutMeCardEditView: View {
                         .cornerRadius(12)
                 }
                 .padding(.horizontal)
-              
+                
                 .padding(.bottom, 100)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
-
+        
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

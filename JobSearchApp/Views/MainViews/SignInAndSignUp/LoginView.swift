@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 @available(iOS 16.0, *)
-
 struct LoginView: View {
     @StateObject var loginViewModal = LoginViewModel()
     @StateObject private var viewModal = UploadCVViewModel()
@@ -47,17 +46,15 @@ struct LoginView: View {
                         }
                         .padding(.bottom, 20)
                         
-                        
                         VStack(alignment: .leading, spacing: 5) {
                             Text("Password")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
-                                .foregroundColor(AppColors.deepIndigo)                            
+                                .foregroundColor(AppColors.deepIndigo)
                             HStack {
                                 
                                 SecureField("Password", text: $loginViewModal.password)
                                     .padding()
                                     .autocapitalization(.none)
-                                
                                 
                                 Button(action: {
                                     loginViewModal.isPasswordVisible.toggle()
@@ -72,9 +69,7 @@ struct LoginView: View {
                             }
                             .background(AppColors.white)
                             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                            
                         }
-                        
                         
                         VStack {
                             HStack{
@@ -166,9 +161,7 @@ struct LoginView: View {
                                             .underline()
                                     }
                                 }
-                                
                             }
-                            
                         }
                         
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -178,13 +171,9 @@ struct LoginView: View {
                 }
                 .ignoresSafeArea(.all)
                 .padding(.vertical,20)
-                
             }
-            
         }
         .navigationBarBackButtonHidden(true)
-        
-        
     }
     
 }

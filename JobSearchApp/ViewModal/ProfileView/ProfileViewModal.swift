@@ -12,20 +12,15 @@ import Combine
 class ProfileViewModal: ObservableObject {
     @Published var isAboutMeDetailView: Bool  = false
     @Published var isEditProfileDetailView: Bool  = false
-
-
     @Published var userProfile: UserProfile
-
+    
     init(userProfile:UserProfile) {
         self.userProfile = userProfile
     }
-
-  
-    
+       
     func showAboutMeDetailView() {
         isAboutMeDetailView = true
     }
-    
     
     func addEducationTapped(){
         print(#function)
@@ -36,8 +31,5 @@ class ProfileViewModal: ObservableObject {
         print(#function)
         
     }
-    
-    
-   
-    
+      
 }

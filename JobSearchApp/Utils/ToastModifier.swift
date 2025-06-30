@@ -41,8 +41,13 @@ struct ToastView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "checkmark.circle.fill")
-                .font(.title3)
+           
+            ImageProvider.getImage(named: "companyImageName").map{ image in
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 32)
+            }
             
             Text(message)
                 .font(.system(size: 14, weight: .semibold))

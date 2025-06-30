@@ -10,7 +10,7 @@ import SwiftUI
 struct UploadCVSuccessView: View {
     @ObservedObject var viewModal: UploadCVViewModel
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         
         VStack {
@@ -23,7 +23,7 @@ struct UploadCVSuccessView: View {
                             .scaledToFit()
                             .frame(width: 44, height: 44)
                     }
-                                        
+                    
                     VStack(alignment: .leading) {
                         Text(viewModal.cvFileName)
                             .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -75,7 +75,7 @@ struct UploadCVSuccessView: View {
                     viewModal.isUploadFileScreen = false
                     viewModal.hasCVUploaded = false
                     dismiss()
-
+                    
                 } label: {
                     Text("BACK TO HOME")
                         .frame(maxWidth: .infinity)

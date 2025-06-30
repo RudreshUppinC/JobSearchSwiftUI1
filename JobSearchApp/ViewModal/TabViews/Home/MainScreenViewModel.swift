@@ -12,7 +12,6 @@ import SwiftUI
 class MainScreenViewModel: ObservableObject {
     @Published var showBottomSheet: Bool = false
     @Published var isCenterPlusButton:Bool = false
-
     
 }
 

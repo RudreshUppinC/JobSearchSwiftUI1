@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct ProfileView:View{
     @Environment(\.presentationMode) var presentationMode
-
+    
     @StateObject  var viewModel: ProfileViewModal
     var body: some View {
         NavigationStack {
@@ -61,7 +61,7 @@ struct ProfileView:View{
                             //Appreciation
                             
                             AppreciationSectionView(appreciations: viewModel.userProfile.appreciations, onAdd: {}, onEditAppreciation: { oneditappreciation in })
-                          
+                            
                             //Resume
                             ResumeCardView(onAdd: {}, onDelete: {resums in }, onEdit: {}, resumes: viewModel.userProfile.resumes)
                         }
@@ -74,7 +74,7 @@ struct ProfileView:View{
                 .padding(.horizontal,5)
             }
         }
-
+        
     }
 }
 

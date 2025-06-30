@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct ChatTabView: View {
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -26,7 +26,7 @@ struct ChatTabView: View {
                                 .scaledToFit()
                                 .frame(width: 250,height: 240)
                                 .padding(.top, 150)
-                                
+                            
                         }
                         Text("No Message")
                             .font(FontStyle.dmsansBold.font(baseSize: 20))

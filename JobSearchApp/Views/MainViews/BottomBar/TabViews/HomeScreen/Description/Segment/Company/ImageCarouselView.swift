@@ -8,12 +8,8 @@
 import SwiftUI
 struct ImageCarouselView: View {
     @Environment(\.presentationMode) var presentationMode
-
     let allImageNames: [String]
-   
     let initialImageName: String?
-    
-   
     @State private var selectedIndex: Int = 0
     
     var body: some View {
@@ -32,7 +28,6 @@ struct ImageCarouselView: View {
             .padding(.top)
             .padding(.horizontal)
             
-          
             TabView(selection: $selectedIndex) {
                 ForEach(allImageNames.indices, id: \.self) { index in
                     Image(allImageNames[index])
@@ -55,13 +50,12 @@ struct ImageCarouselView: View {
         }
         .frame(maxWidth: .infinity)
         .navigationBarBackButtonHidden(true)
-
     }
 }
 
 // MARK: - Preview
 #Preview {
-   
+    
     NavigationView {
         ImageCarouselView(
             

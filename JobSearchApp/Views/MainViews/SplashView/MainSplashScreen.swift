@@ -106,7 +106,7 @@ struct MainSplashScreen: View {
                     print("Hello")
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
     }

@@ -28,7 +28,7 @@ class BottomNavigationBarViewModel: ObservableObject {
         mainScreenViewModel.showBottomSheet = false
         mainScreenViewModel.isCenterPlusButton = false
     }
-   
-   
+    
+    
 }
 

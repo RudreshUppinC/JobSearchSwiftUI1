@@ -29,17 +29,17 @@ struct AppColors {
     static let paleLavender = Color(red: 170/255, green: 166/255, blue: 185/255)
     static let blueColor = Color(red: 0.098, green: 0.075, blue: 0.294)
     static let vulcanColor = Color(red: 21/255, green: 10/255, blue: 51/255)
-
+    
     //MyConnect
     static let slightRed = Color(red: 255/255, green: 178/255, blue:178/255)
-           //pastelLavender
+    //pastelLavender
     static let deepBlue = Color(red: 19/255, green: 1/255, blue:96/255)
     static let steelGray = Color(red: 111/255, green: 107/255, blue:128/255)
     static let pureRed = Color(red: 255/255, green: 70/255, blue:70/255)
     static let flameOrange = Color(red: 252/255, green: 163/255, blue:77/255)
     
     static let black = Color.black
-
+    
     
     //Profile View
     
@@ -49,9 +49,7 @@ struct AppColors {
     static let gainsboroCoor = Color(red: 0.851, green: 0.851, blue: 0.851)
     static let brightVioletColor =  Color(red: 117/255, green: 81/255, blue: 255/255)
     static let slatePurpleColor =  Color(red: 137/255, green: 131/255, blue: 163/255)
-
-
-
+     
     
     static let lightCyanColor = Color(red: 175/255, green: 236/255, blue: 254/255)
     static let skyLavender = Color(red: 190/255, green: 175/255, blue: 254/255)
@@ -67,7 +65,7 @@ struct AppColors {
     static let skyBlueTwitter = Color(red: 3/255, green: 169/255, blue: 244/255)
     static let facebookColor = Color(red: 66/255, green: 86/255, blue: 147/255)
     static let skyBlueMicrosoft = Color(red: 109/255, green: 100/255, blue: 189/255)
-
+    
     static let cosmosColor = Color(red: 248/255, green: 225/255, blue: 215/255)
-
+    
 }

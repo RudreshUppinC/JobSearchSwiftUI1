@@ -12,7 +12,7 @@ struct MainScreenView: View {
     @StateObject private var viewModel = BottomNavigationBarViewModel()
     @StateObject  var mainScreenViewModel = MainScreenViewModel()
     @StateObject  var recentJobListViewModel = RecentJobsListViewModel()
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -38,15 +38,15 @@ struct MainScreenView: View {
             }
         }
         .onChange(of: viewModel.selectedTab) { tab in
-                   if tab == .post {
-                       withAnimation {
-                           mainScreenViewModel.showBottomSheet = true
-                       }
-                   } else {
-                       withAnimation {
-                           mainScreenViewModel.showBottomSheet = false
-                       }
-                   }
+            if tab == .post {
+                withAnimation {
+                    mainScreenViewModel.showBottomSheet = true
+                }
+            } else {
+                withAnimation {
+                    mainScreenViewModel.showBottomSheet = false
+                }
+            }
         }
         
     }

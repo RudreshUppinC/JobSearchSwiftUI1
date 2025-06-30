@@ -10,7 +10,7 @@
 //
 //extension Color{
 //    static let color1 = LinearGradient(gradient: Gradient(colors: [Color(.pink.opacity(0.3)),Color(.blue.opacity(0.8))]), startPoint: .topLeading, endPoint: .bottomTrailing)
-//    
+//
 //}
 //
 //import SwiftUI
@@ -22,7 +22,7 @@
 //            .padding(padding)
 //            .background(RoundedRectangle(cornerRadius: cornerRadius).fill(lightGrayBlue))
 //            .multilineTextAlignment(.center)
-//            .font(font) 
+//            .font(font)
 //    }
 //}
 //
@@ -43,19 +43,19 @@ extension Color {
     init(hex: String) {
         var cleanHexCode = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         cleanHexCode = cleanHexCode.replacingOccurrences(of: "#", with: "")
-
+        
         var baseValue: UInt64 = 0
         Scanner(string: cleanHexCode).scanHexInt64(&baseValue)
-
+        
         let mask = 0x000000FF
         let r = Int(baseValue >> (8*2)) & mask
         let g = Int(baseValue >> (8*1)) & mask
         let b = Int(baseValue >> (8*0)) & mask
-
+        
         let red   = CGFloat(r) / 255.0
         let green = CGFloat(g) / 255.0
         let blue  = CGFloat(b) / 255.0
-
+        
         self.init(red: red, green: green, blue: blue)
     }
 }
@@ -93,8 +93,8 @@ struct Formatters {
     }()
     
     static let resumeUploadFormat: DateFormatter = {
-           let formatter = DateFormatter()
-           formatter.dateFormat = "d MMM yyyy 'at' h:mm a"
-           return formatter
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM yyyy 'at' h:mm a"
+        return formatter
     }()
 }

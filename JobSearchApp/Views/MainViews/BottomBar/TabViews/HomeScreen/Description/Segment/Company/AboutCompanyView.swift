@@ -40,112 +40,105 @@ struct AboutCompanyView: View {
     var body: some View {
         
         VStack(alignment: .leading,spacing: 10) {
-                
-                Text("About Company")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,10)
-                    .padding(.top, 10)
-                
-                Text(job.jobDescription)
-                    .font(FontStyle.dmsansBold.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                    .padding(.bottom,5)
-                    .lineLimit(isExpanded ? nil :collapsedLineLimit)
-
-                Button{
-                    withAnimation(.easeInOut(duration: 0.3)){
-                        isExpanded.toggle()
-                    }
-                    
-                } label: {
-                    Text(isExpanded ? "Read Less":"Read More")
-                        .font(FontStyle.dmsansBold.font(baseSize: 11))
-                        .foregroundColor(.black)
+            
+            Text("About Company")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,10)
+                .padding(.top, 10)
+            
+            Text(job.jobDescription)
+                .font(FontStyle.dmsansBold.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+                .padding(.bottom,5)
+                .lineLimit(isExpanded ? nil :collapsedLineLimit)
+            
+            Button{
+                withAnimation(.easeInOut(duration: 0.3)){
+                    isExpanded.toggle()
                 }
-                .buttonStyle(.plain)
-                .padding(.vertical, 5)
-                .padding(.horizontal, 10)
                 
-                .background(AppColors.pinkbutton).opacity(0.2)
-                .cornerRadius(4)
-                
-                Text("Website")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("https://www.google.com")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                                
-                
-                Text("Industry")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("Internet Product")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                
-                
-                Text("Employee size")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("132,121 Employees")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                Text("Head Office")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("Mountain View, California, Amerika Serikat")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                
-                Text("Type")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("Multinational company")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                
-                Text("Since")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("1998")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                
-                Text("Specialization")
-                    .font(FontStyle.dmsansBold.font(baseSize: 13))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-                Text("Search technology, Web computing, Software and Online advertising")
-                    .font(FontStyle.dmsansRegular.font(baseSize: 11))
-                    .foregroundColor(AppColors.dustyLavender)
-                
-                
-                Text("Company Gallary")
+            } label: {
+                Text(isExpanded ? "Read Less":"Read More")
                     .font(FontStyle.dmsansBold.font(baseSize: 11))
-                    .foregroundColor(AppColors.darkIndigoColor)
-                    .padding(.bottom,5)
-                
-       
+                    .foregroundColor(.black)
+            }
+            .buttonStyle(.plain)
+            .padding(.vertical, 5)
+            .padding(.horizontal, 10)
+            
+            .background(AppColors.pinkbutton).opacity(0.2)
+            .cornerRadius(4)
+            
+            Text("Website")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("https://www.google.com")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            Text("Industry")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("Internet Product")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+                        
+            Text("Employee size")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("132,121 Employees")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            Text("Head Office")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("Mountain View, California, Amerika Serikat")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            Text("Type")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("Multinational company")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            Text("Since")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("1998")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            
+            Text("Specialization")
+                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
+            Text("Search technology, Web computing, Software and Online advertising")
+                .font(FontStyle.dmsansRegular.font(baseSize: 11))
+                .foregroundColor(AppColors.dustyLavender)
+            
+            Text("Company Gallary")
+                .font(FontStyle.dmsansBold.font(baseSize: 11))
+                .foregroundColor(AppColors.darkIndigoColor)
+                .padding(.bottom,5)
+            
             
             HStack(spacing: 15) {
                 
@@ -199,9 +192,9 @@ struct AboutCompanyView: View {
                 
             }
             .frame(width: UIScreen.main.bounds.width - 40)
-
+            
         }
-
+        
     }
 }
 

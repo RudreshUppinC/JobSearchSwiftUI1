@@ -38,14 +38,14 @@ struct ForgotPasswordView: View {
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,20)
-                                               
-                         ImageProvider.getImage(named: "forgetPasswordImage1").map{ image in
-                             Image(uiImage: image)
-                                 .scaledToFit()
-                                 .frame(width: 118,height: 93)
-                                 .padding(.vertical, 50)
-                         }
-                                                   
+                        
+                        ImageProvider.getImage(named: "forgetPasswordImage1").map{ image in
+                            Image(uiImage: image)
+                                .scaledToFit()
+                                .frame(width: 118,height: 93)
+                                .padding(.vertical, 50)
+                        }
+                        
                         
                         VStack(alignment:.leading){
                             Text("Email")

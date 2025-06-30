@@ -13,8 +13,8 @@ struct AppreciationSectionView: View {
     let appreciations:[Appreciation]
     let onAdd: () -> Void
     let onEditAppreciation: (Appreciation) -> Void
-        let title: String = "Appreciation"
-
+    let title: String = "Appreciation"
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             
@@ -77,18 +77,18 @@ struct AppreciationSectionView: View {
                         
                         Spacer()
                         
-                            Button(action: {
-                           
-                            }) {
-                                ImageProvider.getImage(named: "editOrange").map { image in
-                                                       Image(uiImage: image)
-                                                           .resizable()
-                                                           .scaledToFit()
-                                                           .frame(width:24,height:24)
-                                }
-                           }
+                        Button(action: {
+                            
+                        }) {
+                            ImageProvider.getImage(named: "editOrange").map { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width:24,height:24)
+                            }
+                        }
                     }
-
+                    
                 }
             }
         }

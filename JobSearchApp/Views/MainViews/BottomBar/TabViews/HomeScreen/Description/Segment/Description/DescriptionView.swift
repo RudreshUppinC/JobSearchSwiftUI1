@@ -46,7 +46,7 @@ struct DescriptionView: View {
                             Group {
                                 segmentView(for: selectedSegment, job: job)
                             }
-
+                            
                         }
                         .padding(.horizontal,20)
                         
@@ -63,8 +63,6 @@ struct DescriptionView: View {
     }
     
 }
-
-
 
 struct HeaderView: View {
     let job: Jobs
@@ -122,9 +120,7 @@ struct HeaderView: View {
         .background(AppColors.whisperGray)
         
     }
-    
 }
-
 
 @available(iOS 16.0, *)
 struct ApplyButton: View {
@@ -187,15 +183,15 @@ struct ApplyButton: View {
                         "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                         "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                    ],
+                       ],
                        facilities :[
-                           "Medical",
-                           "Dental",
-                           "Technical Certification",
-                           "Meal Allowance",
-                           "Transport Allowance",
-                           "Regular Hours",
-                           "Mondays-Fridays"
+                        "Medical",
+                        "Dental",
+                        "Technical Certification",
+                        "Meal Allowance",
+                        "Transport Allowance",
+                        "Regular Hours",
+                        "Mondays-Fridays"
                        ]
         )
         DescriptionView(job: job)

@@ -13,7 +13,7 @@ struct CheckYourMailView: View {
     @Binding var isBackToLogin: Bool
     @StateObject var checkyourmailviewmodal =  CheckYourMailViewModal()
     @State var isSuccessFullView = false
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -35,7 +35,7 @@ struct CheckYourMailView: View {
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
-                       
+                        
                         ImageProvider.getImage(named: "checkyourEmail1").map{ image in
                             Image(uiImage: image)
                                 .scaledToFit()
@@ -43,7 +43,7 @@ struct CheckYourMailView: View {
                                 .padding(.top, 50)
                                 .padding(.bottom, 94)
                         }
-                                                
+                        
                         NavigationLink(destination: SuccessfullyView(isBackToLogin: $isBackToLogin),
                                        isActive: $isSuccessFullView) {
                             CustomButton(title: "OPEN YOUR EMAIL", backgroundColor: AppColors.deepIndigo) {
@@ -78,7 +78,7 @@ struct CheckYourMailView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal,30)
                     .navigationBarTitleDisplayMode(.inline)
-                   
+                    
                 }
                 .ignoresSafeArea(.all)
                 .padding(.vertical,5)
@@ -88,7 +88,7 @@ struct CheckYourMailView: View {
         
     }
     
-
+    
 }
 
 #Preview {

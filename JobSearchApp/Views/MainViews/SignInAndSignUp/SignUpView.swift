@@ -160,7 +160,7 @@ struct SignUpView: View {
                                     // Handle sign up action
                                     print("Login Here")
                                     signupviewmodal.showLoginView()
-
+                                    
                                 } label: {
                                     Text("Login")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 12))

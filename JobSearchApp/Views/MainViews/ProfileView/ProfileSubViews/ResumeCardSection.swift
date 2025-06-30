@@ -11,12 +11,12 @@ struct ResumeCardView: View {
     let onAdd: () -> Void
     let onDelete: (Resume) -> Void
     let onEdit: () -> Void
- 
+    
     var resumes: [Resume]
     let title: String = "Resume"
-            
+    
     var body: some View {
-      
+        
         VStack(spacing: 0) {
             // --- Header Section ---
             HStack {
@@ -45,42 +45,42 @@ struct ResumeCardView: View {
             }
             
             // --- List of Resumes ---
-                VStack{
-                    Divider()
-                        .background(AppColors.dividerColor)
+            VStack{
+                Divider()
+                    .background(AppColors.dividerColor)
+            }
+            .padding(.vertical,20)
+            .padding(.horizontal)
+            
+            HStack(spacing: 12) {
+                // --- File Type Icon ---
+                Button(action:onEdit){
+                    ImageProvider.getImage(named: "PDF").map{ image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                    }
                 }
-                .padding(.vertical,20)
-                .padding(.horizontal)
                 
-                HStack(spacing: 12) {
-                    // --- File Type Icon ---
-                    Button(action:onEdit){
-                        ImageProvider.getImage(named: "PDF").map{ image in
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 44, height: 44)
-                        }
-                    }
-                    
-                    // --- File Info ---
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(resumes.prefix(1).first?.fileName ?? "")
-                            .font(FontStyle.dmsansBold.font(baseSize: 12))
-                            .foregroundColor(AppColors.darkIndigoColor).opacity(0.9)
-                        Text("\(String(format: "%.0f",resumes.prefix(1).first?.fileSizeInKB ?? "")) Kb • \( resumes.prefix(1).first?.uploadDate.formattedForResumeUpload() ?? "")")
-                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                            .foregroundColor(AppColors.slatePurpleColor)
-                    }
-                    
-                    Spacer()
-                    
-                    // --- Delete Button ---
-                    Button(action: onEdit) {
-                        Image(systemName: "trash")
-                            .font(.title2)
-                            .foregroundColor(.red)
-                    }
+                // --- File Info ---
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(resumes.prefix(1).first?.fileName ?? "")
+                        .font(FontStyle.dmsansBold.font(baseSize: 12))
+                        .foregroundColor(AppColors.darkIndigoColor).opacity(0.9)
+                    Text("\(String(format: "%.0f",resumes.prefix(1).first?.fileSizeInKB ?? "")) Kb • \( resumes.prefix(1).first?.uploadDate.formattedForResumeUpload() ?? "")")
+                        .font(FontStyle.dmsansRegular.font(baseSize: 10))
+                        .foregroundColor(AppColors.slatePurpleColor)
+                }
+                
+                Spacer()
+                
+                // --- Delete Button ---
+                Button(action: onEdit) {
+                    Image(systemName: "trash")
+                        .font(.title2)
+                        .foregroundColor(.red)
+                }
             }
         }
         .padding(20)

@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct BookMarkTabView: View {
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
-
+    
     @ObservedObject  var recentJobListViewModel : RecentJobsListViewModel
     
     var body: some View {

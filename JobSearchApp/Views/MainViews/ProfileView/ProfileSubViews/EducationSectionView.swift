@@ -29,17 +29,17 @@ struct EducationSectionView: View {
                         .font(FontStyle.dmsansBold .font(baseSize: 12))
                         .foregroundColor(AppColors.darkIndigoColor)
                     Spacer()
-                                        
-                        Button(action: {
-                            
-                        }) {
-                            ImageProvider.getImage(named: "add").map { image in
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width:24,height:24)
-                            }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        ImageProvider.getImage(named: "add").map { image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:24,height:24)
                         }
+                    }
                 }
                 .padding(.horizontal)
                 .padding(.top,22)
@@ -63,25 +63,25 @@ struct EducationSectionView: View {
                                 .font(FontStyle.dmsansRegular.font(baseSize: 10))
                                 .foregroundColor(AppColors.dustyLavender)
                             Text(educationItem.formattedDateAndDuration)
-                                       .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                                       .foregroundColor(AppColors.dustyLavender.opacity(0.8))
-                                       .padding(.top, 4)
+                                .font(FontStyle.dmsansRegular.font(baseSize: 10))
+                                .foregroundColor(AppColors.dustyLavender.opacity(0.8))
+                                .padding(.top, 4)
                         }
                     }
                     
                     Spacer()
                     
                     Button(action: {
-                          
-                      }) {
-                          ImageProvider.getImage(named: "editOrange")
-                              .map { image in
-                                  Image(uiImage: image)
-                                      .resizable()
-                                      .scaledToFit()
-                                      .frame(width: 24, height: 24)
-                              }
-                      }
+                        
+                    }) {
+                        ImageProvider.getImage(named: "editOrange")
+                            .map { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                            }
+                    }
                 }
                 .padding(.bottom, 20)
                 .padding(.horizontal, 20)
@@ -92,5 +92,5 @@ struct EducationSectionView: View {
         .cornerRadius(12)
     }
     
- }
+}
 

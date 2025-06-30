@@ -3,13 +3,13 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct AboutMeCardView: View { 
-   
+    
     let headerHeight: CGFloat = 70
     let detailsVisibleHeight: CGFloat = 165
     let aboutMeText: String
     @Binding var isShowingEditView: Bool
     let title: String = "About Me"
-
+    
     var body:some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 5) {
@@ -56,7 +56,7 @@ struct AboutMeCardView: View {
                     .lineLimit(3)
                     .foregroundColor(AppColors.dustyLavender)
                     .padding(.horizontal,20)
-
+                
             }
             .frame(height: detailsVisibleHeight)
         }

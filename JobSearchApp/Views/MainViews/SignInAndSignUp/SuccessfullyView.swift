@@ -11,7 +11,7 @@ import SwiftUI
 struct SuccessfullyView: View {
     @State private var email = "brandonelouis@gmial.com"
     @Binding var isBackToLogin: Bool
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -36,7 +36,7 @@ struct SuccessfullyView: View {
                                 .padding(.top, 51)
                                 .padding(.bottom, 115)
                         }
-                                                
+                        
                         
                         CustomButton(title: "CONTINUE", backgroundColor: AppColors.deepIndigo) {
                             // Reset Password Action
@@ -55,7 +55,7 @@ struct SuccessfullyView: View {
                 }
             }
         }        .navigationBarBackButtonHidden(true)
-
+        
     }
 }
 

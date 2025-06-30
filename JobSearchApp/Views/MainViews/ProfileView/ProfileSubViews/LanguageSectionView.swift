@@ -29,12 +29,12 @@ struct LanguagePillView: View {
 
 @available(iOS 16.0, *)
 struct LanguageSectionView: View {
-
+    
     let onEdit: () -> Void
     let onAdd:() -> Void
     var languages: [Languages]
     let title: String = "Appreciation"
-         
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -47,12 +47,12 @@ struct LanguageSectionView: View {
                         .scaledToFit()
                         .frame(width:24, height:24)
                 }
-                  .padding(.trailing,8)
+                .padding(.trailing,8)
                 
                 Text("Language")
-                        .font(FontStyle.dmsansBold .font(baseSize: 12))
-                        .foregroundColor(AppColors.darkIndigoColor)
-                    
+                    .font(FontStyle.dmsansBold .font(baseSize: 12))
+                    .foregroundColor(AppColors.darkIndigoColor)
+                
                 Spacer()
                 Button(action: onEdit) {
                     ImageProvider.getImage(named: "add").map{
@@ -66,15 +66,15 @@ struct LanguageSectionView: View {
             }
             .padding(.horizontal)
             .padding(.vertical,15)
-
+            
             VStack{
                 Divider()
                     .background(AppColors.dividerColor)
             }
             .padding(.horizontal,20)
-
+            
             // MARK: - Language Tag
-
+            
             FlowLayout(spacing: 10) {
                 ForEach(languages) { item in
                     LanguagePillView(languageName: item.langName)
@@ -82,12 +82,12 @@ struct LanguageSectionView: View {
             }
             .padding(.horizontal)
             .padding(.bottom,15)
-
-
+            
+            
         }
         .background(Color.white)
-         .cornerRadius(12)
-
+        .cornerRadius(12)
+        
         
     }
 }

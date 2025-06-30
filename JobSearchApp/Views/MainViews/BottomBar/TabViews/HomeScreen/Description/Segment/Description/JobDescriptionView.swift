@@ -23,7 +23,7 @@ struct JobDescriptionView: View {
                 .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,10)
                 .padding(.top, 10)
-
+            
             Text(job.jobDescription)
                 .font(FontStyle.dmsansBold.font(baseSize: 11))
                 .foregroundColor(AppColors.dustyLavender)
@@ -35,7 +35,6 @@ struct JobDescriptionView: View {
                 withAnimation(.easeInOut(duration: 0.3)){
                     isExpanded.toggle()
                 }
-                
             } label: {
                 Text(isExpanded ? "Read Less":"Read More")
                     .font(FontStyle.dmsansBold.font(baseSize: 11))
@@ -59,38 +58,36 @@ struct JobDescriptionView: View {
             // Facilities and Others
             FacilitiesView(job: job)
         }
-
     }
-
 }
 
 #Preview {
     let job = Jobs(companyName: "Google Inc",
-                 userRole: "HR Manager",
-                 companyImageName: "appleIcon",
-                 location: "California, USA",
-                 salary: "$15K / Mo",
-                 tags: ["Product Design", "UX", "UI"],
-                 timeAgo: "2 days ago",
-                 experienceLevel: "Senior designer",
-                 jobType: "Full Time",
+                   userRole: "HR Manager",
+                   companyImageName: "appleIcon",
+                   location: "California, USA",
+                   salary: "$15K / Mo",
+                   tags: ["Product Design", "UX", "UI"],
+                   timeAgo: "2 days ago",
+                   experienceLevel: "Senior designer",
+                   jobType: "Full Time",
                    jobTitle: "Product Designer",bgcolor: AppColors.orangeColor, jobDescription: "", requirements:  [
-                     "Sed ut perspiciatis unde omnis iste natus error sit.",
-                     "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
-                     "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-                     "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                 ],
+                    "Sed ut perspiciatis unde omnis iste natus error sit.",
+                    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
+                    "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+                    "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
+                   ],
                    facilities :[
-                       "Medical",
-                       "Dental",
-                       "Technical Certification",
-                       "Meal Allowance",
-                       "Transport Allowance",
-                       "Regular Hours",
-                       "Mondays-Fridays"
+                    "Medical",
+                    "Dental",
+                    "Technical Certification",
+                    "Meal Allowance",
+                    "Transport Allowance",
+                    "Regular Hours",
+                    "Mondays-Fridays"
                    ]
     )
-
+    
     JobDescriptionView(job: job)
 }
 
@@ -206,7 +203,6 @@ struct InformationsView: View {
     }
 }
 
-
 struct FacilitiesView: View {
     let job:Jobs
     
@@ -215,7 +211,7 @@ struct FacilitiesView: View {
             Text("Facilities and Others")
                 .font(FontStyle.dmsansBold.font(baseSize: 13))
                 .padding(.bottom,16)
-
+            
             ForEach(job.facilities, id: \.self) { facility in
                 HStack(alignment: .top) {
                     Text("•")
@@ -227,12 +223,11 @@ struct FacilitiesView: View {
                         .padding(.bottom,15)
                 }
             }
-
+            
         }
-
+        
     }
 }
-
 
 struct RequirementsView: View {
     let job:Jobs

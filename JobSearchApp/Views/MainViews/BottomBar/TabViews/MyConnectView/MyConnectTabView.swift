@@ -3,13 +3,13 @@ import SwiftUI
 struct MyConnectTabView: View {
     @StateObject private var viewModel = MyConnectViewModel()
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
-
+    
     var body: some View {
         GeometryReader { geometry in
             let columnCount = calculateColumnCount(for: geometry.size.width)
             let spacing: CGFloat = 15
             let horizontalPagePadding: CGFloat = 15
-
+            
             let availableWidthForGridContent = geometry.size.width - (2 * horizontalPagePadding)
             
             let itemWidth = (availableWidthForGridContent - (CGFloat(columnCount - 1) * spacing)) / CGFloat(columnCount)
@@ -55,19 +55,14 @@ struct MyConnectTabView: View {
                         .frame(width: itemWidth, height: 190)
                     }
                 }
-
+                
             }
             .padding(.horizontal, horizontalPagePadding)
-//            .toolbar {
-//                ToolbarItem(placement: .principal){
-//                    Text("")
-//                }
-//            }
             
         }
         .padding(.top, 10)
         .navigationBarBackButtonHidden(true)
-
+        
     }
     
     private func calculateColumnCount(for screenWidth: CGFloat) -> Int {

@@ -10,12 +10,12 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct ProfileHeaderView: View {
     let onEditProfile:() -> Void
-   // @ObservedObject  var viewModel: ProfileViewModal
-   let userProfile: UserProfile
-
-   
+    // @ObservedObject  var viewModel: ProfileViewModal
+    let userProfile: UserProfile
+    
+    
     @Binding var isShowingEditProfile: Bool
-
+    
     var body: some View {
         VStack{
             
@@ -74,7 +74,7 @@ struct ProfileHeaderView: View {
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
                     Text("Followers")
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
-
+                    
                 }
                 
                 HStack(spacing: 5) {
@@ -82,39 +82,39 @@ struct ProfileHeaderView: View {
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
                     Text("Following")
                         .font(FontStyle.dmsansRegular.font(baseSize: 10))
-
+                    
                 }
                 NavigationLink(destination: EditProfileDetailPage()
                     .navigationBarBackButtonHidden(true),
                                isActive: $isShowingEditProfile) {
-               
-                
-                // MARK: - Edit Profile Button
-                Button(action: {
-                    isShowingEditProfile = true
-                }) {
-                    HStack(spacing: 10) {
-                        Text("Edit profile")
-                            .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                        
-                        ImageProvider.getImage(named: "editWhite").map{ image in
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 22,height: 2)
+                    
+                    
+                    // MARK: - Edit Profile Button
+                    Button(action: {
+                        isShowingEditProfile = true
+                    }) {
+                        HStack(spacing: 10) {
+                            Text("Edit profile")
+                                .font(FontStyle.dmsansRegular.font(baseSize: 10))
+                            
+                            ImageProvider.getImage(named: "editWhite").map{ image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 22,height: 2)
+                            }
                         }
+                        .foregroundColor(.white)
+                        .padding(.horizontal,10)
+                        .padding(.vertical, 8)
+                        .background(
+                            (AppColors.gainsboroCoor).opacity(0.25)
+                        )
+                        .cornerRadius(10)
                     }
-                    .foregroundColor(.white)
-                    .padding(.horizontal,10)
-                    .padding(.vertical, 8)
-                    .background(
-                        (AppColors.gainsboroCoor).opacity(0.25)
-                    )
-                    .cornerRadius(10)
+                    .frame(width:120,height: 30)
                 }
-                .frame(width:120,height: 30)
-                }
-
+                
                 
             }
             .frame(height: 40)

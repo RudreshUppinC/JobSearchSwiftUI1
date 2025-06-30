@@ -20,18 +20,18 @@ struct WorkExperienceSectionView: View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     Button(action: {
-                          // Handle edit action
-                      }) {
-                          ImageProvider.getImage(named: "workExperience").map {
-                              image in
-                              Image(uiImage: image)
-                                  .resizable()
-                                  .scaledToFit()
-                                  .frame(width:24, height:24)
-                          }
-                          .padding(.trailing,8)
-                      }
-                   
+                        // Handle edit action
+                    }) {
+                        ImageProvider.getImage(named: "workExperience").map {
+                            image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:24, height:24)
+                        }
+                        .padding(.trailing,8)
+                    }
+                    
                     
                     Text(title)
                         .font(FontStyle.dmsansBold .font(baseSize: 12))
@@ -82,22 +82,22 @@ struct WorkExperienceSectionView: View {
                     
                     Spacer()
                     Button(action: {
-                          // Handle edit action
-                      }) {
-                          ImageProvider.getImage(named: "editOrange")
-                              .map { image in
-                                  Image(uiImage: image)
-                                      .resizable()
-                                      .scaledToFit()
-                                      .frame(width: 24, height: 24)
-                              }
-                      }
-
+                        // Handle edit action
+                    }) {
+                        ImageProvider.getImage(named: "editOrange")
+                            .map { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                            }
+                    }
+                    
                 }
                 .padding(.bottom, 20)
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
-
+                
             }
             
             

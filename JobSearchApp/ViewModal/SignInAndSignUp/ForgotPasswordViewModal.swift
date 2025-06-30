@@ -12,11 +12,10 @@ class ForgotPasswordViewModal: ObservableObject {
     
     @Published var email = ""
     @Published var isCheckYourMailView = false
-
+    
     func showCheckYourMailView() {
-       
         isCheckYourMailView = true
     }
-
+    
 }
 

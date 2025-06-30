@@ -20,7 +20,7 @@ struct UserProfile: Identifiable {
     var languages: [Languages]
     var appreciations: [Appreciation]
     var resumes: [Resume]
-
+    
     static var exampleLoaded: UserProfile {
         UserProfile(
             name: "Orlando Diggs",
@@ -69,7 +69,7 @@ struct UserProfile: Identifiable {
                 Languages(langName: "Spanish"),
                 Languages(langName: "Italy"),
                 Languages(langName: "Mandarin")
-        
+                
             ],
             
             appreciations: [
@@ -84,19 +84,19 @@ struct UserProfile: Identifiable {
                     date: UserProfile.createSampleDate(year: 2021, month: 9),
                 )
             ],
-        
+            
             resumes: [
                 Resume(
                     fileName: "Young Scientist",
                     fileSizeInKB: 80,
                     uploadDate: UserProfile.createSampleDate(year: 2021, month: 9),
-
+                    
                 ),
                 Resume(
                     fileName: "Young Scientist1",
                     fileSizeInKB: 80,
                     uploadDate: UserProfile.createSampleDate(year: 2021, month: 9),
-
+                    
                 ),
             ]
         )
@@ -141,7 +141,7 @@ struct Languages: Identifiable, Hashable {
 
 struct Appreciation: Identifiable ,Hashable{
     let id: UUID = UUID()
-    var title: String      
+    var title: String
     var issuer: String
     var date: Date
 }
@@ -151,19 +151,19 @@ struct Resume: Identifiable {
     let fileName: String
     let fileSizeInKB: Double
     let uploadDate: Date
-
+    
 }
 
 extension DatedExperience {
     
     var formattedDateAndDuration: String {
-
+        
         let formattedStartDate = Formatters.monthYear.string(from: startDate)
         
         let formattedEndDate = endDate != nil ? Formatters.monthYear.string(from: endDate!) : "Present"
         
         let durationString = calculateDuration()
-
+        
         return "\(formattedStartDate) - \(formattedEndDate) • \(durationString)"
     }
     

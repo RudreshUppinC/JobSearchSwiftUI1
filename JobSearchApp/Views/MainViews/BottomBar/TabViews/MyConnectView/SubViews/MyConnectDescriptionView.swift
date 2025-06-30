@@ -11,6 +11,7 @@ import SwiftUI
 struct MyConnectDescriptionView: View {
     let job :Jobs
     @StateObject var viemodel =  MyConnectDescriptionViewModel()
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -19,7 +20,7 @@ struct MyConnectDescriptionView: View {
                     
                     HStack {
                         Button(action: {
-                           // presentationMode.wrappedValue.dismiss()
+                            // presentationMode.wrappedValue.dismiss()
                         }){
                             ImageProvider.getImage(named: "BackArrow").map{ image in
                                 Image(uiImage: image)
@@ -51,8 +52,8 @@ struct MyConnectDescriptionView: View {
                                 
                             }
                         }
-                       
-                switch viemodel.selected{
+                        
+                        switch viemodel.selected{
                         case .aboutUs:
                             AboutUsView()
                         case .jobs:
@@ -61,8 +62,8 @@ struct MyConnectDescriptionView: View {
                             PostView()
                         }
                         
-                }
-                   
+                    }
+                    
                     
                 }
             }
@@ -73,14 +74,14 @@ struct MyConnectDescriptionView: View {
 #Preview {
     if #available(iOS 16.0, *) {
         let job = Jobs(companyName: "Google Inc",
-                     userRole: "HR Manager",
-                     companyImageName: "appleIcon",
-                     location: "California, USA",
-                     salary: "$15K / Mo",
-                     tags: ["Product Design", "UX", "UI"],
-                     timeAgo: "2 days ago",
-                     experienceLevel: "Senior designer",
-                     jobType: "Full Time",
+                       userRole: "HR Manager",
+                       companyImageName: "appleIcon",
+                       location: "California, USA",
+                       salary: "$15K / Mo",
+                       tags: ["Product Design", "UX", "UI"],
+                       timeAgo: "2 days ago",
+                       experienceLevel: "Senior designer",
+                       jobType: "Full Time",
                        jobTitle: "Product Designer",bgcolor: AppColors.orangeColor, jobDescription:
                         "", requirements: [
                             "Sed ut perspiciatis unde omnis iste natus error sit.",
@@ -89,13 +90,13 @@ struct MyConnectDescriptionView: View {
                             "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
                         ],
                        facilities :[
-                           "Medical",
-                           "Dental",
-                           "Technical Certification",
-                           "Meal Allowance",
-                           "Transport Allowance",
-                           "Regular Hours",
-                           "Mondays-Fridays"
+                        "Medical",
+                        "Dental",
+                        "Technical Certification",
+                        "Meal Allowance",
+                        "Transport Allowance",
+                        "Regular Hours",
+                        "Mondays-Fridays"
                        ]
         )
         MyConnectDescriptionView(job:job)

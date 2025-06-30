@@ -16,7 +16,7 @@ class LoginViewModel: ObservableObject {
     @Published var isPasswordVisible: Bool = false
     @Published var isBackToLogin: Bool = false
     @Published var isNavigateToLoginSuccess = false
-
+    
     func showForgotPassword() {
         isBackToLogin = true
     }
@@ -24,5 +24,5 @@ class LoginViewModel: ObservableObject {
     func showSignUpView() {
         isNavigateToSignUp = true
     }
-   
+    
 }

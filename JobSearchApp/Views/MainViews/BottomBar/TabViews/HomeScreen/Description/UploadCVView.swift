@@ -87,12 +87,8 @@ struct UploadCVView: View {
         
         
     }
-    
-    
-    
+        
 }
-
-
 
 struct MainUploadCVView: View {
     
@@ -193,7 +189,7 @@ struct UploadCVButton: View {
                         .scaledToFit()
                         .frame(width: 24,height: 24)
                 }
-                                    
+                
                 Text("Upload CV/Resume")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .foregroundColor(AppColors.darkIndigoColor)
@@ -252,7 +248,7 @@ struct UploadedCVView: View {
                         Image(uiImage: image)
                             .foregroundColor(AppColors.lightCoral)
                     }
-                        
+                    
                     Text("Remove file")
                         .font(FontStyle.dmsansBold.font(baseSize: 12))
                         .foregroundColor(AppColors.lightCoral)
@@ -304,28 +300,28 @@ struct ProgressBar: View {
 #Preview {
     if #available(iOS 16.0, *) {
         let job = Jobs(companyName: "Google Inc",
-                     userRole: "HR Manager",
-                     companyImageName: "appleIcon",
-                     location: "California, USA",
-                     salary: "$15K / Mo",
-                     tags: ["Product Design", "UX", "UI"],
-                     timeAgo: "2 days ago",
-                     experienceLevel: "Senior designer",
-                     jobType: "Full Time",
+                       userRole: "HR Manager",
+                       companyImageName: "appleIcon",
+                       location: "California, USA",
+                       salary: "$15K / Mo",
+                       tags: ["Product Design", "UX", "UI"],
+                       timeAgo: "2 days ago",
+                       experienceLevel: "Senior designer",
+                       jobType: "Full Time",
                        jobTitle: "Product Designer",bgcolor: AppColors.orangeColor, jobDescription: "", requirements: [
                         "Sed ut perspiciatis unde omnis iste natus error sit.",
                         "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur & adipisci velit.",
                         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
                         "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-                    ],
+                       ],
                        facilities :[
-                           "Medical",
-                           "Dental",
-                           "Technical Certification",
-                           "Meal Allowance",
-                           "Transport Allowance",
-                           "Regular Hours",
-                           "Mondays-Fridays"
+                        "Medical",
+                        "Dental",
+                        "Technical Certification",
+                        "Meal Allowance",
+                        "Transport Allowance",
+                        "Regular Hours",
+                        "Mondays-Fridays"
                        ]
         )
         UploadCVView(job:job)
