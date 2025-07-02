@@ -88,7 +88,7 @@ struct EducationSectionView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(12)
     }
     

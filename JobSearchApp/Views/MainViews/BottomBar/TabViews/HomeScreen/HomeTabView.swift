@@ -58,10 +58,10 @@ struct HomeTabView: View {
                                 VStack(alignment: .leading) {
                                     Text("50% off")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(AppColors.white)
                                     Text("take any courses")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 16))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(AppColors.white)
                                         .lineLimit(1)
                                     
                                     Button(action: {
@@ -71,10 +71,10 @@ struct HomeTabView: View {
                                         Text("Join Now")
                                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                                             .padding(.horizontal, 17)
-                                            .foregroundColor(.white)
+                                            .foregroundColor(AppColors.white)
                                     }
                                     .frame(height: 26)
-                                    .background(Color.orange)
+                                    .background(AppColors.orangeColor)
                                     .cornerRadius(4)
                                     .padding(.vertical, 12)
                                     

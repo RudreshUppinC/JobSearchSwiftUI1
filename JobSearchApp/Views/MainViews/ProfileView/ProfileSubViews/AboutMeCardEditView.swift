@@ -54,7 +54,7 @@ struct AboutMeCardEditView: View {
                         }
                     }
                     .frame(minHeight: 200, maxHeight: 300)
-                    .background(Color.white)
+                    .background(AppColors.white)
                     .cornerRadius(20)
                     .padding(.horizontal)
                     
@@ -82,7 +82,7 @@ struct AboutMeCardEditView: View {
                     Text("SAVE")
                         .font(.headline)
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(AppColors.white)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .background(Color(red: 19/255, green: 1/255, blue: 96/255))

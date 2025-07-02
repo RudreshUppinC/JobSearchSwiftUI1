@@ -58,10 +58,10 @@ struct ProfileHeaderView: View {
             VStack(alignment: .leading, spacing:5){
                 Text(userProfile.name)
                     .font(FontStyle.dmsansMedium.font(baseSize: 12))
-                    .foregroundColor(Color.white)
+                    .foregroundColor(AppColors.white)
                 Text(userProfile.location)
                     .font(FontStyle.dmsansRegular.font(baseSize: 10))
-                    .foregroundColor(Color.white)
+                    .foregroundColor(AppColors.white)
             }
             .frame(maxWidth:.infinity,alignment: .leading)
             .padding(.horizontal,25)
@@ -104,7 +104,7 @@ struct ProfileHeaderView: View {
                                     .frame(width: 22,height: 2)
                             }
                         }
-                        .foregroundColor(.white)
+                        .foregroundColor(AppColors.white)
                         .padding(.horizontal,10)
                         .padding(.vertical, 8)
                         .background(
@@ -118,7 +118,7 @@ struct ProfileHeaderView: View {
                 
             }
             .frame(height: 40)
-            .foregroundColor(.white)
+            .foregroundColor(AppColors.white)
             .padding(.leading, 24)
             .padding(.trailing, 5)
         }

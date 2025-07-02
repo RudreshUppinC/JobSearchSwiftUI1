@@ -132,7 +132,7 @@ struct ApplyButton: View {
                 // Circle with Image
                 ZStack {
                     Circle()
-                        .fill(Color.white)
+                        .fill(AppColors.white)
                         .frame(width: 50, height: 50)
                         .cornerRadius(30)
                     ImageProvider.getImage(named: "Save").map{ image in
@@ -148,7 +148,7 @@ struct ApplyButton: View {
                         isNavigateToSuccessUploadView = true
                     }) {
                         Text("APPLY NOW")
-                            .foregroundColor(.white)
+                            .foregroundColor(AppColors.white)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(AppColors.blueColor)

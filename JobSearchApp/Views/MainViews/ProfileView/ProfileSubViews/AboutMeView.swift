@@ -60,7 +60,7 @@ struct AboutMeCardView: View {
             }
             .frame(height: detailsVisibleHeight)
         }
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(12)
     }
 }

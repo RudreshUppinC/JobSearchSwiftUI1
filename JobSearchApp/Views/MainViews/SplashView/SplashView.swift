@@ -25,7 +25,7 @@ struct SplashView: View {
                     
                     Text("Jobspot")
                         .font(FontStyle.dmsansBold.font(baseSize: 29))
-                        .foregroundColor(Color.white)
+                        .foregroundColor(AppColors.white)
                 }
                 .frame(maxHeight:.infinity)
                 .onAppear{

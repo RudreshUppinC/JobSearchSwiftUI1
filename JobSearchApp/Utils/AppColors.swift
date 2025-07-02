@@ -39,8 +39,10 @@ struct AppColors {
     static let flameOrange = Color(red: 252/255, green: 163/255, blue:77/255)
     
     static let black = Color.black
+    static let redColor = Color.red
     
-    
+    static let orangeColor = Color.orange
+
     //Profile View
     
     static let darkPurpleCardColor = Color(red: 19/255, green: 1/255, blue:96/255)

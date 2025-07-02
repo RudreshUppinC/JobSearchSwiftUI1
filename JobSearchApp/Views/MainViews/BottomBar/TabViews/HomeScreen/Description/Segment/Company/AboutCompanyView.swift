@@ -61,7 +61,7 @@ struct AboutCompanyView: View {
             } label: {
                 Text(isExpanded ? "Read Less":"Read More")
                     .font(FontStyle.dmsansBold.font(baseSize: 11))
-                    .foregroundColor(.black)
+                    .foregroundColor(AppColors.black)
             }
             .buttonStyle(.plain)
             .padding(.vertical, 5)
@@ -182,7 +182,7 @@ struct AboutCompanyView: View {
                                 Text("+\(remainingImageCount) pictures")
                                     .font(.headline)
                                     .fontWeight(.bold)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(AppColors.white)
                             }
                         }
                     }

@@ -52,12 +52,12 @@ struct ToastView: View {
             Text(message)
                 .font(.system(size: 14, weight: .semibold))
         }
-        .foregroundColor(Color.red)
+        .foregroundColor(AppColors.redColor)
         .padding(.horizontal, 24)
         .padding(.vertical, 14)
-        .background(Color.red)
+        .background(AppColors.redColor)
         .clipShape(Capsule())
-        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+        .shadow(color: AppColors.black.opacity(0.2), radius: 10, x: 0, y: 5)
     }
 }
 

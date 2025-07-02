@@ -85,7 +85,7 @@ struct LanguageSectionView: View {
             
             
         }
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(12)
         
         

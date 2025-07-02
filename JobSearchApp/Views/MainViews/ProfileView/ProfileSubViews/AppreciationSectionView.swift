@@ -93,7 +93,7 @@ struct AppreciationSectionView: View {
             }
         }
         .padding(20)
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(20)
         .shadow(color: .black.opacity(0.05), radius: 10, y: 5)
     }

@@ -46,7 +46,7 @@ struct MyConnectDescriptionView: View {
                                         .foregroundColor(viemodel.selected == option ? .black: .red)
                                         .padding(.vertical, 8)
                                         .frame(maxWidth:.infinity)
-                                        .background(viemodel.selected == option ? Color.orange.opacity(0.8) : Color.clear)
+                                        .background(viemodel.selected == option ? AppColors.orangeColor.opacity(0.8) : Color.clear)
                                         .cornerRadius(9)
                                 }
                                 

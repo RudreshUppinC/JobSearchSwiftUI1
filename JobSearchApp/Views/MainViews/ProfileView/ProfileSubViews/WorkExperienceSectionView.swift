@@ -102,7 +102,7 @@ struct WorkExperienceSectionView: View {
             
             
         }
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(12)
     }
     

@@ -44,7 +44,7 @@ struct ChatTabView: View {
                         }) {
                             Text("CREATE A MESSAGE")
                                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                .foregroundColor(.white)
+                                .foregroundColor(AppColors.white)
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(AppColors.deepBlue)

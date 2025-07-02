@@ -113,7 +113,7 @@ struct SkillsSectionView: View {
                 
             }
         }
-        .background(Color.white)
+        .background(AppColors.white)
         .cornerRadius(12)
         
     }

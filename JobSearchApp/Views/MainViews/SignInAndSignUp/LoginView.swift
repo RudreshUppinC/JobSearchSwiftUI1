@@ -112,7 +112,7 @@ struct LoginView: View {
                                 }) {
                                     Text("LOGIN")
                                         .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(AppColors.white)
                                         .padding()
                                         .frame(maxWidth: .infinity)
                                         .background(Color(red: 0.145, green: 0.145, blue: 0.345)) // Dark blue color

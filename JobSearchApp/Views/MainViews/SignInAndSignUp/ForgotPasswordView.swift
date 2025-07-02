@@ -54,7 +54,7 @@ struct ForgotPasswordView: View {
                                 .padding(.bottom, 8)
                             TextField("enter your email", text: $forgetPasswordViewModel.email)
                                 .padding()
-                                .background(Color.white)
+                                .background(AppColors.white)
                                 .cornerRadius(10)
                         }
                         .padding(.bottom, 15)
@@ -96,7 +96,7 @@ struct CustomButton: View {
         Button(action: action) {
             Text(title)
                 .font(FontStyle.dmsansBold.font(baseSize: 14))
-                .foregroundColor(.white)
+                .foregroundColor(AppColors.white)
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(backgroundColor)

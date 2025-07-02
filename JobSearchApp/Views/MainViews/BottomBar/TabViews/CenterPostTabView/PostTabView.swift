@@ -14,7 +14,7 @@ struct PostTabView: View {
     var body: some View {
         ZStack {
             if mainScreenViewModel.showBottomSheet {
-                Color.black.opacity(0.6)
+                AppColors.black.opacity(0.6)
                     .ignoresSafeArea()
                     .onTapGesture {
                         withAnimation {
@@ -48,7 +48,7 @@ struct PostTabView: View {
                                 }) {
                                     Text("POST")
                                         .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(AppColors.white)
                                         .padding()
                                         .frame(maxWidth: .infinity)
                                         .background(AppColors.deepBlue)
@@ -60,7 +60,7 @@ struct PostTabView: View {
                                 }) {
                                     Text("MAKE A JOB")
                                         .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(AppColors.white)
                                         .padding()
                                         .frame(maxWidth: .infinity)
                                         .background(AppColors.pastelLavender)

@@ -81,7 +81,7 @@ struct UploadCVSuccessView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .font(FontStyle.dmsansBold.font(baseSize: 14))
-                        .foregroundColor(.white)
+                        .foregroundColor(AppColors.white)
                 }
                 .background(AppColors.deepIndigo)
                 .cornerRadius(8)

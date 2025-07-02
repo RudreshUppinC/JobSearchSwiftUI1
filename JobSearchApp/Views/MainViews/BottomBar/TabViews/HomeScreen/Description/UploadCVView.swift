@@ -69,7 +69,7 @@ struct UploadCVView: View {
                                 viewModal.isHideApplyButtonIn = true
                             }) {
                                 Text("APPLY NOW")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(AppColors.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
                                     .background(AppColors.blueColor)
@@ -156,7 +156,7 @@ struct MainUploadCVView: View {
                 .padding(5)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
+                        .fill(AppColors.white)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
