@@ -15,7 +15,8 @@ struct ChatTabView: View {
         NavigationStack{
             ZStack{
                 AppColors.whisperGray
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea(.all)
+                
                 ScrollView{
                     
                     // Main Content
@@ -25,7 +26,7 @@ struct ChatTabView: View {
                             Image(uiImage: image)
                                 .scaledToFit()
                                 .frame(width: 250,height: 240)
-                                .padding(.top, 150)
+                               // .padding(.top, 150)
                             
                         }
                         Text("No Message")
@@ -38,7 +39,7 @@ struct ChatTabView: View {
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
-                        
+                        Spacer()
                         Button(action: {
                             print("Login tapped")
                         }) {
@@ -50,22 +51,18 @@ struct ChatTabView: View {
                                 .background(AppColors.deepBlue)
                                 .cornerRadius(10)
                         }
-                        .padding(.top,50)
+                        .padding(.top,25)
                         .padding(.horizontal, 20)
-                        
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .padding(.top, 10)
                 .navigationBarBackButtonHidden(true)
-                .toolbar {
-                    ToolbarItem(placement: .principal){
-                        Text("")
-                    }
-                }
+                
             }
+
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

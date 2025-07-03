@@ -41,7 +41,7 @@ struct AppColors {
     static let black = Color.black
     static let redColor = Color.red
     
-    static let orangeColor = Color.orange
+    static let orangeColorApple = Color.orange
 
     //Profile View
     

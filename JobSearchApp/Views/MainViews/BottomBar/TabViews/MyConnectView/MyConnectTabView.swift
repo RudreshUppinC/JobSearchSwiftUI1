@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct MyConnectTabView: View {
     @StateObject private var viewModel = MyConnectViewModel()
     @ObservedObject  var mainScreenViewModel : MainScreenViewModel
@@ -57,6 +58,7 @@ struct MyConnectTabView: View {
                 }
                 
             }
+            .scrollIndicators(.hidden)
             .padding(.horizontal, horizontalPagePadding)
             
         }
@@ -75,5 +77,9 @@ struct MyConnectTabView: View {
 }
 
 #Preview {
-    MyConnectTabView(mainScreenViewModel: MainScreenViewModel())
+    if #available(iOS 16.0, *) {
+        MyConnectTabView(mainScreenViewModel: MainScreenViewModel())
+    } else {
+        // Fallback on earlier versions
+    }
 }

@@ -16,7 +16,7 @@ struct MainSplashScreen: View {
         NavigationStack{
             ZStack {
                 // Background Color
-                Color("bgMianView")
+                AppColors.paleGray
                     .ignoresSafeArea(.all)
                 ScrollView {
                     VStack {
@@ -24,14 +24,13 @@ struct MainSplashScreen: View {
                             Spacer()
                             Text("Jobspot")
                                 .font(FontStyle.dmsansBold.font(baseSize: 18))
-                                .foregroundColor(.black)
+                                .foregroundColor(AppColors.black)
                                 .padding(.trailing, 32)
                             
                         }
                         .padding(.bottom, 90)
                         
                         VStack {
-                            
                             ImageProvider.getImage(named: "bgJobSpot").map{ image in
                                 Image(uiImage: image)
                                     .padding(.horizontal, 32)
@@ -44,40 +43,38 @@ struct MainSplashScreen: View {
                                     .padding(.trailing, 50)
                                     .offset(y: -160)
                             }
-                            
                         }
                         .frame(width: 300, height: 300)
                         .padding(.bottom, 78)
                         
-                        VStack(spacing: 0) {
+                      VStack(alignment: .leading, spacing: 0) {
+
                             Text("Find Your")
                                 .font(FontStyle.dmsansBold.font(baseSize: 40))
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
+                                .foregroundColor(AppColors.black)
                             Text("Dream Job")
-                                .font(FontStyle.dmsansBold.font(baseSize: 40))
-                                .foregroundColor(Color("textColorYellow"))
-                                .underline(true, color: Color("textColorYellow"))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
+                                    .font(FontStyle.dmsansBold.font(baseSize: 40))
+                                    .foregroundColor(AppColors.flameOrange)
+                                    .underline(true, color: AppColors.flameOrange)
+                                    .padding(.top, -10)
                             Text("Here!")
                                 .font(FontStyle.dmsansBold.font(baseSize: 40))
                                 .foregroundColor(.black)
                                 .fixedSize(horizontal: true, vertical: false)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, -10)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 28)
-                        .padding(.bottom, 5)
-                        
+
                         VStack {
                             Text("Explore all the most exciting job roles based on your interest and study major.")
-                                .font(Font.custom("DMSans-Regular", size: 15))
-                                .foregroundColor(Color("textcolor2"))
+                                .font(FontStyle.dmsansRegular.font(baseSize: 14))
+                                .foregroundColor(AppColors.dustyLavender)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .padding(.leading, 29)
-                        
+                        .padding(.horizontal, 29)
+                        .padding(.top, 15)
+
                         VStack {
                             NavigationLink(destination: LoginView(), isActive: $isNavigateToUploadView) {
                                 Button(action: {
@@ -86,12 +83,11 @@ struct MainSplashScreen: View {
                                 }) {
                                     ZStack {
                                         Circle()
-                                            .fill(Color("bgColor"))
+                                            .fill(AppColors.darkIndigoColor)
                                             .frame(width: 60, height: 60)
                                         ImageProvider.getImage(named: "nextArrow").map{ image in
                                             Image(uiImage: image)
                                                 .frame(width: 23, height: 26)
-                                            
                                         }
                                     }
                                 }
@@ -106,7 +102,6 @@ struct MainSplashScreen: View {
                     print("Hello")
                 }
             }
-            
         }
         .navigationBarBackButtonHidden(true)
     }

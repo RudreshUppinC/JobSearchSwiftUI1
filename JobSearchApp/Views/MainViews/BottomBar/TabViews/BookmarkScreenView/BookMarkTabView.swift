@@ -34,11 +34,10 @@ struct BookMarkTabView: View {
                         
                     }
                     .padding(.horizontal)
-                    .background(Color(.systemGray6))
                 }
                 .padding(.top,105)
                 .ignoresSafeArea(.all)
-                
+                .scrollIndicators(.hidden)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Delete all") {
@@ -55,10 +54,13 @@ struct BookMarkTabView: View {
                             .font(FontStyle.dmsansRegular.font(baseSize: 17))
                             .foregroundColor(AppColors.deepIndigo)
                     }
-                    
                 }
+                .background(AppColors.paleGray)
+                .toolbarBackground(
+                    AppColors.paleGray,
+                    for:.navigationBar
+                )
             }
-            
         }
         .navigationBarBackButtonHidden(true)
     }

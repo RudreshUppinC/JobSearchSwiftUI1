@@ -13,7 +13,8 @@ class ProfileViewModal: ObservableObject {
     @Published var isAboutMeDetailView: Bool  = false
     @Published var isEditProfileDetailView: Bool  = false
     @Published var userProfile: UserProfile
-    
+    @Published var isWorkDetailView: Bool  = false
+
     init(userProfile:UserProfile) {
         self.userProfile = userProfile
     }

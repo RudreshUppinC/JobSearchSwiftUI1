@@ -45,7 +45,7 @@ struct ProfileView:View{
                             
                             //Work Header
                             
-                            WorkExperienceSectionView(onAdd: {}, onEditExperience: {expereience in }, workExperience: viewModel.userProfile.workExperiences)
+                            WorkExperienceView(onAdd: {}, onEditExperience: {expereience in }, workExperience: viewModel.userProfile.workExperiences, isShowingWorkDetailView: $viewModel.isWorkDetailView)
                             
                             //Education
                             

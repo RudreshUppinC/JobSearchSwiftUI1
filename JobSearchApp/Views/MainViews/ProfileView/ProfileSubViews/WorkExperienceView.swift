@@ -1,5 +1,5 @@
 //
-//  WorkExperienceSectionView.swift
+//  WorkExperienceView.swift
 //  JobSearchApp
 //
 //  Created by RudreshUppin on 21/05/25.
@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct WorkExperienceSectionView: View {
+@available(iOS 16.0, *)
+struct WorkExperienceView: View {
     let title: String = "Work experience"
     let onAdd:() ->Void
     let onEditExperience:(WorkExperience) ->Void
     let workExperience: [WorkExperience]
-    
+    @Binding var isShowingWorkDetailView: Bool
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -79,18 +81,22 @@ struct WorkExperienceSectionView: View {
                         }
                     }
                     
-                    
                     Spacer()
-                    Button(action: {
-                        // Handle edit action
-                    }) {
-                        ImageProvider.getImage(named: "editOrange")
-                            .map { image in
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                            }
+                   
+                    NavigationLink(destination: WorkExperienceDetailView()
+                        .navigationBarBackButtonHidden(true),
+                                   isActive: $isShowingWorkDetailView) {
+                        Button(action: {
+                            self.isShowingWorkDetailView = true
+                        }) {
+                            ImageProvider.getImage(named: "editOrange")
+                                .map { image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24)
+                                }
+                        }
                     }
                     
                 }

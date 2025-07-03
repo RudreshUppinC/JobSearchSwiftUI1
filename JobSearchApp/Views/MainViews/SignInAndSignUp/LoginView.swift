@@ -27,11 +27,11 @@ struct LoginView: View {
                             .foregroundColor(AppColors.deepIndigo)
                             .padding(.bottom, 5)
                         
-                        Text("Lorem ipsum dolor sit amet, consectetur  adipiscing \n elit nsed do eiusmod tempor")
+                        Text("Lorem ipsum dolor sit amet, consectetur  adipiscing elit nsed do eiusmod tempor")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .multilineTextAlignment(.center)
                             .foregroundColor(AppColors.dustyLavender)
-                            .padding(.horizontal, 25)
+                            .padding(.horizontal, 40)
                             .padding(.bottom, 30)
                         
                         VStack(alignment: .leading) {
@@ -70,7 +70,7 @@ struct LoginView: View {
                             .background(AppColors.white)
                             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         }
-                        
+
                         VStack {
                             HStack{
                                 Button{
@@ -101,8 +101,9 @@ struct LoginView: View {
                                 }
                                 
                             }
-                            .padding(.bottom, 25)
-                            
+                            .padding(.bottom, 20)
+                            .padding(.top, 5)
+
                             NavigationLink(destination:  MainScreenView()
                                            , isActive: $loginViewModal.isNavigateToLoginSuccess){
                                 Button(action: {
@@ -169,7 +170,6 @@ struct LoginView: View {
                     .padding()
                     
                 }
-                .ignoresSafeArea(.all)
                 .padding(.vertical,20)
             }
         }

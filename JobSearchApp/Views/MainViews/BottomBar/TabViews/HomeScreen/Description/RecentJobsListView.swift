@@ -60,7 +60,7 @@ struct JobCardView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
             .fill(.white)
-            .frame(height:155)
+            .frame(height:160)
             .shadow(radius: 1)
             .padding(.horizontal)
             .overlay {
@@ -103,7 +103,7 @@ struct JobCardView: View {
                         })
                     }
                     .padding(.horizontal,20)
-                    .padding(.top,15)
+                    .padding(.top,20)
                     
                     HStack{
                         salaryTextView()

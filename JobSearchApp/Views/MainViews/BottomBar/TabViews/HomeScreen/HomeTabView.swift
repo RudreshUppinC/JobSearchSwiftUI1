@@ -112,7 +112,7 @@ struct HomeTabView: View {
                                         .font(FontStyle.dmsansBold.font(baseSize: 18))
                                         .foregroundColor(.black)
                                     Text("Remote Job")
-                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                        .font(FontStyle.dmsansRegular.font(baseSize: 14))
                                         .foregroundColor(.black)
                                     
                                 }
@@ -155,7 +155,7 @@ struct HomeTabView: View {
                         .frame(height: 175)
                         HStack{
                             Text("Recent Job List")
-                                .font(FontStyle.dmsansBold.font(baseSize: 15))
+                                .font(FontStyle.dmsansBold.font(baseSize: 16))
                                 .foregroundColor(AppColors.darkIndigoColor)
                             Spacer()
                             NavigationLink(destination:  RecentJobsListView( mainScreenViewModel: mainScreenViewModel)

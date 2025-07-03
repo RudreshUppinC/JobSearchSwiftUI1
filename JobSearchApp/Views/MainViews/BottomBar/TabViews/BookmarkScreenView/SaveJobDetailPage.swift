@@ -30,7 +30,7 @@ struct SaveJobDetailPage: View {
                 
                 Text(job.userRole)
                     .font(.headline)
-                    .foregroundColor(.secondary) //Use .secondary for a softer more subtle color
+                    .foregroundColor(.secondary) 
                 
                 Text("Location:")
                     .font(.subheadline)

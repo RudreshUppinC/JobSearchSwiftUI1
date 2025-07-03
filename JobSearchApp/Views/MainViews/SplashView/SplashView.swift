@@ -14,7 +14,8 @@ struct SplashView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color("bgColor").edgesIgnoringSafeArea(.all)
+                AppColors.darkIndigoColor
+                    .ignoresSafeArea(.all)
                 VStack(spacing:5){
                     ImageProvider.getImage(named: "Group").map { image in
                         Image(uiImage: image)
