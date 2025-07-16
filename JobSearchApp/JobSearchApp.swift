@@ -14,7 +14,7 @@ struct JobSearchApp: App {
     var body: some Scene {
         WindowGroup {
             
-           // SplashView()
+           SplashView()
           //  HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
            // RecentJobsListView(mainScreenViewModel: MainScreenViewModel())
             let job = Jobs(companyName: "Google Inc",
@@ -45,9 +45,6 @@ struct JobSearchApp: App {
                            
             )
             
-
-
-            DescriptionView(job: job)
         }
 
     }

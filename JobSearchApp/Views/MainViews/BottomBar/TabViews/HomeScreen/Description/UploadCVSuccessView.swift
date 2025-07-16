@@ -58,7 +58,7 @@ struct UploadCVSuccessView: View {
                 Text("Congratulations, your application has been sent")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .foregroundColor(AppColors.dustyLavender)
-                    .multilineTextAlignment(.center) 
+                    .multilineTextAlignment(.center)
                 
                 Button {
                     // Action for "Find a similar job"
