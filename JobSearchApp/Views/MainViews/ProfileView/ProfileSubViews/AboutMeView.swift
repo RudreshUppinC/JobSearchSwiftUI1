@@ -6,9 +6,19 @@ struct AboutMeCardView: View {
     
     let headerHeight: CGFloat = 70
     let detailsVisibleHeight: CGFloat = 165
-    let aboutMeText: String
-    @Binding var isShowingEditView: Bool
+    
+    @State private var aboutMeText: String
+    @State private var isAboutMeDetailView: Bool
+
     let title: String = "About Me"
+    
+    @ObservedObject var profileViewModel: ProfileViewModal
+
+    init(viewModel: ProfileViewModal) {
+        self.profileViewModel = viewModel
+        self._aboutMeText = State(initialValue: viewModel.userProfile.aboutMe)
+        self._isAboutMeDetailView = State(initialValue: viewModel.isAboutMeDetailView)
+    }
     
     var body:some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -26,11 +36,11 @@ struct AboutMeCardView: View {
                         .font(FontStyle.dmsansBold.font(baseSize: 12))
                         .foregroundColor(AppColors.darkIndigoColor)
                     Spacer()
-                    NavigationLink(destination: AboutMeCardEditView()
+                    NavigationLink(destination: AboutMeCardEditView(viewModel: profileViewModel)
                         .navigationBarBackButtonHidden(true),
-                                   isActive: $isShowingEditView) {
+                                   isActive: $profileViewModel.isAboutMeDetailView) {
                         Button(action: {
-                            self.isShowingEditView = true
+                            profileViewModel.isAboutMeDetailView = true
                         }) {
                             ImageProvider.getImage(named: "add").map { image in
                                 Image(uiImage: image)
@@ -51,7 +61,7 @@ struct AboutMeCardView: View {
                 .padding(.bottom,15)
                 .padding(.horizontal,20)
                 
-                Text(aboutMeText)
+                Text(profileViewModel.fetchAboutMeText())
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .lineLimit(3)
                     .foregroundColor(AppColors.dustyLavender)

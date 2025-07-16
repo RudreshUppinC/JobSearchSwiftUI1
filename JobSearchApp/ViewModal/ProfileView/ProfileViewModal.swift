@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreData
+
 
 class ProfileViewModal: ObservableObject {
     @Published var isAboutMeDetailView: Bool  = false
@@ -32,5 +34,56 @@ class ProfileViewModal: ObservableObject {
         print(#function)
         
     }
+    
+    
+    
+    //AboutMe
+        @Published var savedSuccessfully: Bool = false
+        
+        private var viewContext: NSManagedObjectContext {
+            return CoreDataManager.shared.container.viewContext
+        }
+        
+        // Fetches the existing "About Me" text from Core Data
+        func fetchAboutMeText() -> String {
+            let request = NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity")
+            do {
+                // We assume there is only one profile entry. Fetch the first one if it exists.
+                let profile = try viewContext.fetch(request).first
+                return profile?.aboutMe ?? "" 
+            } catch {
+                print("Error fetching profile: \(error)")
+                return ""
+            }
+        }
+        
+        // Saves or updates the "About Me" text
+        func saveAboutMe(text: String) {
+            let request = NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity")
+            
+            do {
+                let profile = try viewContext.fetch(request).first
+                
+                if let existingProfile = profile {
+                    // If a profile exists, UPDATE it
+                    existingProfile.aboutMe = text
+                    print("Updating existing profile about me text.")
+                } else {
+                    // If no profile exists, CREATE a new one
+                    let newProfile = ProfileEntity(context: viewContext)
+                    newProfile.aboutMe = text
+                    print("Creating new profile and saving about me text.")
+                }
+                
+                // Save the changes to Core Data
+                CoreDataManager.shared.saveContext()
+                
+                // Give feedback to the UI
+                savedSuccessfully = true
+                
+            } catch {
+                print("Error saving or updating profile: \(error)")
+            }
+        }
       
 }

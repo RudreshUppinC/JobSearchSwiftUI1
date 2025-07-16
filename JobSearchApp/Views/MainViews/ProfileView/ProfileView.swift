@@ -40,8 +40,8 @@ struct ProfileView:View{
                             
                             //About MeCard
                             AboutMeCardView(
-                                aboutMeText: viewModel.userProfile.aboutMe,
-                                isShowingEditView: $viewModel.isAboutMeDetailView)
+                                viewModel: viewModel,
+                            )
                             
                             //Work Header
                             
