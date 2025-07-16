@@ -228,11 +228,12 @@ struct UploadedCVView: View {
                 }
                 VStack(alignment: .leading) {
                     Text(fileName)
-                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+                        .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                        .foregroundColor(AppColors.darkIndigoColor)
                         .lineLimit(1)
                     Text("\(fileSize) - \(uploadDate)")
-                        .font(FontStyle.dmsansBold.font(baseSize: 12))
-                        .foregroundColor(.gray)
+                        .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                        .foregroundColor(AppColors.paleLavender)
                 }
                 Spacer()
             }
@@ -248,10 +249,9 @@ struct UploadedCVView: View {
                         Image(uiImage: image)
                             .foregroundColor(AppColors.lightCoral)
                     }
-                    
                     Text("Remove file")
-                        .font(FontStyle.dmsansBold.font(baseSize: 12))
-                        .foregroundColor(AppColors.lightCoral)
+                        .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                        .foregroundColor(AppColors.pureRed)
                 }
                 .padding(.horizontal,20)
                 .padding(.bottom, 8)

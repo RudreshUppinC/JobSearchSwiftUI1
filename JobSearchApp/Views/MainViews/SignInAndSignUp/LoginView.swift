@@ -27,32 +27,37 @@ struct LoginView: View {
                             .foregroundColor(AppColors.deepIndigo)
                             .padding(.bottom, 5)
                         
-                        Text("Lorem ipsum dolor sit amet, consectetur  adipiscing elit nsed do eiusmod tempor")
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .multilineTextAlignment(.center)
                             .foregroundColor(AppColors.dustyLavender)
-                            .padding(.horizontal, 40)
+                            .padding(.horizontal, 10)
                             .padding(.bottom, 30)
                         
+                        //Email
                         VStack(alignment: .leading) {
                             Text("Email")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
                                 .foregroundColor(AppColors.deepIndigo)
-                            
                             TextField("Email Address", text: $loginViewModal.email)
+                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                                .foregroundColor(AppColors.deepIndigo.opacity(0.6))
                                 .padding()
                                 .background(AppColors.white)
                                 .cornerRadius(12)
                         }
                         .padding(.bottom, 20)
                         
+                        //Password
                         VStack(alignment: .leading, spacing: 5) {
                             Text("Password")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
                                 .foregroundColor(AppColors.deepIndigo)
                             HStack {
                                 
-                                SecureField("Password", text: $loginViewModal.password)
+                                SecureField("●●●●●●●●", text: $loginViewModal.password)
+                                    .foregroundColor(AppColors.deepIndigo).opacity(60)
+                                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
                                     .padding()
                                     .autocapitalization(.none)
                                 
@@ -72,6 +77,8 @@ struct LoginView: View {
                         }
 
                         VStack {
+                            //CheckBox and ForgetPassword
+
                             HStack{
                                 Button{
                                     loginViewModal.rememberMe.toggle()
@@ -82,7 +89,7 @@ struct LoginView: View {
                                     
                                 }
                                 .frame(width:25,height: 25)
-                                
+                                .padding(.trailing,15)
                                 
                                 Text("Remember me")
                                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
@@ -103,48 +110,52 @@ struct LoginView: View {
                             }
                             .padding(.bottom, 20)
                             .padding(.top, 5)
-
-                            NavigationLink(destination:  MainScreenView()
-                                           , isActive: $loginViewModal.isNavigateToLoginSuccess){
-                                Button(action: {
-                                    // Handle login action
-                                    loginViewModal.isNavigateToLoginSuccess = true
-                                    print("Login tapped")
-                                }) {
-                                    Text("LOGIN")
-                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                        .foregroundColor(AppColors.white)
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color(red: 0.145, green: 0.145, blue: 0.345)) // Dark blue color
-                                        .cornerRadius(10)
-                                }
-                                .padding(.bottom, 15)
-                            }
                             
-                            Button(action: {
-                                // Handle sign in with Google action
-                                print("Sign in with Google tapped")
-                            }) {
-                                HStack {
-                                    ImageProvider.getImage(named: "googlelogo1").map{ image in
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 25, height: 25)
+                            //Login
+                            VStack {
+                                NavigationLink(destination:  MainScreenView()
+                                               , isActive: $loginViewModal.isNavigateToLoginSuccess){
+                                    Button(action: {
+                                        // Handle login action
+                                        loginViewModal.isNavigateToLoginSuccess = true
+                                        print("Login tapped")
+                                    }) {
+                                        Text("LOGIN")
+                                            .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                            .foregroundColor(AppColors.white)
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color(red: 0.145, green: 0.145, blue: 0.345)) // Dark blue color
+                                            .cornerRadius(10)
                                     }
-                                    
-                                    Text("SIGN IN WITH GOOGLE")
-                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                    .padding(.bottom, 15)
                                 }
-                                .foregroundColor(.black)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(AppColors.pastelLavender)
-                                .cornerRadius(10)
+                                
+                                Button(action: {
+                                    // Handle sign in with Google action
+                                    print("Sign in with Google tapped")
+                                }) {
+                                    HStack {
+                                        ImageProvider.getImage(named: "googlelogo2").map{ image in
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                        }
+                                        Text("SIGN IN WITH GOOGLE")
+                                            .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                            .foregroundColor(AppColors.darkPurpleCardColor)
+                                    }
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(AppColors.pastelLavender)
+                                    .cornerRadius(10)
+                                }
+                                .padding(.bottom, 10)
                             }
-                            .padding(.bottom, 10)
-                            
+                            .padding(.horizontal, 20)
+
                             Spacer()
                             HStack(alignment: .center) {
                                 Text("You don't have an account yet?")
@@ -167,8 +178,8 @@ struct LoginView: View {
                         
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    .padding()
-                    
+                    .padding(.horizontal,30)
+
                 }
                 .padding(.vertical,20)
             }

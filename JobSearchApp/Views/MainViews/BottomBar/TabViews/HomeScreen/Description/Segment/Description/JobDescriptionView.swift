@@ -19,13 +19,13 @@ struct JobDescriptionView: View {
         VStack(alignment: .leading,spacing: 5) {
             
             Text("Job Description")
-                .font(FontStyle.dmsansBold.font(baseSize: 13))
+                .font(FontStyle.dmsansBold.font(baseSize: 14))
                 .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,10)
                 .padding(.top, 10)
-            
+
             Text(job.jobDescription)
-                .font(FontStyle.dmsansBold.font(baseSize: 11))
+                .font(FontStyle.dmsansRegular.font(baseSize: 12))
                 .foregroundColor(AppColors.dustyLavender)
                 .lineLimit(isExpanded ? nil :collapsedLineLimit)
                 .animation(.easeInOut(duration: 0.3), value: isExpanded)
@@ -36,16 +36,16 @@ struct JobDescriptionView: View {
                     isExpanded.toggle()
                 }
             } label: {
-                Text(isExpanded ? "Read Less":"Read More")
-                    .font(FontStyle.dmsansBold.font(baseSize: 11))
-                    .foregroundColor(.black)
+                Text(isExpanded ? "Read less":"Read more")
+                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                    .foregroundColor(AppColors.deepIndigo)
             }
             .buttonStyle(.plain)
             .padding(.vertical, 5)
             .padding(.horizontal, 10)
-            
-            .background(AppColors.pinkbutton).opacity(0.2)
+            .background(AppColors.brightVioletColor.opacity(0.3))
             .cornerRadius(4)
+            
             // Requirements
             RequirementsView(job: job)
             
@@ -58,6 +58,7 @@ struct JobDescriptionView: View {
             // Facilities and Others
             FacilitiesView(job: job)
         }
+        .padding(.horizontal,20)
     }
 }
 
@@ -249,5 +250,7 @@ struct RequirementsView: View {
                 .padding(.bottom, 5)
             }
         }
+        .padding(.top, 20)
+
     }
 }

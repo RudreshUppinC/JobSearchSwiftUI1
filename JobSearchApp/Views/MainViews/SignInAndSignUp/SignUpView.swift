@@ -35,9 +35,9 @@ struct SignUpView: View {
                             Text("Full name")
                                 .font(FontStyle.dmsansBold.font(baseSize: 12))
                                 .foregroundColor(AppColors.deepIndigo)
-                            
                             TextField("Email", text: $signupviewmodal.fullname)
                                 .padding()
+                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
                                 .foregroundColor(AppColors.deepIndigo.opacity(0.6))
                                 .background(AppColors.white)
                                 .cornerRadius(10)
@@ -50,6 +50,7 @@ struct SignUpView: View {
                                 .foregroundColor(AppColors.deepIndigo)
                             
                             TextField("Email Address", text: $signupviewmodal.email)
+                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
                                 .foregroundColor(AppColors.deepIndigo.opacity(0.6))
                                 .padding()
                                 .background(AppColors.white)
@@ -62,10 +63,11 @@ struct SignUpView: View {
                                 .foregroundColor(AppColors.deepIndigo)
                             
                             HStack {
-                                SecureField("", text: $signupviewmodal.password, prompt: Text("Password").foregroundColor(.gray))
+                                SecureField("●●●●●●●●", text: $signupviewmodal.password)
+                                    .foregroundColor(AppColors.deepIndigo).opacity(60)
+                                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
                                     .padding()
                                     .autocapitalization(.none)
-                                    .foregroundColor(.black)
                                 Button(action: {
                                     signupviewmodal.isPasswordVisible.toggle()
                                     print("Toggle", signupviewmodal.isPasswordVisible)
@@ -111,45 +113,47 @@ struct SignUpView: View {
                             }
                         }
                         .padding(.bottom, 20)
-                        
-                        Button(action: {
-                            // Handle login action
-                            print("Login tapped")
-                        }) {
-                            Text("SIGN UP")
-                                .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                .foregroundColor(AppColors.white)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color(red: 0.145, green: 0.145, blue: 0.345)) // Dark blue color
-                                .cornerRadius(10)
-                        }
-                        .padding(.bottom, 15)
-                        
-                        Button(action: {
-                            // Handle sign in with Google action
-                            print("Sign in with Google tapped")
-                        }) {
-                            HStack {
-                                ImageProvider.getImage(named: "googlelogo1").map{ image in
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 25, height: 25)
-                                }
-                                Text("SIGN IN WITH GOOGLE")
+                        VStack {
+                            Button(action: {
+                                // Handle login action
+                                print("Login tapped")
+                            }) {
+                                Text("SIGN UP")
                                     .font(FontStyle.dmsansBold.font(baseSize: 14))
                                     .foregroundColor(AppColors.white)
-                                
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color(red: 0.145, green: 0.145, blue: 0.345)) // Dark blue color
+                                    .cornerRadius(10)
                             }
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(AppColors.pastelLavender)
-                            .cornerRadius(10)
+                            .padding(.bottom, 15)
+                            
+                            Button(action: {
+                                // Handle sign in with Google action
+                                print("Sign in with Google tapped")
+                            }) {
+                                HStack {
+                                    ImageProvider.getImage(named: "googlelogo2").map{ image in
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25, height: 25)
+                                    }
+                                    Text("SIGN IN WITH GOOGLE")
+                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                        .foregroundColor(AppColors.white)
+                                    
+                                }
+                                .foregroundColor(.black)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(AppColors.pastelLavender)
+                                .cornerRadius(10)
+                            }
+                            .padding(.bottom, 10)
                         }
-                        .padding(.bottom, 10)
-                        
+                        .padding(.horizontal, 20)
+
                         Spacer()
                         HStack(alignment: .center) {
                             Text("Already have a account?")
@@ -171,7 +175,7 @@ struct SignUpView: View {
                         }
                         
                     }
-                    .padding()
+                    .padding(.horizontal, 30)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(AppColors.paleGray)
                 }

@@ -48,7 +48,7 @@ struct DescriptionView: View {
                             }
                             
                         }
-                        .padding(.horizontal,20)
+                        .padding(.horizontal,10)
                         
                     }
                     .background(AppColors.offWhite)

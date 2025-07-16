@@ -46,9 +46,9 @@ struct AboutCompanyView: View {
                 .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,10)
                 .padding(.top, 10)
-            
+           
             Text(job.jobDescription)
-                .font(FontStyle.dmsansBold.font(baseSize: 11))
+                .font(FontStyle.dmsansRegular.font(baseSize: 12))
                 .foregroundColor(AppColors.dustyLavender)
                 .padding(.bottom,5)
                 .lineLimit(isExpanded ? nil :collapsedLineLimit)
@@ -59,15 +59,14 @@ struct AboutCompanyView: View {
                 }
                 
             } label: {
-                Text(isExpanded ? "Read Less":"Read More")
-                    .font(FontStyle.dmsansBold.font(baseSize: 11))
-                    .foregroundColor(AppColors.black)
+                Text(isExpanded ? "Read less":"Read more")
+                    .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                    .foregroundColor(AppColors.deepIndigo)
             }
             .buttonStyle(.plain)
             .padding(.vertical, 5)
             .padding(.horizontal, 10)
-            
-            .background(AppColors.pinkbutton).opacity(0.2)
+            .background(AppColors.brightVioletColor.opacity(0.3))
             .cornerRadius(4)
             
             Text("Website")
@@ -139,62 +138,70 @@ struct AboutCompanyView: View {
                 .foregroundColor(AppColors.darkIndigoColor)
                 .padding(.bottom,5)
             
-            
-            HStack(spacing: 15) {
+            GeometryReader { geometry in
                 
-                if let img1 = firstImageName {
-                    NavigationLink {
-                        ImageCarouselView(
-                            allImageNames: allCompanyImages,
-                            initialImageName: img1
-                        )
-                    } label: {
-                        Image(img1)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: (UIScreen.main.bounds.width - 55) / 2, height: imagePreviewHeight)
-                            .cornerRadius(cornerRadius)
-                            .clipped()
-                    }
-                    .buttonStyle(.plain)
-                }
-                
-                if let img2 = secondImageName {
-                    NavigationLink {
-                        ImageCarouselView(
-                            allImageNames: allCompanyImages,
-                            initialImageName: img2
-                        )
-                    } label: {
-                        ZStack {
-                            Image(img2)
+                HStack(spacing: 15) {
+                    let imageWidth = (geometry.size.width - 15) / 2
+                    
+                    if let img1 = firstImageName {
+                        NavigationLink {
+                            ImageCarouselView(
+                                allImageNames: allCompanyImages,
+                                initialImageName: img1
+                            )
+                        } label: {
+                            Image(img1)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: (UIScreen.main.bounds.width - 55) / 2, height: imagePreviewHeight)
+                            //.frame(width: (UIScreen.main.bounds.width - 55) / 2, height: imagePreviewHeight)
+                                .frame(width: imageWidth, height: imagePreviewHeight)
+                            
                                 .cornerRadius(cornerRadius)
                                 .clipped()
-                            
-                            if remainingImageCount > 0 {
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    
+                    if let img2 = secondImageName {
+                        NavigationLink {
+                            ImageCarouselView(
+                                allImageNames: allCompanyImages,
+                                initialImageName: img2
+                            )
+                        } label: {
+                            ZStack {
+                                Image(img2)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: imageWidth, height: imagePreviewHeight)
+
+                                   // .frame(width: (UIScreen.main.bounds.width - 55) / 2, height: imagePreviewHeight)
+                                    .cornerRadius(cornerRadius)
+                                    .clipped()
                                 
-                                RoundedRectangle(cornerRadius: cornerRadius)
-                                    .fill(.black.opacity(0.5))
-                                
-                                Text("+\(remainingImageCount) pictures")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(AppColors.white)
+                                if remainingImageCount > 0 {
+                                    
+                                    RoundedRectangle(cornerRadius: cornerRadius)
+                                        .fill(.black.opacity(0.5))
+                                    
+                                    Text("+\(remainingImageCount) pictures")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(AppColors.white)
+                                }
                             }
                         }
+                        .buttonStyle(.plain)
+                        
                     }
-                    .buttonStyle(.plain)
                     
                 }
-                
+                .frame(height: imagePreviewHeight)
+
             }
-            .frame(width: UIScreen.main.bounds.width - 40)
             
         }
-        
+        .padding(.horizontal,20)
     }
 }
 

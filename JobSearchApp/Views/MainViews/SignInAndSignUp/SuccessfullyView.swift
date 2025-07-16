@@ -23,12 +23,13 @@ struct SuccessfullyView: View {
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
                             .foregroundColor(AppColors.deepIndigo)
                             .padding(.top)
+                            .padding(.bottom,2)
+
                         Text("Your password has been updated, please change your password regularly to avoid this happening ")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
-                            .padding(.top, 5)
-                        
+
                         ImageProvider.getImage(named: "succfullyEmail").map{ image in
                             Image(uiImage: image)
                                 .scaledToFit()

@@ -57,10 +57,10 @@ struct HomeTabView: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("50% off")
-                                        .font(FontStyle.dmsansRegular.font(baseSize: 16))
+                                        .font(FontStyle.dmsansMedium.font(baseSize: 17))
                                         .foregroundColor(AppColors.white)
                                     Text("take any courses")
-                                        .font(FontStyle.dmsansRegular.font(baseSize: 16))
+                                        .font(FontStyle.dmsansRegular.font(baseSize: 17))
                                         .foregroundColor(AppColors.white)
                                         .lineLimit(1)
                                     
@@ -79,14 +79,14 @@ struct HomeTabView: View {
                                     .padding(.vertical, 12)
                                     
                                 }
-                                .padding(.horizontal)
-                                Spacer()
-                                
+                                .padding(.horizontal,10)
+                                .padding(.vertical,4)
+
                                 ImageProvider.getImage(named: "women").map{ image in
                                     Image(uiImage: image)
                                         .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 190, maxHeight: 180)
+                                        .scaledToFit()
+                                        .frame(height: 165)
                                         .offset(x:0, y: -20)
                                 }
                             }
@@ -97,7 +97,8 @@ struct HomeTabView: View {
                             .font(FontStyle.dmsansBold.font(baseSize: 16))
                             .foregroundColor(.black)
                             .padding(.horizontal)
-                        
+                            .padding(.vertical, 15)
+
                         GeometryReader { geometry in
                             HStack(spacing:geometry.size.width * 0.10) {
                                 VStack(spacing: 5) {
@@ -109,12 +110,12 @@ struct HomeTabView: View {
                                     }
                                     
                                     Text("44.5k")
-                                        .font(FontStyle.dmsansBold.font(baseSize: 18))
-                                        .foregroundColor(.black)
+                                        .font(FontStyle.dmsansBold.font(baseSize: 16))
+                                        .foregroundColor(AppColors.deepIndigo)
                                     Text("Remote Job")
                                         .font(FontStyle.dmsansRegular.font(baseSize: 14))
-                                        .foregroundColor(.black)
-                                    
+                                        .foregroundColor(AppColors.deepIndigo)
+
                                 }
                                 .frame(width: geometry.size.width * 0.40, height: 170)
                                 .background(AppColors.lightCyanColor)
@@ -124,7 +125,7 @@ struct HomeTabView: View {
                                 VStack {
                                     VStack(spacing: 5) {
                                         Text("66.8k")
-                                            .font(FontStyle.dmsansBold.font(baseSize: 18))
+                                            .font(FontStyle.dmsansBold.font(baseSize: 16))
                                             .foregroundColor(AppColors.deepIndigo)
                                         Text("Full Time")
                                             .font(FontStyle.dmsansRegular.font(baseSize: 14))
@@ -136,11 +137,11 @@ struct HomeTabView: View {
                                     
                                     VStack(spacing: 5) {
                                         Text("38.9k")
-                                            .font(FontStyle.dmsansBold.font(baseSize: 18))
-                                            .foregroundColor(.black)
+                                            .font(FontStyle.dmsansBold.font(baseSize: 16))
+                                            .foregroundColor(AppColors.deepIndigo)
                                         Text("Part Time")
                                             .font(FontStyle.dmsansRegular.font(baseSize: 14))
-                                            .foregroundColor(.black)
+                                            .foregroundColor(AppColors.deepIndigo)
                                     }
                                     .frame(width: geometry.size.width * 0.45, height: 85)
                                     .background(Color(red: 1.0, green: 0.8, blue: 0.6))
@@ -173,8 +174,8 @@ struct HomeTabView: View {
                             
                         }
                         .padding(.horizontal)
-                        .padding(.vertical,5)
-                        
+                        .padding(.vertical, 10)
+
                         LazyVStack {
                             ForEach($recentJobListViewModel.jobsData) { $job in
                                 JobCardView(job: job)
@@ -182,8 +183,10 @@ struct HomeTabView: View {
                         }
                     }
                 }
+                .scrollIndicators(.hidden)
                 .padding(.top, 10)
-                
+                .padding(.horizontal, 10)
+
             }
         }
         .navigationBarBackButtonHidden(true)

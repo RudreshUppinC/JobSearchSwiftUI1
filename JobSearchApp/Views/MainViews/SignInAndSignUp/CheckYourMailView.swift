@@ -29,8 +29,9 @@ struct CheckYourMailView: View {
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.dustyLavender)
                             .multilineTextAlignment(.center)
-                            .padding(.top, 5)
                         
+                            .padding(.top,5)
+
                         Text(checkyourmailviewmodal.email)
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
                             .foregroundColor(AppColors.dustyLavender)
@@ -62,8 +63,8 @@ struct CheckYourMailView: View {
                         
                         HStack{
                             Text("You have not received the email?")
-                                .font(FontStyle.dmsansBold.font(baseSize: 10))
-                                .foregroundColor(AppColors.dustyLavender)
+                                .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                                .foregroundColor(AppColors.darkIndigoColor)
                             
                             Button{
                                 

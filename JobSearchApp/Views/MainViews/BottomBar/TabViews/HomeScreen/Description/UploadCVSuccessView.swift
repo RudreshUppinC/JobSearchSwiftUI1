@@ -26,11 +26,12 @@ struct UploadCVSuccessView: View {
                     
                     VStack(alignment: .leading) {
                         Text(viewModal.cvFileName)
-                            .font(FontStyle.dmsansBold.font(baseSize: 14))
+                            .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                            .foregroundColor(AppColors.darkIndigoColor)
                             .lineLimit(1)
                         Text("\(viewModal.cvFileSize) - \(viewModal.cvUploadDate)")
-                            .font(FontStyle.dmsansBold.font(baseSize: 12))
-                            .foregroundColor(.gray)
+                            .font(FontStyle.dmsansRegular.font(baseSize: 12))
+                            .foregroundColor(AppColors.paleLavender)
                     }
                     
                     Spacer()
@@ -50,14 +51,14 @@ struct UploadCVSuccessView: View {
                         .frame(width: 150, height: 150)
                 }
                 
-                Text("Upload Successful!")
+                Text("Successful!")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))
                     .foregroundColor(AppColors.dustyLavender)
                 
                 Text("Congratulations, your application has been sent")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .foregroundColor(AppColors.dustyLavender)
-                    .multilineTextAlignment(.center) // Center the multiline text
+                    .multilineTextAlignment(.center) 
                 
                 Button {
                     // Action for "Find a similar job"

@@ -10,7 +10,6 @@ import SwiftUI
 import SwiftUI
 import Combine
 
-@available(iOS 16.0, *)
 
 @available(iOS 16.0, *)
 struct AboutMeCardEditView: View {

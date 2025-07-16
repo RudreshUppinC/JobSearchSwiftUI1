@@ -30,8 +30,7 @@ struct ForgotPasswordView: View {
                             .font(FontStyle.dmsansBold.font(baseSize: 30))
                             .foregroundColor(AppColors.deepIndigo)
                             .padding(.top)
-                            .padding(.bottom,11)
-                        
+                            .padding(.bottom,5)
                         
                         Text("To reset your password, you need your email or mobile number that can be authenticated")
                             .font(FontStyle.dmsansRegular.font(baseSize: 12))
@@ -54,6 +53,7 @@ struct ForgotPasswordView: View {
                                 .padding(.bottom, 8)
                             TextField("enter your email", text: $forgetPasswordViewModel.email)
                                 .padding()
+                                .foregroundColor(AppColors.deepIndigo.opacity(0.6))
                                 .background(AppColors.white)
                                 .cornerRadius(10)
                         }
