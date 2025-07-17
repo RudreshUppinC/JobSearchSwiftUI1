@@ -18,7 +18,7 @@ struct JobSearchApp: App {
 //            @State var isShowingEditView: Bool = false
 //            ProfileView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded))
 //           SplashView()
-//            HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
+           // HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
            // RecentJobsListView(mainScreenViewModel: MainScreenViewModel())
             let job = Jobs(companyName: "Google Inc",
                          userRole: "HR Manager",

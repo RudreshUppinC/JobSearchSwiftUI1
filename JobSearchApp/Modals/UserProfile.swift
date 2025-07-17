@@ -28,7 +28,7 @@ struct UserProfile: Identifiable {
             profileImageURL: URL(string: "https://example.com/orlando.jpg"),
             followerCount: 12000,
             followingCount: 23000,
-            aboutMe: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor.",
+            aboutMe: "",
             workExperiences: [
                 WorkExperience(
                     jobTitle: "Senior iOS Developer",

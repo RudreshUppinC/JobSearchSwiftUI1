@@ -16,9 +16,12 @@ class ProfileViewModal: ObservableObject {
     @Published var isEditProfileDetailView: Bool  = false
     @Published var userProfile: UserProfile
     @Published var isWorkDetailView: Bool  = false
+    
+    @Published var showBottomSheet: Bool = false
 
     init(userProfile:UserProfile) {
         self.userProfile = userProfile
+         
     }
        
     func showAboutMeDetailView() {
@@ -50,7 +53,8 @@ class ProfileViewModal: ObservableObject {
             do {
                 // We assume there is only one profile entry. Fetch the first one if it exists.
                 let profile = try viewContext.fetch(request).first
-                return profile?.aboutMe ?? "" 
+                return  profile?.aboutMe ?? ""
+
             } catch {
                 print("Error fetching profile: \(error)")
                 return ""
@@ -72,6 +76,8 @@ class ProfileViewModal: ObservableObject {
                     // If no profile exists, CREATE a new one
                     let newProfile = ProfileEntity(context: viewContext)
                     newProfile.aboutMe = text
+                    self.userProfile.aboutMe = text
+
                     print("Creating new profile and saving about me text.")
                 }
                 
@@ -86,4 +92,22 @@ class ProfileViewModal: ObservableObject {
             }
         }
       
+    func deleteAboutMe() {
+           let request = NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity")
+           do {
+               if let profileToDelete = try viewContext.fetch(request).first {
+                   
+                   viewContext.delete(profileToDelete)
+                   CoreDataManager.shared.saveContext()
+                   userProfile.aboutMe = ""
+                   print("Successfully deleted profile data.")
+                   
+               } else {
+                   print("No profile data found to delete.")
+               }
+               
+           } catch {
+               print("Error finding or deleting profile: \(error)")
+           }
+       }
 }
