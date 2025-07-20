@@ -29,8 +29,8 @@ struct ProfileView:View{
                         Spacer()
                     }
                     .padding(.top)
-                    .padding(.horizontal,5)
-                    
+                    .padding(.horizontal,15)
+
                     ScrollView {
                         
                         VStack(spacing:15){
@@ -49,7 +49,7 @@ struct ProfileView:View{
                             
                             //Education
                             
-                            EducationSectionView(educations: viewModel.userProfile.educations, onAdd: {}, onEditEducation: { education in })
+                            EducationSectionView(educations: viewModel.userProfile.educations, onAdd: {}, onEditEducation: { education in }, isShowingEducationDetailView: $viewModel.isEducationDetailView)
                             
                             //Skills
                             

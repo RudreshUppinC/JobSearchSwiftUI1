@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct EducationSectionView: View {
     let educations:[Education]
     let onAdd:() -> Void
     let onEditEducation:(Education) -> Void
     let title: String = "Education"
-    
+    @Binding var isShowingEducationDetailView: Bool
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 5) {
@@ -71,16 +73,21 @@ struct EducationSectionView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        
-                    }) {
-                        ImageProvider.getImage(named: "editOrange")
-                            .map { image in
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                            }
+                    
+                    NavigationLink(destination: EducationDetailView()
+                        .navigationBarBackButtonHidden(true),
+                                   isActive: $isShowingEducationDetailView) {
+                        Button(action: {
+                            self.isShowingEducationDetailView = true
+                        }) {
+                            ImageProvider.getImage(named: "editOrange")
+                                .map { image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24)
+                                }
+                        }
                     }
                 }
                 .padding(.bottom, 20)
