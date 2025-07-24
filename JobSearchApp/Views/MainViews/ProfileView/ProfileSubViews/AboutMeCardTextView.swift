@@ -15,22 +15,31 @@ import Combine
 struct AboutMeCardTextView: View {
     
     // MARK: - State Properties
+    let characterLimit = 100
     
     @Environment(\.dismiss) var dismiss
-    
-    let characterLimit = 100
     @ObservedObject var profileViewModel: ProfileViewModal
+    
     @State private var aboutMeText: String
+    @State private var isCoreDataText: Bool
+    @State private var isSheetPresented = false
+    @State private var isRemoved = false
     
     init(viewModel: ProfileViewModal) {
         self.profileViewModel = viewModel
         let textFromCoreData = viewModel.fetchAboutMeText()
-        let initialText = textFromCoreData.isEmpty ? "Tell me about you." : textFromCoreData
+        let initialText = textFromCoreData.isEmpty ? "" : textFromCoreData
         self._aboutMeText = State(initialValue: initialText)
+        
+        if !initialText.isEmpty {
+            self._isCoreDataText = State(initialValue: true)
+        } else {
+            self._isCoreDataText = State(initialValue: false)
+        }
     }
     
     @FocusState private var isEditorFocused: Bool
-    @State private var isSheetPresented = false
+    
     
     // MARK: - UI Body
     var body: some View {
@@ -42,9 +51,15 @@ struct AboutMeCardTextView: View {
                 VStack{
                     HStack {
                         Button(action: {
-                            dismiss()
+                            if isCoreDataText {
+                                isRemoved = false
+                                isSheetPresented = true
+                            } else {
+                                dismiss()
+                            }
                         }){
-                            ImageProvider.getImage(named: "BackArrow").map{ image in
+                            
+                            ImageProvider.getImage(named: isCoreDataText ? "removeBtn" : "BackArrow").map{ image in
                                 Image(uiImage: image)
                             }
                         }
@@ -82,49 +97,70 @@ struct AboutMeCardTextView: View {
                                         .padding(17)
                                         .allowsHitTesting(false)
                                 }
-                                
                             }
                             .frame(height: 300)
                             .background(AppColors.white)
                             .cornerRadius(20)
                             
-                            VStack{
-                                Button(action: {
-                                    print("Save Tapped! Text: \(aboutMeText)")
-                                    isSheetPresented = true
-                                }) {
-                                    Text("SAVE")
-                                        .font(FontStyle.dmsansBold.font(baseSize: 14))
-                                        .foregroundColor(AppColors.white)
-                                        .frame(height: 50)
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color(red: 19/255, green: 1/255, blue: 96/255))
-                                        .cornerRadius(12)
+                            VStack {
+                                HStack(spacing: 10) {
+                                    if isCoreDataText {
+                                        Button(action: {
+                                            isSheetPresented = true
+                                            isRemoved = true
+                                        }) {
+                                            Text("Remove")
+                                                .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                                .foregroundColor(AppColors.white)
+                                                .padding()
+                                                .frame(maxWidth: .infinity)
+                                                .background(AppColors.pastelLavender)
+                                                .cornerRadius(10)
+                                        }
+                                        .padding(.leading,10)
+                                    }
+                                    
+                                    Button(action: {
+                                        print("Save Tapped! Text: \(aboutMeText)")
+                                        profileViewModel.saveAboutMe(text: aboutMeText)
+                                        dismiss()
+                                    }) {
+                                        Text("SAVE")
+                                            .font(FontStyle.dmsansBold.font(baseSize: 14))
+                                            .foregroundColor(AppColors.white)
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .background(AppColors.deepBlue)
+                                            .cornerRadius(10)
+                                    }
+                                    .padding(.trailing,10)
+                                    
                                 }
+                                .frame(height: 40)
+                                .frame(maxWidth: .infinity)
+                                .padding(.horizontal, isCoreDataText ? 0 : 60)
+                                .padding(.top,30)
+                                .padding(.bottom ,10)
                             }
-                            .padding(.horizontal,80)
                             .padding(.bottom,80)
-                            
                         }
                         .padding(24)
                         .ignoresSafeArea(.keyboard, edges: .bottom)
                     }
                     
-                   
                 }
+                
                 if isSheetPresented {
                     AppColors.black.opacity(0.6)
                         .ignoresSafeArea()
                 }
-                
             }
-            
         }
         .onTapGesture {
             isEditorFocused = false
         }
         .sheet(isPresented: $isSheetPresented) {
-            UndoAboutMeCardTextView(isSheetPresented: $isSheetPresented, profileViewModel: profileViewModel)
+            UndoAboutMeCardTextView(profileViewModel: profileViewModel, isSheetPresented: $isSheetPresented, aboutMeText: $aboutMeText, isRemoved: $isRemoved, isCoreDataText: $isCoreDataText)
                 .presentationDetents([.height(260)])
         }
         .navigationBarBackButtonHidden(true)
@@ -132,8 +168,12 @@ struct AboutMeCardTextView: View {
 }
 
 struct UndoAboutMeCardTextView: View {
-    @Binding var isSheetPresented: Bool
     @ObservedObject  var profileViewModel : ProfileViewModal
+
+    @Binding var isSheetPresented: Bool
+    @Binding var aboutMeText: String
+    @Binding var isRemoved: Bool
+    @Binding var isCoreDataText: Bool
     
     var body: some View {
         ZStack {
@@ -142,19 +182,25 @@ struct UndoAboutMeCardTextView: View {
                     .fill(AppColors.deepBlue)
                     .frame(width: 40, height: 5)
                     .padding(.top, 10)
-                Text("Undo Changes ?")
+                Text(isRemoved ? "Remove about me" : "Undo Changes?")
                     .font(FontStyle.dmsansBold.font(baseSize: 16))
                     .foregroundColor(AppColors.darkIndigoColor)
                     .padding(.top)
                 
-                Text("Are you sure you want to change what you entered?")
+                Text(isRemoved ? "Are you sure you want to delete this about me?": "Are you sure you want to change what you entered?")
                     .font(FontStyle.dmsansRegular.font(baseSize: 12))
                     .foregroundColor(AppColors.dustyLavender)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
+                
                 VStack {
                     Button(action: {
-                        print("Undo Changes")
+                        print("UNDO")
+                        profileViewModel.deleteAboutMe()
+                        isSheetPresented = false
+                        isCoreDataText = false
+                        isRemoved = false
+                        aboutMeText = ""
                     }) {
                         Text("UNDO CHANGES")
                             .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -167,7 +213,7 @@ struct UndoAboutMeCardTextView: View {
                     .padding(.top)
                     Button(action: {
                         print("Continue Filling")
-                        
+                        isSheetPresented = false
                     }) {
                         Text("CONTINUE FILLING")
                             .font(FontStyle.dmsansBold.font(baseSize: 14))
@@ -181,15 +227,14 @@ struct UndoAboutMeCardTextView: View {
                     Spacer()
                 }
                 .padding()
-                
             }
-            
             .navigationBarBackButtonHidden(true)
             .padding(.vertical, 20)
         }
         .ignoresSafeArea()
         
     }
+    
     
 }
 

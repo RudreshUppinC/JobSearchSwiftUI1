@@ -40,14 +40,14 @@ struct AboutMeCardView: View {
                 
                 Spacer()
                 
-                Button(action:{
-                        profileViewModel.deleteAboutMe()
-                }
-                       , label: {
-                    Text("delete")
-                        .font(FontStyle.dmsansBold.font(baseSize: 14))
-                   
-                })
+//                Button(action:{
+////                        profileViewModel.deleteAboutMe()
+//                }
+//                       , label: {
+//                    Text("delete")
+//                        .font(FontStyle.dmsansBold.font(baseSize: 14))
+//                   
+//                })
 
                 NavigationLink(destination: AboutMeCardTextView(viewModel: profileViewModel).navigationBarBackButtonHidden(true)) {
                         ImageProvider.getImage(named: "add").map { image in

@@ -15,9 +15,10 @@ struct JobSearchApp: App {
         WindowGroup {
             //SplashView()
            
-            @State var isShowingEditView: Bool = false
-            ProfileView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded))
-//           SplashView()
+//            @State var isShowingEditView: Bool = false
+//            ProfileView(viewModel: ProfileViewModal(userProfile: UserProfile.exampleLoaded))
+            
+           SplashView()
 //            HomeTabView(mainScreenViewModel: MainScreenViewModel(), recentJobListViewModel: RecentJobsListViewModel())
            // RecentJobsListView(mainScreenViewModel: MainScreenViewModel())
             let job = Jobs(companyName: "Google Inc",
